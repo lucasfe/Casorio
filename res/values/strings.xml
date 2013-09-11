@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Casorio</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_section1">Lista de Convidados</string>
+    <string name="title_section2">Lembretes</string>
+    <string name="title_section3">Despesas</string>
+
+</resources>
