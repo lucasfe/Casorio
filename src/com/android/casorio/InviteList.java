@@ -2,21 +2,16 @@ package com.android.casorio;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
-import android.os.Bundle;
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class InviteList extends FragmentActivity implements
@@ -119,7 +114,7 @@ public class InviteList extends FragmentActivity implements
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(
-					R.layout.guest_list, container, false);
+					R.layout.fragment_invite_list_dummy, container, false);
 			TextView dummyTextView = (TextView) rootView
 					.findViewById(R.id.section_label);
 			dummyTextView.setText(Integer.toString(getArguments().getInt(

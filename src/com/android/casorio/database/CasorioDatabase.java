@@ -19,12 +19,17 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
 
 	/**
-	 * Section for table quotes
+	 * Section for table guests
 	 */
 	public static final String TABLE_GUESTS = "guests";
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_NAME = "name";
+	public static final String COLUMN_LAST_NAME = "last_name";
+	public static final String COLUMN_EMAIL = "email";
+	public static final String COLUMN_TELEPHONY = "telephony";
+	public static final String COLUMN_ADDITIONAL_GUESTS = "additional_guests";
 	public static final String COLUMN_STATUS = "status";
+	
 	
 	/**
 	 * Database creation statement 
@@ -33,6 +38,10 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 			+ TABLE_GUESTS + "(" 
 			+ COLUMN_ID	+ " integer primary key autoincrement, " 
 			+ COLUMN_NAME + " text not null,"
+			+ COLUMN_LAST_NAME + " text,"
+			+ COLUMN_EMAIL + " text,"
+			+ COLUMN_TELEPHONY + " text,"
+			+ COLUMN_ADDITIONAL_GUESTS + " integer,"
 			+ COLUMN_STATUS + " text not null);";
 
 	@Override
