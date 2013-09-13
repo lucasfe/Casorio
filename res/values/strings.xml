@@ -6,6 +6,6 @@
     <string name="title_section1">Lista de Convidados</string>
     <string name="title_section2">Lembretes</string>
     <string name="title_section3">Despesas</string>
-    <string name="action_add_guest"> Adicionar </string>
+    <string name="action_add_guest"> Adicionar convidado</string>
 
 </resources>

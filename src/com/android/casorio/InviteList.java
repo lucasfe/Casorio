@@ -3,12 +3,14 @@ package com.android.casorio;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -80,6 +82,17 @@ public class InviteList extends FragmentActivity implements
 		getMenuInflater().inflate(R.menu.invite_list, menu);
 		return true;
 	}
+	
+	@Override
+	  public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	    case R.id.action_add_guest:
+	      callInsertGuestActivity();
+	      break;
+	    }
+
+	    return true;
+	  } 
 
 	@Override
 	public boolean onNavigationItemSelected(int position, long id) {
@@ -94,7 +107,10 @@ public class InviteList extends FragmentActivity implements
 		return true;
 	}
 	
-	
+	private void callInsertGuestActivity() {
+		Intent callingItent = new Intent(InviteList.this, InsertGuestActivity.class);
+		InviteList.this.startActivity(callingItent);
+	}
 
 	/**
 	 * A dummy fragment representing a section of the app, but that simply
