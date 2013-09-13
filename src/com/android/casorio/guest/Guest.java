@@ -1,4 +1,4 @@
-package com.android.casorio.database;
+package com.android.casorio.guest;
 
 public class Guest {
 	

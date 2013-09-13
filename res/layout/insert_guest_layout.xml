@@ -60,25 +60,4 @@
         android:ems="10"
         android:inputType="number" />
 
-    <Button
-        android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/additionalText"
-        android:layout_below="@+id/phoneText"
-        android:layout_toRightOf="@+id/additionalText"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/button2"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/button1"
-        android:layout_toRightOf="@+id/button1"
-        android:text="Button" />
-
 </RelativeLayout>

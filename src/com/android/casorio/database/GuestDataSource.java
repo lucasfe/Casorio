@@ -1,10 +1,15 @@
 package com.android.casorio.database;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.android.casorio.guest.Guest;
 
 public class GuestDataSource {
 	
@@ -61,6 +66,25 @@ public class GuestDataSource {
 		newGuest.setStatus(cursor.getInt(6));
 		return newGuest;
 	}
+	
+	
+	public List<Guest> getAllGuests() {
+		List<Guest> guests = new ArrayList<Guest>();
+
+		Cursor cursor = database.query(CasorioDatabase.TABLE_GUESTS,
+				allColumns, null, null, null, null, null);
+
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Guest guest = cursorToGuest(cursor);
+			guests.add(guest);
+			cursor.moveToNext();
+		}
+		// Make sure to close the cursor
+		cursor.close();
+		return guests;
+	}
+
 
 
 }

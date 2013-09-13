@@ -7,5 +7,6 @@
     <string name="title_section2">Lembretes</string>
     <string name="title_section3">Despesas</string>
     <string name="action_add_guest"> Adicionar convidado</string>
+    <string name="list_guests_header_title"> Lista de convidados</string>
 
 </resources>
