@@ -56,6 +56,11 @@ public final class R {
         public static final int action_add_guest=0x7f050005;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int guest_canceled=0x7f05000a;
+        public static final int guest_confirmed_status=0x7f050008;
+        public static final int guest_pending_status=0x7f050009;
+        public static final int guest_sent_status=0x7f05000b;
+        public static final int list_guests_header_additional_guests=0x7f050007;
         public static final int list_guests_header_title=0x7f050006;
         public static final int title_section1=0x7f050002;
         public static final int title_section2=0x7f050003;

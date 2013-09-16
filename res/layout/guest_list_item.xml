@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:baselineAligned="false"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
     android:padding="10dp" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="7.79"
+        android:layout_weight="80"
+        android:gravity="top"
         android:orientation="vertical" >
         
          <TextView
              android:id="@+id/guest_view_name"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Name" />
+             android:gravity="top"
+             android:textColor="@android:color/holo_blue_dark"
+             android:textSize="22sp"
+             android:textStyle="italic" />
          
          <TextView
              android:id="@+id/guest_view_status"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Status" />
+             android:gravity="bottom"
+             android:textColor="@android:color/holo_green_dark" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="7.79"
+        android:gravity="top"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/guest_view_additional_static"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Convidados Adicionais" />
+            android:gravity="top"
+            android:paddingTop="5dp"
+            android:text="@string/list_guests_header_additional_guests" />
         
         <TextView
             android:id="@+id/guest_view_addtional_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1" />
-        
-
-
+            android:gravity="bottom"
+            android:paddingTop="5dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

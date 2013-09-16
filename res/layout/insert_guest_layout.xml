@@ -12,6 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="38dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName" >
 
         <requestFocus />
@@ -26,6 +27,7 @@
         android:layout_below="@+id/emailText"
         android:layout_marginTop="17dp"
         android:ems="10"
+        android:hint="Adress"
         android:inputType="textPostalAddress" />
 
     <EditText
@@ -37,6 +39,7 @@
         android:layout_below="@+id/nameText"
         android:layout_marginTop="19dp"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -48,6 +51,7 @@
         android:layout_below="@+id/adressText"
         android:layout_marginTop="17dp"
         android:ems="10"
+        android:hint="Phone"
         android:inputType="phone" />
 
     <EditText
@@ -58,6 +62,7 @@
         android:layout_below="@+id/phoneText"
         android:layout_marginTop="23dp"
         android:ems="10"
+        android:hint="Additional Guests"
         android:inputType="number" />
 
 </RelativeLayout>

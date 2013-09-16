@@ -8,5 +8,13 @@
     <string name="title_section3">Despesas</string>
     <string name="action_add_guest"> Adicionar convidado</string>
     <string name="list_guests_header_title"> Lista de convidados</string>
+    <string name="list_guests_header_additional_guests"> Convidados adicionais</string>
+    
+    <string name="guest_confirmed_status"> Presença confirmada</string>
+    <string name="guest_pending_status"> Envio pendente</string>
+    <string name="guest_canceled"> Envio pendente</string>
+    <string name="guest_sent_status"> Convite enviado</string>
+    
+    
 
 </resources>

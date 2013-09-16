@@ -1,5 +1,6 @@
 package com.android.casorio.guest;
 
+
 public class Guest {
 	
 	private long id;
@@ -10,6 +11,25 @@ public class Guest {
 	private int additinal_guests;
 	private int status;
 	
+	
+	
+	
+	public enum GuestStatus {
+		
+		CONFIRMED(2),
+		
+		PENDING(1), 
+		
+		INVITE_SENT(0);
+		
+		@SuppressWarnings("unused")
+		private int statValue;
+		
+		private GuestStatus(int value) {
+			this.statValue = value;
+		}
+				
+	};
 	
 	public String getLastName() {
 		return lastName;
@@ -46,6 +66,33 @@ public class Guest {
 	public int getStatus() {
 		return status;
 	}
+	
+	public GuestStatus getGuestStatus() {
+		
+		GuestStatus result = GuestStatus.INVITE_SENT;
+		
+		
+		int value = this.status;
+		
+		switch(value) 
+		{
+		case 2:
+			result = GuestStatus.CONFIRMED;
+			break;
+		case 1:
+			result = GuestStatus.PENDING;
+			break;
+		case 0:
+			result = GuestStatus.INVITE_SENT;
+			break;
+		default:
+		
+		}
+		
+		return result;
+	}
+
+	
 	
 	public void setStatus(int status) {
 		this.status = status;
