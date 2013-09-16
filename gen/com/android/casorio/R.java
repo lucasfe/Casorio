@@ -53,11 +53,18 @@ public final class R {
         public static final int invite_list=0x7f070001;
     }
     public static final class string {
+        /**  Guest related strings 
+         */
         public static final int action_add_guest=0x7f050005;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int guest_canceled=0x7f05000a;
         public static final int guest_confirmed_status=0x7f050008;
+        public static final int guest_insert_additional_hint=0x7f050010;
+        public static final int guest_insert_address_hint=0x7f05000e;
+        public static final int guest_insert_email_hint=0x7f05000d;
+        public static final int guest_insert_name_hint=0x7f05000c;
+        public static final int guest_insert_phone_hint=0x7f05000f;
         public static final int guest_pending_status=0x7f050009;
         public static final int guest_sent_status=0x7f05000b;
         public static final int list_guests_header_additional_guests=0x7f050007;

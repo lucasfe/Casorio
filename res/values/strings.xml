@@ -6,14 +6,24 @@
     <string name="title_section1">Lista de Convidados</string>
     <string name="title_section2">Lembretes</string>
     <string name="title_section3">Despesas</string>
-    <string name="action_add_guest"> Adicionar convidado</string>
-    <string name="list_guests_header_title"> Lista de convidados</string>
-    <string name="list_guests_header_additional_guests"> Convidados adicionais</string>
     
-    <string name="guest_confirmed_status"> Presença confirmada</string>
-    <string name="guest_pending_status"> Envio pendente</string>
-    <string name="guest_canceled"> Envio pendente</string>
-    <string name="guest_sent_status"> Convite enviado</string>
+    
+    <!-- Guest related strings -->
+    <string name="action_add_guest">Adicionar convidado</string>
+    <string name="list_guests_header_title">Lista de convidados</string>
+    <string name="list_guests_header_additional_guests">Convidados adicionais</string>
+    
+    <string name="guest_confirmed_status">Presença confirmada</string>
+    <string name="guest_pending_status">Envio pendente</string>
+    <string name="guest_canceled">Envio pendente</string>
+    <string name="guest_sent_status">Convite enviado</string>
+    
+    
+    <string name="guest_insert_name_hint">Nome</string>
+    <string name="guest_insert_email_hint">Email</string>
+    <string name="guest_insert_address_hint">Endereço</string>
+    <string name="guest_insert_phone_hint">Telefone</string>
+    <string name="guest_insert_additional_hint">Nº de convidados adicionais</string>
     
     
 
