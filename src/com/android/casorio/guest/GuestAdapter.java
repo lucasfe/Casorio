@@ -37,8 +37,6 @@ public class GuestAdapter extends ArrayAdapter<Guest> {
 		holder = new GuestHolder();
 		holder.txtName = (TextView) row.findViewById(R.id.guest_view_name);
 		holder.txtStatus = (TextView) row.findViewById(R.id.guest_view_status);
-		holder.txtAdditional = (TextView) row
-				.findViewById(R.id.guest_view_addtional_number);
 
 		Guest guest = data[position];
 		mountGuestRow(holder, guest);
@@ -49,7 +47,6 @@ public class GuestAdapter extends ArrayAdapter<Guest> {
 	static class GuestHolder {
 		TextView txtName;
 		TextView txtStatus;
-		TextView txtAdditional;
 	}
 	
 	
@@ -75,7 +72,6 @@ public class GuestAdapter extends ArrayAdapter<Guest> {
 		
 		holder.txtName.setText(guest.getName());
 		holder.txtStatus.setText(status);
-		holder.txtAdditional.setText(String.valueOf(guest.getAdditinal_guests()));
 		
 	}
 	

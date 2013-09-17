@@ -21,9 +21,12 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int content_save=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int social_add_person=0x7f020002;
+        public static final int action_about=0x7f020000;
+        public static final int content_save=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int social_add_person=0x7f020003;
+        public static final int social_group=0x7f020004;
+        public static final int social_person=0x7f020005;
     }
     public static final class id {
         public static final int action_add_guest=0x7f08000c;
@@ -33,10 +36,10 @@ public final class R {
         public static final int adressText=0x7f080007;
         public static final int container=0x7f080000;
         public static final int emailText=0x7f080008;
-        public static final int guest_view_additional_static=0x7f080003;
-        public static final int guest_view_addtional_number=0x7f080004;
-        public static final int guest_view_name=0x7f080001;
-        public static final int guest_view_status=0x7f080002;
+        public static final int guest_view_name=0x7f080002;
+        public static final int guest_view_status=0x7f080003;
+        public static final int imageButton1=0x7f080004;
+        public static final int imageView1=0x7f080001;
         public static final int nameText=0x7f080006;
         public static final int phoneText=0x7f080009;
         public static final int txtHeader=0x7f080005;
@@ -60,12 +63,14 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int guest_canceled=0x7f05000a;
         public static final int guest_confirmed_status=0x7f050008;
-        public static final int guest_insert_additional_hint=0x7f050010;
-        public static final int guest_insert_address_hint=0x7f05000e;
-        public static final int guest_insert_email_hint=0x7f05000d;
-        public static final int guest_insert_name_hint=0x7f05000c;
-        public static final int guest_insert_phone_hint=0x7f05000f;
-        public static final int guest_inserted_confirmation_message=0x7f050011;
+        public static final int guest_info_image_description=0x7f05000d;
+        public static final int guest_insert_additional_hint=0x7f050012;
+        public static final int guest_insert_address_hint=0x7f050010;
+        public static final int guest_insert_email_hint=0x7f05000f;
+        public static final int guest_insert_name_hint=0x7f05000e;
+        public static final int guest_insert_phone_hint=0x7f050011;
+        public static final int guest_inserted_confirmation_message=0x7f050013;
+        public static final int guest_invite_number_image_description=0x7f05000c;
         public static final int guest_pending_status=0x7f050009;
         public static final int guest_sent_status=0x7f05000b;
         public static final int list_guests_header_additional_guests=0x7f050007;

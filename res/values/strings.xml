@@ -17,6 +17,8 @@
     <string name="guest_pending_status">Envio pendente</string>
     <string name="guest_canceled">Envio pendente</string>
     <string name="guest_sent_status">Convite enviado</string>
+    <string name="guest_invite_number_image_description">Numero de convidados</string>
+    <string name="guest_info_image_description">Informações do convidado</string>
     
     
     <string name="guest_insert_name_hint">Nome</string>
