@@ -65,6 +65,7 @@ public final class R {
         public static final int guest_insert_email_hint=0x7f05000d;
         public static final int guest_insert_name_hint=0x7f05000c;
         public static final int guest_insert_phone_hint=0x7f05000f;
+        public static final int guest_inserted_confirmation_message=0x7f050011;
         public static final int guest_pending_status=0x7f050009;
         public static final int guest_sent_status=0x7f05000b;
         public static final int list_guests_header_additional_guests=0x7f050007;

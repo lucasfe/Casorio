@@ -11,9 +11,7 @@ public class Guest {
 	private int additinal_guests;
 	private int status;
 	
-	
-	
-	
+
 	public enum GuestStatus {
 		
 		CONFIRMED(2),

@@ -1,12 +1,15 @@
 package com.android.casorio;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.casorio.database.GuestDataSource;
+import com.android.casorio.guest.Guest;
 
 public class InsertGuestActivity extends Activity {
 	
@@ -44,7 +47,7 @@ public class InsertGuestActivity extends Activity {
 	  public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
 	    case R.id.action_insert_guest:
-	    	insertGuestAction();
+	    	insertGuestAction(this);
 	      break;
 	    }
 
@@ -52,12 +55,16 @@ public class InsertGuestActivity extends Activity {
 	  } 
 
 	
-	private boolean insertGuestAction() {
+	private boolean insertGuestAction(Context context) {
 		dataSource.open();
-		dataSource.createGuest(name.getText().toString(), name.getText().toString(), email.getText().toString(),
+		Guest returnedGuest = dataSource.createGuest(name.getText().toString(), name.getText().toString(), email.getText().toString(),
 				phone.getText().toString(), Integer.parseInt(additional.getText().toString()), 0);
 		dataSource.close();
-		return false;
+		boolean result = returnedGuest != null ? true : false;
+		if(result) { 
+			Toast.makeText(context, context.getResources().getString(R.string.guest_inserted_confirmation_message), Toast.LENGTH_LONG).show();
+		}
+		return result;
 		
 	}
 

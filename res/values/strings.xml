@@ -24,6 +24,7 @@
     <string name="guest_insert_address_hint">Endereço</string>
     <string name="guest_insert_phone_hint">Telefone</string>
     <string name="guest_insert_additional_hint">Nº de convidados adicionais</string>
+    <string name="guest_inserted_confirmation_message">Convidado adicionado</string>
     
     
 
