@@ -17,7 +17,7 @@ public class GuestFragment extends ListFragment {
 	
 	
 	private ListView guestListView;
-	
+	GuestAdapter adapter;
 	GuestDataSource dataSource;
 	
 	
@@ -36,13 +36,17 @@ public class GuestFragment extends ListFragment {
 		GuestDataSource dataSource = new GuestDataSource(context);
 		dataSource.open();
 		List<Guest> allGuests = dataSource.getAllGuests();
+		dataSource.close();
+		
 		Guest[] guestArray = allGuests.toArray(new Guest[allGuests.size()]);
 		
-		GuestAdapter adapter = new GuestAdapter(getActivity(), R.layout.guest_list_item, guestArray);
+		adapter = new GuestAdapter(getActivity(), R.layout.guest_list_item, guestArray);
+
 		guestListView.setAdapter(adapter);
 		
 		return rootView;
 	}
+	
 
 
 }

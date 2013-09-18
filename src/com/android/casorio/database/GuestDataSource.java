@@ -10,11 +10,13 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.android.casorio.guest.Guest;
+import com.android.casorio.guest.Guest.GuestStatus;
+import com.android.casorio.guest.Guest.GuestType;
 
 public class GuestDataSource {
 	
-	private String[] allColumns = { CasorioDatabase.COLUMN_ID, CasorioDatabase.COLUMN_NAME, CasorioDatabase.COLUMN_LAST_NAME,
-			CasorioDatabase.COLUMN_EMAIL, CasorioDatabase.COLUMN_TELEPHONY, CasorioDatabase.COLUMN_ADDITIONAL_GUESTS, CasorioDatabase.COLUMN_STATUS };
+	private String[] allColumns = { CasorioDatabase.COLUMN_ID, CasorioDatabase.COLUMN_NAME, 
+			CasorioDatabase.COLUMN_EMAIL,  CasorioDatabase.COLUMN_ADDITIONAL_GUESTS, CasorioDatabase.COLUMN_TYPE, CasorioDatabase.COLUMN_STATUS };
 	
 	// Database fields
 	private SQLiteDatabase database;
@@ -32,15 +34,14 @@ public class GuestDataSource {
 		dbHelper.close();
 	}
 
-	public Guest createGuest(String name, String lastName, String email, String telephony, int additionalGuest, int status) {
+	public Guest createGuest(String name, String email, int additionalGuest, GuestType type, GuestStatus status) {
 		ContentValues values = new ContentValues();
 		
 		values.put(CasorioDatabase.COLUMN_NAME, name);
-		values.put(CasorioDatabase.COLUMN_LAST_NAME, lastName);
 		values.put(CasorioDatabase.COLUMN_EMAIL, email);
-		values.put(CasorioDatabase.COLUMN_TELEPHONY, telephony);
 		values.put(CasorioDatabase.COLUMN_ADDITIONAL_GUESTS, additionalGuest);
-		values.put(CasorioDatabase.COLUMN_STATUS, status);
+		values.put(CasorioDatabase.COLUMN_TYPE, type.getValue());
+		values.put(CasorioDatabase.COLUMN_STATUS, status.getValue());
 		
 		
 		long insertId = database.insert(CasorioDatabase.TABLE_GUESTS, null,
@@ -59,11 +60,10 @@ public class GuestDataSource {
 		Guest newGuest = new Guest();
 		newGuest.setId(cursor.getLong(0));
 		newGuest.setName(cursor.getString(1));
-		newGuest.setLastName(cursor.getString(2));
-		newGuest.setEmail(cursor.getString(3));
-		newGuest.setTelephony(cursor.getString(4));
-		newGuest.setAdditinal_guests(cursor.getInt(5));
-		newGuest.setStatus(cursor.getInt(6));
+		newGuest.setEmail(cursor.getString(2));
+		newGuest.setAdditinal_guests(cursor.getInt(3));
+		newGuest.setAdditinal_guests(cursor.getInt(4));
+		newGuest.setStatus(cursor.getInt(5));
 		return newGuest;
 	}
 	

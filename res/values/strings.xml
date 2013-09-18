@@ -7,12 +7,17 @@
     <string name="title_section2">Lembretes</string>
     <string name="title_section3">Despesas</string>
     
+    <!-- Validation error messages -->
+    <string name="required_field">campo necessário</string>
+    <string name="invalid_email">email inválido</string>
+    <string name="invalid_number">somente valores numéricos</string>
+    <string name="invalid_phone">telefone inválido</string>
     
+
     <!-- Guest related strings -->
     <string name="action_add_guest">Adicionar convidado</string>
     <string name="list_guests_header_title">Lista de convidados</string>
     <string name="list_guests_header_additional_guests">Convidados adicionais</string>
-    
     <string name="guest_confirmed_status">Presença confirmada</string>
     <string name="guest_pending_status">Envio pendente</string>
     <string name="guest_canceled">Envio pendente</string>
@@ -20,14 +25,20 @@
     <string name="guest_invite_number_image_description">Numero de convidados</string>
     <string name="guest_info_image_description">Informações do convidado</string>
     
-    
     <string name="guest_insert_name_hint">Nome</string>
     <string name="guest_insert_email_hint">Email</string>
-    <string name="guest_insert_address_hint">Endereço</string>
-    <string name="guest_insert_phone_hint">Telefone</string>
+    <string name="guest_insert_guest_type_hint">Relacão</string>
+    <string name="guest_insert_status_radio_group_title">Confirmado?</string>
+    <string name="guest_insert_status_radio_option_yes">Sim</string>
+    <string name="guest_insert_status_radio_option_no">Não</string>
+    <string name="guest_insert_status_radio_option_maybe">Talvez</string>
     <string name="guest_insert_additional_hint">Nº de convidados adicionais</string>
     <string name="guest_inserted_confirmation_message">Convidado adicionado</string>
-    
-    
+
+    <string-array name="guest_type_options">
+        <item>Amigo</item>
+        <item>Padrinho</item>
+        <item>Parente</item>
+    </string-array>
 
 </resources>

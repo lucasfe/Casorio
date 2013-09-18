@@ -5,14 +5,14 @@ public class Guest {
 	
 	private long id;
 	private String name;
-	private String lastName;
 	private String email;
-	private String telephony;
 	private int additinal_guests;
 	private int status;
 	
 
 	public enum GuestStatus {
+		
+		NOT_GOING(3),
 		
 		CONFIRMED(2),
 		
@@ -20,22 +20,41 @@ public class Guest {
 		
 		INVITE_SENT(0);
 		
-		@SuppressWarnings("unused")
 		private int statValue;
 		
 		private GuestStatus(int value) {
 			this.statValue = value;
 		}
+		
+		public int getValue() {
+			return statValue;
+		}
 				
 	};
 	
-	public String getLastName() {
-		return lastName;
-	}
+
+	public enum GuestType {
+		
+		FRIEND(2),
+		
+		RElATIVE(1),
+
+		GODFATHER(0);
+		
+		
+		private int statValue;
+		
+		private GuestType(int value) {
+			this.statValue = value;
+		}
+		
+		public int getValue() {
+			return statValue;
+		}
+				
+	};
+
 	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 	
 	public String getEmail() {
 		return email;
@@ -45,13 +64,6 @@ public class Guest {
 		this.email = email;
 	}
 	
-	public String getTelephony() {
-		return telephony;
-	}
-	
-	public void setTelephony(String telephony) {
-		this.telephony = telephony;
-	}
 	
 	public int getAdditinal_guests() {
 		return additinal_guests;
@@ -74,6 +86,9 @@ public class Guest {
 		
 		switch(value) 
 		{
+		case 3:
+			result = GuestStatus.NOT_GOING;
+			break;	
 		case 2:
 			result = GuestStatus.CONFIRMED;
 			break;

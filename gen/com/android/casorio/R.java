@@ -8,6 +8,9 @@
 package com.android.casorio;
 
 public final class R {
+    public static final class array {
+        public static final int guest_type_options=0x7f060000;
+    }
     public static final class attr {
     }
     public static final class dimen {
@@ -29,20 +32,24 @@ public final class R {
         public static final int social_person=0x7f020005;
     }
     public static final class id {
-        public static final int action_add_guest=0x7f08000c;
-        public static final int action_insert_guest=0x7f08000b;
-        public static final int action_settings=0x7f08000d;
-        public static final int additionalText=0x7f08000a;
-        public static final int adressText=0x7f080007;
-        public static final int container=0x7f080000;
-        public static final int emailText=0x7f080008;
-        public static final int guest_view_name=0x7f080002;
-        public static final int guest_view_status=0x7f080003;
-        public static final int imageButton1=0x7f080004;
-        public static final int imageView1=0x7f080001;
-        public static final int nameText=0x7f080006;
-        public static final int phoneText=0x7f080009;
-        public static final int txtHeader=0x7f080005;
+        public static final int action_add_guest=0x7f090010;
+        public static final int action_insert_guest=0x7f09000f;
+        public static final int action_settings=0x7f090011;
+        public static final int additionalText=0x7f09000e;
+        public static final int container=0x7f090000;
+        public static final int emailText=0x7f09000d;
+        public static final int guest_radio_group_status=0x7f090009;
+        public static final int guest_radio_maybe=0x7f09000b;
+        public static final int guest_radio_no=0x7f09000c;
+        public static final int guest_radio_yes=0x7f09000a;
+        public static final int guest_view_info_btn=0x7f090004;
+        public static final int guest_view_name=0x7f090002;
+        public static final int guest_view_number_of_guests_img=0x7f090001;
+        public static final int guest_view_status=0x7f090003;
+        public static final int nameText=0x7f090006;
+        public static final int status_title=0x7f090008;
+        public static final int txtHeader=0x7f090005;
+        public static final int type_spinner=0x7f090007;
     }
     public static final class layout {
         public static final int activity_invite_list=0x7f030000;
@@ -52,29 +59,38 @@ public final class R {
         public static final int insert_guest_layout=0x7f030004;
     }
     public static final class menu {
-        public static final int add_guest_list=0x7f070000;
-        public static final int invite_list=0x7f070001;
+        public static final int add_guest_list=0x7f080000;
+        public static final int invite_list=0x7f080001;
     }
     public static final class string {
         /**  Guest related strings 
          */
-        public static final int action_add_guest=0x7f050005;
+        public static final int action_add_guest=0x7f050009;
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int guest_canceled=0x7f05000a;
-        public static final int guest_confirmed_status=0x7f050008;
-        public static final int guest_info_image_description=0x7f05000d;
-        public static final int guest_insert_additional_hint=0x7f050012;
-        public static final int guest_insert_address_hint=0x7f050010;
-        public static final int guest_insert_email_hint=0x7f05000f;
-        public static final int guest_insert_name_hint=0x7f05000e;
-        public static final int guest_insert_phone_hint=0x7f050011;
-        public static final int guest_inserted_confirmation_message=0x7f050013;
-        public static final int guest_invite_number_image_description=0x7f05000c;
-        public static final int guest_pending_status=0x7f050009;
-        public static final int guest_sent_status=0x7f05000b;
-        public static final int list_guests_header_additional_guests=0x7f050007;
-        public static final int list_guests_header_title=0x7f050006;
+        public static final int guest_canceled=0x7f05000e;
+        public static final int guest_confirmed_status=0x7f05000c;
+        public static final int guest_info_image_description=0x7f050011;
+        public static final int guest_insert_additional_hint=0x7f050019;
+        public static final int guest_insert_email_hint=0x7f050013;
+        public static final int guest_insert_guest_type_hint=0x7f050014;
+        public static final int guest_insert_name_hint=0x7f050012;
+        public static final int guest_insert_status_radio_group_title=0x7f050015;
+        public static final int guest_insert_status_radio_option_maybe=0x7f050018;
+        public static final int guest_insert_status_radio_option_no=0x7f050017;
+        public static final int guest_insert_status_radio_option_yes=0x7f050016;
+        public static final int guest_inserted_confirmation_message=0x7f05001a;
+        public static final int guest_invite_number_image_description=0x7f050010;
+        public static final int guest_pending_status=0x7f05000d;
+        public static final int guest_sent_status=0x7f05000f;
+        public static final int invalid_email=0x7f050006;
+        public static final int invalid_number=0x7f050007;
+        public static final int invalid_phone=0x7f050008;
+        public static final int list_guests_header_additional_guests=0x7f05000b;
+        public static final int list_guests_header_title=0x7f05000a;
+        /**  Validation error messages 
+         */
+        public static final int required_field=0x7f050005;
         public static final int title_section1=0x7f050002;
         public static final int title_section2=0x7f050003;
         public static final int title_section3=0x7f050004;
@@ -101,10 +117,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
 }
