@@ -16,6 +16,7 @@
 
     <!-- Guest related strings -->
     <string name="action_add_guest">Adicionar convidado</string>
+    <string name="guest_list_counter">Total de convidados: </string>
     <string name="list_guests_header_title">Lista de convidados</string>
     <string name="list_guests_header_additional_guests">Convidados adicionais</string>
     <string name="guest_confirmed_status">Presença confirmada</string>
