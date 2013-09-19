@@ -1,89 +1,116 @@
 package com.android.casorio.guest;
 
-import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.support.v4.widget.CursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.casorio.R;
+import com.android.casorio.database.GuestDataSource;
 import com.android.casorio.guest.Guest.GuestStatus;
 
-public class GuestAdapter extends ArrayAdapter<Guest> {
+public class GuestAdapter extends CursorAdapter {
+	private Cursor cursor;
+	private Context context;
+	private final LayoutInflater mInflater;
 
-	Context context;
 	int layoutResourceId;
 	Guest[] data = null;
 	Drawable socialGroupImg;
-	
-	
-	public GuestAdapter(Context context, int layoutResourceId, Guest[] data) {
-		super(context, layoutResourceId, data);
+
+	public GuestAdapter(Context context, Cursor c) {
+		super(context, c);
 		this.context = context;
-		this.layoutResourceId = layoutResourceId;
-		this.data = data;
-		socialGroupImg = context.getResources().getDrawable(R.drawable.social_group);
-		
-	}
-	
-	@Override
-    public View getView(int position, View convertView, ViewGroup parent) { 
-		
-		View row = convertView;
-		GuestHolder holder = null;
-		
-		LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-		row = inflater.inflate(layoutResourceId, parent, false);
+		this.cursor = c;
+		mInflater = LayoutInflater.from(context);
+		socialGroupImg = context.getResources().getDrawable(
+				R.drawable.social_group);
 
-		holder = new GuestHolder();
-		holder.txtName = (TextView) row.findViewById(R.id.guest_view_name);
-		holder.txtStatus = (TextView) row.findViewById(R.id.guest_view_status);
-		holder.imgNumberOfGuests = (ImageView) row.findViewById(R.id.guest_view_number_of_guests_img);
-
-		Guest guest = data[position];
-		mountGuestRow(holder, guest);
-				
-		return row;
 	}
-	
+
+//	@Override
+//	public View getView(int position, View convertView, ViewGroup parent) {
+//
+//		View row = convertView;
+//		GuestHolder holder = null;
+//
+//		LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+//		row = inflater.inflate(layoutResourceId, parent, false);
+//
+//		holder = new GuestHolder();
+//		holder.txtName = (TextView) row.findViewById(R.id.guest_view_name);
+//		holder.txtStatus = (TextView) row.findViewById(R.id.guest_view_status);
+//		holder.imgNumberOfGuests = (ImageView) row
+//				.findViewById(R.id.guest_view_number_of_guests_img);
+//
+//		Guest guest = data[position];
+//		mountGuestRow(holder, guest);
+//
+//		return row;
+//	}
+
 	static class GuestHolder {
 		TextView txtName;
 		TextView txtStatus;
 		ImageView imgNumberOfGuests;
 	}
-	
-	
+
 	private void mountGuestRow(GuestHolder holder, Guest guest) {
-		
-		String status = context.getResources().getString(R.string.guest_pending_status);
+
+		String status = context.getResources().getString(
+				R.string.guest_pending_status);
 		GuestStatus value = guest.getGuestStatus();
-		
-		
+
 		switch (value) {
 		case INVITE_SENT:
-			status = context.getResources().getString(R.string.guest_sent_status);
+			status = context.getResources().getString(
+					R.string.guest_sent_status);
 			break;
 		case PENDING:
-			status = context.getResources().getString(R.string.guest_pending_status);
-			break;	
+			status = context.getResources().getString(
+					R.string.guest_pending_status);
+			break;
 		case CONFIRMED:
-			status = context.getResources().getString(R.string.guest_confirmed_status);
+			status = context.getResources().getString(
+					R.string.guest_confirmed_status);
 			break;
 		default:
-		
+
 		}
-		
+
 		holder.txtName.setText(guest.getName());
 		holder.txtStatus.setText(status);
-		
-		if(guest.getAdditinal_guests() > 1) {
+
+		if (guest.getAdditinal_guests() > 1) {
 			holder.imgNumberOfGuests.setImageDrawable(socialGroupImg);
 		}
+
+	}
+
+	@Override
+	public void bindView(View row, Context arg1, Cursor cursor) {
+		
+		GuestHolder holder = new GuestHolder();
+		holder.txtName = (TextView) row.findViewById(R.id.guest_view_name);
+		holder.txtStatus = (TextView) row.findViewById(R.id.guest_view_status);
+		holder.imgNumberOfGuests = (ImageView) row
+				.findViewById(R.id.guest_view_number_of_guests_img);
+
+		Guest guest = GuestDataSource.cursorToGuest(cursor);
+		mountGuestRow(holder, guest);
+
 		
 	}
-	
+
+	@Override
+	public View newView(Context context, Cursor cursor, ViewGroup parent) {
+        final View view=mInflater.inflate(R.layout.guest_list_item,parent,false); 
+        return view;
+	}
+
 }

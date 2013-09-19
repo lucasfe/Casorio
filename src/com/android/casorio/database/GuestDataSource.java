@@ -55,7 +55,7 @@ public class GuestDataSource {
 		return newGuest;
 	}
 	
-	private Guest cursorToGuest(Cursor cursor) {
+	public static Guest cursorToGuest(Cursor cursor) {
 		
 		Guest newGuest = new Guest();
 		newGuest.setId(cursor.getLong(0));
@@ -84,6 +84,13 @@ public class GuestDataSource {
 		cursor.close();
 		return guests;
 	}
+	
+	public Cursor getAllGuestsCursor() {
+		Cursor cursor = database.query(CasorioDatabase.TABLE_GUESTS,
+				allColumns, null, null, null, null, null);
+		return cursor;
+	}
+
 
 
 

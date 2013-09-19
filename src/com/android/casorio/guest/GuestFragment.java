@@ -1,7 +1,5 @@
 package com.android.casorio.guest;
 
-import java.util.List;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -35,14 +33,11 @@ public class GuestFragment extends ListFragment {
 		
 		GuestDataSource dataSource = new GuestDataSource(context);
 		dataSource.open();
-		List<Guest> allGuests = dataSource.getAllGuests();
-		dataSource.close();
-		
-		Guest[] guestArray = allGuests.toArray(new Guest[allGuests.size()]);
-		
-		adapter = new GuestAdapter(getActivity(), R.layout.guest_list_item, guestArray);
+		adapter = new GuestAdapter(guestListView.getContext(), dataSource.getAllGuestsCursor());
 
 		guestListView.setAdapter(adapter);
+		dataSource.close();
+
 		
 		return rootView;
 	}
