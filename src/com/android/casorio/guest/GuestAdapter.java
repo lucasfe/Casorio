@@ -15,7 +15,6 @@ import com.android.casorio.database.GuestDataSource;
 import com.android.casorio.guest.Guest.GuestStatus;
 
 public class GuestAdapter extends CursorAdapter {
-	private Cursor cursor;
 	private Context context;
 	private final LayoutInflater mInflater;
 
@@ -23,36 +22,15 @@ public class GuestAdapter extends CursorAdapter {
 	Guest[] data = null;
 	Drawable socialGroupImg;
 
+	@SuppressWarnings("deprecation")
 	public GuestAdapter(Context context, Cursor c) {
 		super(context, c);
 		this.context = context;
-		this.cursor = c;
 		mInflater = LayoutInflater.from(context);
 		socialGroupImg = context.getResources().getDrawable(
 				R.drawable.social_group);
 
 	}
-
-//	@Override
-//	public View getView(int position, View convertView, ViewGroup parent) {
-//
-//		View row = convertView;
-//		GuestHolder holder = null;
-//
-//		LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-//		row = inflater.inflate(layoutResourceId, parent, false);
-//
-//		holder = new GuestHolder();
-//		holder.txtName = (TextView) row.findViewById(R.id.guest_view_name);
-//		holder.txtStatus = (TextView) row.findViewById(R.id.guest_view_status);
-//		holder.imgNumberOfGuests = (ImageView) row
-//				.findViewById(R.id.guest_view_number_of_guests_img);
-//
-//		Guest guest = data[position];
-//		mountGuestRow(holder, guest);
-//
-//		return row;
-//	}
 
 	static class GuestHolder {
 		TextView txtName;
@@ -94,7 +72,7 @@ public class GuestAdapter extends CursorAdapter {
 
 	@Override
 	public void bindView(View row, Context arg1, Cursor cursor) {
-		
+
 		GuestHolder holder = new GuestHolder();
 		holder.txtName = (TextView) row.findViewById(R.id.guest_view_name);
 		holder.txtStatus = (TextView) row.findViewById(R.id.guest_view_status);
@@ -104,13 +82,13 @@ public class GuestAdapter extends CursorAdapter {
 		Guest guest = GuestDataSource.cursorToGuest(cursor);
 		mountGuestRow(holder, guest);
 
-		
 	}
 
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        final View view=mInflater.inflate(R.layout.guest_list_item,parent,false); 
-        return view;
+		final View view = mInflater.inflate(R.layout.guest_list_item, parent,
+				false);
+		return view;
 	}
 
 }
