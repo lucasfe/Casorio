@@ -22,7 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/action_add_guest" android:name="com.android.casorio.InsertGuestActivity"/>
+        <activity
+            android:name="com.android.casorio.InsertGuestActivity"
+            android:label="@string/action_add_guest" />
+        <activity
+            android:name="com.android.casorio.guest.GuestDetailsActivity"
+            android:label="@string/action_guest_details" />
     </application>
 
 </manifest>
