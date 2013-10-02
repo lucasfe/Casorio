@@ -2,6 +2,8 @@ package com.android.casorio;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -10,12 +12,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 
 import com.android.casorio.guest.GuestFragment;
 
-public class InviteList extends FragmentActivity implements
-		ActionBar.OnNavigationListener {
+public class CasorioManagerActivity extends FragmentActivity implements
+		ActionBar.TabListener {
 
 	/**
 	 * The serialization (saved instance state) Bundle key representing the
@@ -26,23 +27,27 @@ public class InviteList extends FragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_invite_list);
-		
+		setContentView(R.layout.casorio_manager_layout);
 
 		// Set up the action bar to show a dropdown list.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+		actionBar.addTab(actionBar.newTab()
+				.setText(getString(R.string.title_guests))
+				.setTabListener(this));
+		
+		actionBar.addTab(actionBar.newTab()
+				.setText(getString(R.string.title_remimders))
+				.setTabListener(this));
+		
+		actionBar.addTab(actionBar.newTab()
+				.setText(getString(R.string.title_expenses))
+				.setTabListener(this));
+
 
 		// Set up the dropdown list navigation in the action bar.
-		actionBar.setListNavigationCallbacks(
-		// Specify a SpinnerAdapter to populate the dropdown list.
-				new ArrayAdapter<String>(getActionBarThemedContextCompat(),
-						android.R.layout.simple_list_item_1,
-						android.R.id.text1, new String[] {
-								getString(R.string.title_section1),
-								getString(R.string.title_section2),
-								getString(R.string.title_section3), }), this);
 	}
 
 	/**
@@ -61,7 +66,7 @@ public class InviteList extends FragmentActivity implements
 
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {
-		// Restore the previously serialized current dropdown position.
+		// Restore the previously serialized current tab position.
 		if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {
 			getActionBar().setSelectedNavigationItem(
 					savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
@@ -81,34 +86,39 @@ public class InviteList extends FragmentActivity implements
 		getMenuInflater().inflate(R.menu.invite_list, menu);
 		return true;
 	}
-	
-	@Override
-	  public boolean onOptionsItemSelected(MenuItem item) {
-	    switch (item.getItemId()) {
-	    case R.id.action_add_guest:
-	      callInsertGuestActivity();
-	      break;
-	    }
-
-	    return true;
-	  } 
 
 	@Override
-	public boolean onNavigationItemSelected(int position, long id) {
-		// When the given dropdown item is selected, show its contents in the
-		// container view.
-		Fragment fragment = new GuestFragment();
-		Bundle args = new Bundle();
-		args.putInt(GuestFragment.ARG_SECTION_NUMBER, position + 1);
-		fragment.setArguments(args);
-		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.container, fragment).commit();
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_add_guest:
+			callInsertGuestActivity();
+			break;
+		}
+
 		return true;
 	}
-	
+
 	private void callInsertGuestActivity() {
-		Intent callingItent = new Intent(InviteList.this, InsertGuestActivity.class);
-		InviteList.this.startActivity(callingItent);
+		Intent callingItent = new Intent(CasorioManagerActivity.this,
+				InsertGuestActivity.class);
+		CasorioManagerActivity.this.startActivity(callingItent);
+	}
+
+	@Override
+	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+		//getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+	}
+
+
+
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+
+	}
+
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+		
 	}
 
 }

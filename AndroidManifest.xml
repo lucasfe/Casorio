@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.android.casorio.InviteList"
+            android:name="com.android.casorio.CasorioManagerActivity"
             android:label="@string/app_name" />
         <activity
             android:name="com.android.casorio.InsertGuestActivity"
