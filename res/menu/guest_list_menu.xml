@@ -6,9 +6,5 @@
         android:showAsAction="always"
         android:icon="@drawable/social_add_person"
         android:title="@string/action_add_guest"/>
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings">
-    </item>
 
 </menu>

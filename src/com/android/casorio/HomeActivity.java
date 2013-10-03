@@ -1,6 +1,5 @@
 package com.android.casorio;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -9,6 +8,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.casorio.guest.GuestFragment;
+import com.android.casorio.home.HomeFragment;
+import com.android.casorio.settings.SettingsFragment;
 
 public class HomeActivity extends Activity {
 
@@ -23,15 +25,13 @@ public class HomeActivity extends Activity {
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 
-	private static String[] mOptionTitles = { "Convidados", "Tarefas",
-			"Orçamento" };
+	private static String[] mOptionTitles = { "Home", "Convidados", "Tarefas",
+			"Orçamento", "Configurações" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_drawer_layout);
-
-		ActionBar actionBar = getActionBar();
 
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -65,6 +65,9 @@ public class HomeActivity extends Activity {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
+		
+		//Choose home fragment
+		this.selectItem(0);
 
 	}
 
@@ -96,7 +99,7 @@ public class HomeActivity extends Activity {
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
 		@Override
-		public void onItemClick(AdapterView parent, View view, int position,
+		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			selectItem(position);
 		}
@@ -113,8 +116,12 @@ public class HomeActivity extends Activity {
 		switch (position) { 
 		
 		case 0:
-			destiny = new GuestFragment();
+			destiny = new HomeFragment();
 			break;
+		case 4:
+			destiny = new SettingsFragment();
+			break;
+	
 		default:
 			destiny = new GuestFragment();
 			break;
@@ -129,5 +136,13 @@ public class HomeActivity extends Activity {
 	public void setTitle(CharSequence title) {
 		getActionBar().setTitle("Luqueta");
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.clear();
+		getMenuInflater().inflate(R.menu.home_action_menu, menu);
+		return true;
+	}
+
 
 }

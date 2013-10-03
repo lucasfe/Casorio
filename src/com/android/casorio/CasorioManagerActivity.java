@@ -5,15 +5,10 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
-import android.view.MenuItem;
-
-import com.android.casorio.guest.GuestFragment;
 
 public class CasorioManagerActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -45,8 +40,7 @@ public class CasorioManagerActivity extends FragmentActivity implements
 		actionBar.addTab(actionBar.newTab()
 				.setText(getString(R.string.title_expenses))
 				.setTabListener(this));
-
-
+		
 		// Set up the dropdown list navigation in the action bar.
 	}
 
@@ -83,25 +77,8 @@ public class CasorioManagerActivity extends FragmentActivity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.invite_list, menu);
+		getMenuInflater().inflate(R.menu.guest_list_menu, menu);
 		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_add_guest:
-			callInsertGuestActivity();
-			break;
-		}
-
-		return true;
-	}
-
-	private void callInsertGuestActivity() {
-		Intent callingItent = new Intent(CasorioManagerActivity.this,
-				InsertGuestActivity.class);
-		CasorioManagerActivity.this.startActivity(callingItent);
 	}
 
 	@Override

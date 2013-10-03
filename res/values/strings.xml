@@ -8,6 +8,11 @@
     <string name="title_remimders">Lembretes</string>
     <string name="title_expenses">Despesas</string>
     
+    <!-- Preferences Strings -->
+    <string name="settings_section_title">Configurações gerais</string>
+    <string name="settings_date_preference_title">Data do casamento</string>
+    
+    
     <!-- Validation error messages -->
     <string name="required_field">campo necessário</string>
     <string name="invalid_email">email inválido</string>

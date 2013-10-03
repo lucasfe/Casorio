@@ -44,7 +44,7 @@ public class InsertGuestActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.add_guest_list, menu);
+		getMenuInflater().inflate(R.menu.guest_insert_menu, menu);
 		return true;
 	}
 	
@@ -134,7 +134,6 @@ public class InsertGuestActivity extends Activity {
 		
 		
 	}
-
 
 
 }

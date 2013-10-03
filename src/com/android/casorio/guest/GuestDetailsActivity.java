@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.android.casorio.R;
-import com.android.casorio.R.id;
-import com.android.casorio.R.layout;
 
 public class GuestDetailsActivity extends Activity {
 
