@@ -6,48 +6,37 @@ import java.util.List;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 
+import com.android.casorio.database.tables.GuestsTable;
 import com.android.casorio.guest.Guest;
 import com.android.casorio.guest.Guest.GuestStatus;
 import com.android.casorio.guest.Guest.GuestType;
 
-public class GuestDataSource {
+public class GuestDataSource extends GenericDataSource {
 	
-	private String[] allColumns = { CasorioDatabase.COLUMN_ID, CasorioDatabase.COLUMN_NAME, 
-			CasorioDatabase.COLUMN_EMAIL,  CasorioDatabase.COLUMN_ADDITIONAL_GUESTS, CasorioDatabase.COLUMN_TYPE, CasorioDatabase.COLUMN_STATUS };
+	private String[] allColumns = { GuestsTable.COLUMN_ID, GuestsTable.COLUMN_NAME, 
+			GuestsTable.COLUMN_EMAIL,  GuestsTable.COLUMN_ADDITIONAL_GUESTS, GuestsTable.COLUMN_TYPE, GuestsTable.COLUMN_STATUS };
 	
-	// Database fields
-	private SQLiteDatabase database;
-	private CasorioDatabase dbHelper;
 	
 	public GuestDataSource(Context context) {
 		dbHelper = new CasorioDatabase(context);
 	}
 
-	public void open() throws SQLException {
-		database = dbHelper.getWritableDatabase();
-	}
-
-	public void close() {
-		dbHelper.close();
-	}
 
 	public Guest createGuest(String name, String email, int additionalGuest, GuestType type, GuestStatus status) {
 		ContentValues values = new ContentValues();
 		
-		values.put(CasorioDatabase.COLUMN_NAME, name);
-		values.put(CasorioDatabase.COLUMN_EMAIL, email);
-		values.put(CasorioDatabase.COLUMN_ADDITIONAL_GUESTS, additionalGuest);
-		values.put(CasorioDatabase.COLUMN_TYPE, type.getValue());
-		values.put(CasorioDatabase.COLUMN_STATUS, status.getValue());
+		values.put(GuestsTable.COLUMN_NAME, name);
+		values.put(GuestsTable.COLUMN_EMAIL, email);
+		values.put(GuestsTable.COLUMN_ADDITIONAL_GUESTS, additionalGuest);
+		values.put(GuestsTable.COLUMN_TYPE, type.getValue());
+		values.put(GuestsTable.COLUMN_STATUS, status.getValue());
 		
 		
-		long insertId = database.insert(CasorioDatabase.TABLE_GUESTS, null,
+		long insertId = database.insert(GuestsTable.TABLE_GUESTS, null,
 				values);
-		Cursor cursor = database.query(CasorioDatabase.TABLE_GUESTS,
-				allColumns, CasorioDatabase.COLUMN_ID + " = " + insertId, null,
+		Cursor cursor = database.query(GuestsTable.TABLE_GUESTS,
+				allColumns, GuestsTable.COLUMN_ID + " = " + insertId, null,
 				null, null, null);
 		cursor.moveToFirst();
 		Guest newGuest = cursorToGuest(cursor);
@@ -71,7 +60,7 @@ public class GuestDataSource {
 	public List<Guest> getAllGuests() {
 		List<Guest> guests = new ArrayList<Guest>();
 
-		Cursor cursor = database.query(CasorioDatabase.TABLE_GUESTS,
+		Cursor cursor = database.query(GuestsTable.TABLE_GUESTS,
 				allColumns, null, null, null, null, null);
 
 		cursor.moveToFirst();
@@ -86,7 +75,7 @@ public class GuestDataSource {
 	}
 	
 	public Cursor getAllGuestsCursor() {
-		Cursor cursor = database.query(CasorioDatabase.TABLE_GUESTS,
+		Cursor cursor = database.query(GuestsTable.TABLE_GUESTS,
 				allColumns, null, null, null, null, null);
 		return cursor;
 	}
