@@ -1,5 +1,7 @@
 package com.android.casorio.database;
 
+import com.android.casorio.database.tables.TasksTable;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -29,7 +31,6 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 	public static final String COLUMN_TYPE = "type";
 	public static final String COLUMN_STATUS = "status";
 	
-	
 	/**
 	 * Database creation statement 
 	 */
@@ -45,6 +46,7 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(CREATE_GUESTS_TABLE);
+		db.execSQL(TasksTable.CREATE_TASKS_TABLE);
 		
 	}
 
