@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Preferences Strings -->
+    <string name="home_count_default">Selecione uma data para o casamento</string>
+    <string name="home_budget_title">Orçamento</string>
+    <string name="home_tasks_title">Tarefas urgentes</string>
+    
+    
     <string name="app_name">Casorio</string>
     <string name="menu_name">Opções</string>
     <string name="action_settings">Settings</string>

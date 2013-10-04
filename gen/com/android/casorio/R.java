@@ -77,42 +77,47 @@ public final class R {
     public static final class string {
         /**  Guest related strings 
          */
-        public static final int action_add_guest=0x7f06000c;
-        public static final int action_guest_details=0x7f06000d;
-        public static final int action_settings=0x7f060002;
-        public static final int app_name=0x7f060000;
-        public static final int guest_canceled=0x7f060013;
-        public static final int guest_confirmed_status=0x7f060011;
-        public static final int guest_info_image_description=0x7f060016;
-        public static final int guest_insert_additional_hint=0x7f06001e;
-        public static final int guest_insert_email_hint=0x7f060018;
-        public static final int guest_insert_guest_type_hint=0x7f060019;
-        public static final int guest_insert_name_hint=0x7f060017;
-        public static final int guest_insert_status_radio_group_title=0x7f06001a;
-        public static final int guest_insert_status_radio_option_maybe=0x7f06001d;
-        public static final int guest_insert_status_radio_option_no=0x7f06001c;
-        public static final int guest_insert_status_radio_option_yes=0x7f06001b;
-        public static final int guest_inserted_confirmation_message=0x7f06001f;
-        public static final int guest_invite_number_image_description=0x7f060015;
-        public static final int guest_list_counter=0x7f06000e;
-        public static final int guest_pending_status=0x7f060012;
-        public static final int guest_sent_status=0x7f060014;
-        public static final int invalid_email=0x7f060009;
-        public static final int invalid_number=0x7f06000a;
-        public static final int invalid_phone=0x7f06000b;
-        public static final int list_guests_header_additional_guests=0x7f060010;
-        public static final int list_guests_header_title=0x7f06000f;
-        public static final int menu_name=0x7f060001;
-        /**  Validation error messages 
-         */
-        public static final int required_field=0x7f060008;
-        public static final int settings_date_preference_title=0x7f060007;
+        public static final int action_add_guest=0x7f06000f;
+        public static final int action_guest_details=0x7f060010;
+        public static final int action_settings=0x7f060005;
+        public static final int app_name=0x7f060003;
+        public static final int guest_canceled=0x7f060016;
+        public static final int guest_confirmed_status=0x7f060014;
+        public static final int guest_info_image_description=0x7f060019;
+        public static final int guest_insert_additional_hint=0x7f060021;
+        public static final int guest_insert_email_hint=0x7f06001b;
+        public static final int guest_insert_guest_type_hint=0x7f06001c;
+        public static final int guest_insert_name_hint=0x7f06001a;
+        public static final int guest_insert_status_radio_group_title=0x7f06001d;
+        public static final int guest_insert_status_radio_option_maybe=0x7f060020;
+        public static final int guest_insert_status_radio_option_no=0x7f06001f;
+        public static final int guest_insert_status_radio_option_yes=0x7f06001e;
+        public static final int guest_inserted_confirmation_message=0x7f060022;
+        public static final int guest_invite_number_image_description=0x7f060018;
+        public static final int guest_list_counter=0x7f060011;
+        public static final int guest_pending_status=0x7f060015;
+        public static final int guest_sent_status=0x7f060017;
+        public static final int home_budget_title=0x7f060001;
         /**  Preferences Strings 
          */
-        public static final int settings_section_title=0x7f060006;
-        public static final int title_expenses=0x7f060005;
-        public static final int title_guests=0x7f060003;
-        public static final int title_remimders=0x7f060004;
+        public static final int home_count_default=0x7f060000;
+        public static final int home_tasks_title=0x7f060002;
+        public static final int invalid_email=0x7f06000c;
+        public static final int invalid_number=0x7f06000d;
+        public static final int invalid_phone=0x7f06000e;
+        public static final int list_guests_header_additional_guests=0x7f060013;
+        public static final int list_guests_header_title=0x7f060012;
+        public static final int menu_name=0x7f060004;
+        /**  Validation error messages 
+         */
+        public static final int required_field=0x7f06000b;
+        public static final int settings_date_preference_title=0x7f06000a;
+        /**  Preferences Strings 
+         */
+        public static final int settings_section_title=0x7f060009;
+        public static final int title_expenses=0x7f060008;
+        public static final int title_guests=0x7f060006;
+        public static final int title_remimders=0x7f060007;
     }
     public static final class style {
         /** 
