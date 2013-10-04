@@ -67,6 +67,7 @@ public class GuestFragment extends ListFragment implements  Callback {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		
 		case R.id.action_add_guest:
 			ActivityStarter.callInsertGuestActivity(getActivity());
 			break;

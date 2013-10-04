@@ -14,6 +14,7 @@ import com.android.casorio.database.GuestDataSource;
 import com.android.casorio.guest.Guest;
 import com.android.casorio.guest.Guest.GuestStatus;
 import com.android.casorio.guest.Guest.GuestType;
+import com.android.casorio.util.ActivityStarter;
 import com.android.casorio.util.Validator;
 
 public class InsertGuestActivity extends Activity {
@@ -33,6 +34,9 @@ public class InsertGuestActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.insert_guest_layout);
 		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+
+		
 		dataSource = new GuestDataSource(getApplicationContext());
 		
 		name = (EditText) findViewById(R.id.nameText);
@@ -51,6 +55,11 @@ public class InsertGuestActivity extends Activity {
 	@Override
 	  public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
+		
+	    case android.R.id.home:
+			ActivityStarter.callHomeActivity(this);
+			break;
+	    
 	    case R.id.action_insert_guest:
 	    	insertGuestAction(this);
 	      break;

@@ -4,6 +4,12 @@
         <com.android.casorio.settings.DatePreference
             android:key="weeding_date"
             android:title="@string/settings_date_preference_title" />
+
+        <EditTextPreference
+            android:key="@string/key_budget"
+            android:summary="@string/setting_budget_summary"
+            android:title="@string/setting_budget_title"
+            android:inputType="number|none" />
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -23,6 +23,7 @@ import com.android.casorio.R;
 public class HomeFragment extends Fragment {
 
 	TextView countdown = null;
+	TextView totalValueTxt = null;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,9 +33,11 @@ public class HomeFragment extends Fragment {
 				container, false);
 
 		countdown = (TextView) rootView.findViewById(R.id.home_countdown);
+		totalValueTxt = (TextView) rootView
+				.findViewById(R.id.home_totalValueTextView);
 
 		countdown.setText(getCountdown());
-
+		totalValueTxt.setText(getTotalValue());
 		return rootView;
 
 	}
@@ -49,10 +52,12 @@ public class HomeFragment extends Fragment {
 		if (!TextUtils.isEmpty(returnValue)) {
 
 			try {
-				Date date = new SimpleDateFormat("yyyy.MM.dd").parse(returnValue);
-				days = Days.daysBetween(new DateTime(new Date()), new DateTime(date)).getDays();
+				Date date = new SimpleDateFormat("yyyy.MM.dd")
+						.parse(returnValue);
+				days = Days.daysBetween(new DateTime(new Date()),
+						new DateTime(date)).getDays();
 				returnValue = "Faltam " + days + " dias para seu casamento";
-				
+
 			} catch (ParseException e) {
 
 				e.printStackTrace();
@@ -65,4 +70,12 @@ public class HomeFragment extends Fragment {
 		return returnValue;
 	}
 
+	private String getTotalValue() {
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(this.getActivity());
+		String returnValue = preferences.getString(getString(R.string.key_budget), "");
+
+		return returnValue;
+	}
+	
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Preferences Strings -->
+    <!-- Home Strings -->
     <string name="home_count_default">Selecione uma data para o casamento</string>
     <string name="home_budget_title">Orçamento</string>
+    <string name="home_budget_total">Total</string>
+    <string name="home_budget_spent">Gasto</string>
+    <string name="home_available_title">Disponivel</string>
     <string name="home_tasks_title">Tarefas urgentes</string>
     
     
@@ -17,6 +20,9 @@
     <!-- Preferences Strings -->
     <string name="settings_section_title">Configurações gerais</string>
     <string name="settings_date_preference_title">Data do casamento</string>
+    <string name="key_budget">budget</string>
+    <string name="setting_budget_title">Orçamento</string>
+    <string name="setting_budget_summary">Limite de gastos</string>
     
     
     <!-- Validation error messages -->
