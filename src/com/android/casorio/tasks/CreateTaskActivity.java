@@ -5,18 +5,22 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.android.casorio.R;
+import com.android.casorio.database.TaskDataSource;
 import com.android.casorio.util.ActivityStarter;
 
 public class CreateTaskActivity extends Activity {
 	
 	
+	TaskDataSource taskDataSource;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.task_create_layout);
+		taskDataSource = new TaskDataSource(this); 
 		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
@@ -37,7 +41,7 @@ public class CreateTaskActivity extends Activity {
 			ActivityStarter.callHomeActivity(this);
 			break;
 	    
-	    case R.id.action_insert_guest:
+	    case R.id.action_call_create_task:
 	    	insertTaskAction(this);
 	      break;
 	    }
@@ -49,8 +53,12 @@ public class CreateTaskActivity extends Activity {
 
 	
 	private boolean insertTaskAction(Context context) {
+		taskDataSource.open();
 		
-		return false;
+		taskDataSource.createTask("Luketa", 0, 10, "seila", "seila", "seila");
+		taskDataSource.close();
+		Toast.makeText(context, "Task Created", Toast.LENGTH_SHORT).show();
+		return true;
 	}
 
 }

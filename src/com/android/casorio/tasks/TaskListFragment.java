@@ -1,8 +1,7 @@
 package com.android.casorio.tasks;
 
-import java.util.List;
-
 import android.app.Fragment;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ActionMode;
 import android.view.ActionMode.Callback;
@@ -12,13 +11,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.android.casorio.R;
-import com.android.casorio.database.Task;
 import com.android.casorio.database.TaskDataSource;
 import com.android.casorio.util.ActivityStarter;
 
 public class TaskListFragment extends Fragment implements Callback {
+	
+	
+	private ListView taskListView;
+
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,11 +33,17 @@ public class TaskListFragment extends Fragment implements Callback {
 
 		TaskDataSource source = new TaskDataSource(getActivity());
 		
+		taskListView = (ListView) rootView.findViewById(R.id.taskList);
+		
 		source.open();
 		
-		List<Task> allTasks = source.getAllTasks();
+		Cursor allTasksCursor = source.getAllTasksCursor();
 		
+		TaskListAdapter adapter = new TaskListAdapter(getActivity(), allTasksCursor);
+		
+		taskListView.setAdapter(adapter);
 		source.close();
+
 		
 		return rootView;
 	}

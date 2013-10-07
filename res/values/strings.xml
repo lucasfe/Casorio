@@ -62,8 +62,15 @@
     <string name="action_add_task">Adicionar tarefa</string>
     <string name="action_call_create_task">Adicionar tarefa</string>
     <string name="task_category_spinner_hint">Categoria</string>
-    <string name="task_name_hint">Tarefa</string>
-
+    <string name="task_name_hint">Titulo</string>
+    <string name="task_due_date_title">Data de conclusão</string>
+    <string name="task_note_title">Nota</string>
+    <string name="task_coast_title">Custo</string>
+    <string name="task_reminder_title">Lembrete</string>
+    <string name="task_reminder_content_descrption"></string>
+    <string name="task_reminder_new_reminder_title">Novo lembrete</string>
+    
+    
     <string-array name="task_category_options">
         <item>Fotografia</item>
         <item>Decoração</item>

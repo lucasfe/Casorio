@@ -8,8 +8,6 @@ import android.content.Context;
 import android.database.Cursor;
 
 import com.android.casorio.database.tables.TasksTable;
-import com.android.casorio.guest.Guest.GuestStatus;
-import com.android.casorio.guest.Guest.GuestType;
 
 public class TaskDataSource extends GenericDataSource {
 	
@@ -25,15 +23,15 @@ public class TaskDataSource extends GenericDataSource {
 
 	
 	
-	public Task createTask(String name, String email, int additionalGuest, GuestType type, GuestStatus status) {
+	public Task createTask(String name, int categoryId, int coast, String dueDate, String note, String reminder) {
 		ContentValues values = new ContentValues();
 		
 		values.put(TasksTable.COLUMN_NAME, name);
-		values.put(TasksTable.COLUMN_CATEGORY_ID, email);
-		values.put(TasksTable.COLUMN_COAST, additionalGuest);
-		values.put(TasksTable.COLUMN_DUE_DATE, type.getValue());
-		values.put(TasksTable.COLUMN_NOTE, status.getValue());
-		values.put(TasksTable.COLUMN_REMINDER, status.getValue());
+		values.put(TasksTable.COLUMN_CATEGORY_ID, categoryId);
+		values.put(TasksTable.COLUMN_COAST, coast);
+		values.put(TasksTable.COLUMN_DUE_DATE, dueDate);
+		values.put(TasksTable.COLUMN_NOTE, note);
+		values.put(TasksTable.COLUMN_REMINDER, reminder);
 		
 		
 		long insertId = database.insert(TasksTable.TABLE_TASKS, null,
@@ -48,7 +46,7 @@ public class TaskDataSource extends GenericDataSource {
 	}
 	
 	
-	public Task cursorToTask(Cursor cursor) {
+	public static Task cursorToTask(Cursor cursor) {
 		
 		Task newTask = new Task();
 		
