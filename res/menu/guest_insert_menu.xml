@@ -4,7 +4,7 @@
         android:id="@+id/action_insert_guest"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:icon="@drawable/content_save"
+        android:icon="@android:drawable/ic_menu_save"
         android:title="@string/action_add_guest"/>
 
 </menu>

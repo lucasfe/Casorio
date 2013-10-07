@@ -26,22 +26,23 @@ public final class R {
     }
     public static final class drawable {
         public static final int action_about=0x7f020000;
-        public static final int content_save=0x7f020001;
-        public static final int ic_drawer=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int social_add_person=0x7f020004;
-        public static final int social_group=0x7f020005;
-        public static final int social_person=0x7f020006;
+        public static final int ic_drawer=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int social_add_person=0x7f020003;
+        public static final int social_group=0x7f020004;
+        public static final int social_person=0x7f020005;
     }
     public static final class id {
-        public static final int action_add_guest=0x7f0a001e;
-        public static final int action_call_create_task=0x7f0a0020;
-        public static final int action_insert_guest=0x7f0a001d;
-        public static final int action_settings=0x7f0a001f;
+        public static final int action_add_guest=0x7f0a0023;
+        public static final int action_call_create_task=0x7f0a0025;
+        public static final int action_insert_guest=0x7f0a0022;
+        public static final int action_settings=0x7f0a0024;
         public static final int additionalText=0x7f0a001a;
         public static final int category_spinner=0x7f0a001c;
+        public static final int coastText=0x7f0a0020;
         public static final int container=0x7f0a0000;
         public static final int content_frame=0x7f0a0011;
+        public static final int datePicker1=0x7f0a001e;
         public static final int drawer_layout=0x7f0a0010;
         public static final int emailText=0x7f0a0019;
         public static final int guest_details_name=0x7f0a0002;
@@ -64,7 +65,10 @@ public final class R {
         public static final int home_updates=0x7f0a000f;
         public static final int left_drawer=0x7f0a0012;
         public static final int nameText=0x7f0a0013;
+        public static final int noteText=0x7f0a0021;
         public static final int taskNameText=0x7f0a001b;
+        public static final int task_due_date_txt=0x7f0a001d;
+        public static final int textView1=0x7f0a001f;
         public static final int txtHeader=0x7f0a0007;
         public static final int type_spinner=0x7f0a0014;
     }
@@ -139,7 +143,13 @@ public final class R {
          */
         public static final int settings_section_title=0x7f06000d;
         public static final int task_category_spinner_hint=0x7f06002c;
+        public static final int task_coast_title=0x7f060030;
+        public static final int task_due_date_title=0x7f06002e;
         public static final int task_name_hint=0x7f06002d;
+        public static final int task_note_title=0x7f06002f;
+        public static final int task_reminder_content_descrption=0x7f060032;
+        public static final int task_reminder_new_reminder_title=0x7f060033;
+        public static final int task_reminder_title=0x7f060031;
         public static final int title_expenses=0x7f06000b;
         public static final int title_guests=0x7f060009;
         public static final int title_remimders=0x7f06000a;
