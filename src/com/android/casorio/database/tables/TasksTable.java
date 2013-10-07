@@ -5,7 +5,7 @@ public class TasksTable {
 	/**
 	 * Section for table tasks
 	 */
-	public static final String TABLE_TASKS = "guests";
+	public static final String TABLE_TASKS = "tasks";
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_CATEGORY_ID = "id_category";
 	public static final String COLUMN_NAME = "name";
@@ -21,10 +21,10 @@ public class TasksTable {
 	public static final String CREATE_TASKS_TABLE = "create table "
 			+ TABLE_TASKS + "(" 
 			+ COLUMN_ID	+ " integer primary key autoincrement, " 
-			+ COLUMN_CATEGORY_ID + " integer,"
+			+ COLUMN_CATEGORY_ID + " integer default 0,"
 			+ COLUMN_NAME + " text not null,"
-			+ COLUMN_DUE_DATE + " datetime,"
-			+ COLUMN_REMINDER + " datetime,"
+			+ COLUMN_DUE_DATE + " text,"
+			+ COLUMN_REMINDER + " text,"
 			+ COLUMN_NOTE + " text,"
 			+ COLUMN_COAST + " integer);";
 

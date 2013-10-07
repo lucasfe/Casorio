@@ -1,4 +1,4 @@
-package com.android.casorio;
+package com.android.casorio.guest;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.casorio.R;
 import com.android.casorio.database.GuestDataSource;
-import com.android.casorio.guest.Guest;
 import com.android.casorio.guest.Guest.GuestStatus;
 import com.android.casorio.guest.Guest.GuestType;
 import com.android.casorio.util.ActivityStarter;

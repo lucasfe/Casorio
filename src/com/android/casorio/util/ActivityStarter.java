@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.android.casorio.HomeActivity;
-import com.android.casorio.InsertGuestActivity;
+import com.android.casorio.guest.InsertGuestActivity;
+import com.android.casorio.tasks.TaskListFragment;
 
 public class ActivityStarter {
 
@@ -18,5 +19,11 @@ public class ActivityStarter {
 		callingItent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
 		activity.startActivity(callingItent);
 	}
+	
+	public static void callTaskListActivity(Activity activity) {
+		Intent callingItent = new Intent(activity, TaskListFragment.class);
+		activity.startActivity(callingItent);
+	}
+
 
 }

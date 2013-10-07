@@ -60,8 +60,7 @@ public class GuestDataSource extends GenericDataSource {
 	public List<Guest> getAllGuests() {
 		List<Guest> guests = new ArrayList<Guest>();
 
-		Cursor cursor = database.query(GuestsTable.TABLE_GUESTS,
-				allColumns, null, null, null, null, null);
+		Cursor cursor = getAllGuestsCursor();
 
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {

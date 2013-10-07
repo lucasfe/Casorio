@@ -16,6 +16,7 @@
     <string name="title_guests">Convidados</string>
     <string name="title_remimders">Lembretes</string>
     <string name="title_expenses">Despesas</string>
+    <string name="title_tasks">Tarefas</string>
     
     <!-- Preferences Strings -->
     <string name="settings_section_title">Configurações gerais</string>
