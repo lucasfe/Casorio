@@ -8,8 +8,6 @@
     <string name="home_budget_spent">Gasto</string>
     <string name="home_available_title">Disponivel</string>
     <string name="home_tasks_title">Tarefas urgentes</string>
-    
-    
     <string name="app_name">Casorio</string>
     <string name="menu_name">Opções</string>
     <string name="action_settings">Settings</string>
@@ -17,21 +15,19 @@
     <string name="title_remimders">Lembretes</string>
     <string name="title_expenses">Despesas</string>
     <string name="title_tasks">Tarefas</string>
-    
+
     <!-- Preferences Strings -->
     <string name="settings_section_title">Configurações gerais</string>
     <string name="settings_date_preference_title">Data do casamento</string>
     <string name="key_budget">budget</string>
     <string name="setting_budget_title">Orçamento</string>
     <string name="setting_budget_summary">Limite de gastos</string>
-    
-    
+
     <!-- Validation error messages -->
     <string name="required_field">campo necessário</string>
     <string name="invalid_email">email inválido</string>
     <string name="invalid_number">somente valores numéricos</string>
     <string name="invalid_phone">telefone inválido</string>
-    
 
     <!-- Guest related strings -->
     <string name="action_add_guest">Adicionar convidado</string>
@@ -45,7 +41,6 @@
     <string name="guest_sent_status">Convite enviado</string>
     <string name="guest_invite_number_image_description">Numero de convidados</string>
     <string name="guest_info_image_description">Informações do convidado</string>
-    
     <string name="guest_insert_name_hint">Nome</string>
     <string name="guest_insert_email_hint">Email</string>
     <string name="guest_insert_guest_type_hint">Relacão</string>
@@ -60,6 +55,20 @@
         <item>Amigo</item>
         <item>Padrinho</item>
         <item>Parente</item>
+    </string-array>
+
+    <!-- Task related strings -->
+
+    <string name="action_add_task">Adicionar tarefa</string>
+    <string name="action_call_create_task">Adicionar tarefa</string>
+    <string name="task_category_spinner_hint">Categoria</string>
+    <string name="task_name_hint">Tarefa</string>
+
+    <string-array name="task_category_options">
+        <item>Fotografia</item>
+        <item>Decoração</item>
+        <item>Buffet</item>
+        <item>Entreterimento</item>
     </string-array>
 
 </resources>

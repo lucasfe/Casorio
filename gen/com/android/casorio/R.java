@@ -10,6 +10,7 @@ package com.android.casorio;
 public final class R {
     public static final class array {
         public static final int guest_type_options=0x7f070000;
+        public static final int task_category_options=0x7f070001;
     }
     public static final class attr {
     }
@@ -33,10 +34,12 @@ public final class R {
         public static final int social_person=0x7f020006;
     }
     public static final class id {
-        public static final int action_add_guest=0x7f0a001c;
-        public static final int action_insert_guest=0x7f0a001b;
-        public static final int action_settings=0x7f0a001d;
+        public static final int action_add_guest=0x7f0a001e;
+        public static final int action_call_create_task=0x7f0a0020;
+        public static final int action_insert_guest=0x7f0a001d;
+        public static final int action_settings=0x7f0a001f;
         public static final int additionalText=0x7f0a001a;
+        public static final int category_spinner=0x7f0a001c;
         public static final int container=0x7f0a0000;
         public static final int content_frame=0x7f0a0011;
         public static final int drawer_layout=0x7f0a0010;
@@ -61,6 +64,7 @@ public final class R {
         public static final int home_updates=0x7f0a000f;
         public static final int left_drawer=0x7f0a0012;
         public static final int nameText=0x7f0a0013;
+        public static final int taskNameText=0x7f0a001b;
         public static final int txtHeader=0x7f0a0007;
         public static final int type_spinner=0x7f0a0014;
     }
@@ -73,17 +77,24 @@ public final class R {
         public static final int home_activity_layout=0x7f030005;
         public static final int home_drawer_layout=0x7f030006;
         public static final int insert_guest_layout=0x7f030007;
-        public static final int task_list_layout=0x7f030008;
+        public static final int task_create_layout=0x7f030008;
+        public static final int task_list_layout=0x7f030009;
     }
     public static final class menu {
         public static final int guest_insert_menu=0x7f090000;
         public static final int guest_list_menu=0x7f090001;
         public static final int home_action_menu=0x7f090002;
+        public static final int task_create_menu=0x7f090003;
+        public static final int task_list_menu=0x7f090004;
     }
     public static final class string {
         /**  Guest related strings 
          */
         public static final int action_add_guest=0x7f060016;
+        /**  Task related strings 
+         */
+        public static final int action_add_task=0x7f06002a;
+        public static final int action_call_create_task=0x7f06002b;
         public static final int action_guest_details=0x7f060017;
         public static final int action_settings=0x7f060008;
         public static final int app_name=0x7f060006;
@@ -127,6 +138,8 @@ public final class R {
         /**  Preferences Strings 
          */
         public static final int settings_section_title=0x7f06000d;
+        public static final int task_category_spinner_hint=0x7f06002c;
+        public static final int task_name_hint=0x7f06002d;
         public static final int title_expenses=0x7f06000b;
         public static final int title_guests=0x7f060009;
         public static final int title_remimders=0x7f06000a;

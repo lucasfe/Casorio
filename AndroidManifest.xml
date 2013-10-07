@@ -28,6 +28,9 @@
         <activity
             android:name="com.android.casorio.guest.GuestDetailsActivity"
             android:label="@string/action_guest_details" />
+        <activity
+            android:name="com.android.casorio.tasks.CreateTaskActivity"
+            android:label="@string/action_add_task" />
     </application>
 
 </manifest>

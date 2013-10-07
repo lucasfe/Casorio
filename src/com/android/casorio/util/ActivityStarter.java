@@ -5,12 +5,18 @@ import android.content.Intent;
 
 import com.android.casorio.HomeActivity;
 import com.android.casorio.guest.InsertGuestActivity;
+import com.android.casorio.tasks.CreateTaskActivity;
 import com.android.casorio.tasks.TaskListFragment;
 
 public class ActivityStarter {
 
 	public static void callInsertGuestActivity(Activity activity) {
 		Intent callingItent = new Intent(activity, InsertGuestActivity.class);
+		activity.startActivity(callingItent);
+	}
+	
+	public static void callCreateTaskActivity(Activity activity) {
+		Intent callingItent = new Intent(activity, CreateTaskActivity.class);
 		activity.startActivity(callingItent);
 	}
 	
