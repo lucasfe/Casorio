@@ -33,10 +33,10 @@ public final class R {
         public static final int social_person=0x7f020005;
     }
     public static final class id {
-        public static final int action_add_guest=0x7f0a0025;
-        public static final int action_call_create_task=0x7f0a0027;
-        public static final int action_insert_guest=0x7f0a0024;
-        public static final int action_settings=0x7f0a0026;
+        public static final int action_add_guest=0x7f0a0026;
+        public static final int action_call_create_task=0x7f0a0028;
+        public static final int action_insert_guest=0x7f0a0025;
+        public static final int action_settings=0x7f0a0027;
         public static final int additionalText=0x7f0a001a;
         public static final int category_spinner=0x7f0a001c;
         public static final int coastText=0x7f0a0020;
@@ -66,7 +66,8 @@ public final class R {
         public static final int left_drawer=0x7f0a0012;
         public static final int nameText=0x7f0a0013;
         public static final int noteText=0x7f0a0021;
-        public static final int taskList=0x7f0a0023;
+        public static final int taskDeleteImg=0x7f0a0023;
+        public static final int taskList=0x7f0a0024;
         public static final int taskListCheckbox=0x7f0a0022;
         public static final int taskNameText=0x7f0a001b;
         public static final int task_due_date_txt=0x7f0a001d;

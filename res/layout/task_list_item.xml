@@ -2,17 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#dbdbdb"
     android:baselineAligned="false"
+    android:paddingLeft="10dp"
     android:contentDescription="@string/guest_invite_number_image_description"
     android:orientation="horizontal" >
 
     <CheckBox
         android:id="@+id/taskListCheckbox"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:padding="10dp" />
+        android:layout_weight="4"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:textSize="22sp" >
+    </CheckBox>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/taskDeleteImg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/action_add_guest"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:src="@android:drawable/ic_menu_delete" />
 
 </LinearLayout>
