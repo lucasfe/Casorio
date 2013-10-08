@@ -1,4 +1,4 @@
-package com.android.casorio.database;
+package com.android.casorio.tasks;
 
 import java.io.Serializable;
 

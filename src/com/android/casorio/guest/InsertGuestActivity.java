@@ -11,7 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.casorio.R;
-import com.android.casorio.database.GuestDataSource;
+import com.android.casorio.database.datasources.GuestDataSource;
 import com.android.casorio.guest.Guest.GuestStatus;
 import com.android.casorio.guest.Guest.GuestType;
 import com.android.casorio.util.ActivityStarter;

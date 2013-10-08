@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.casorio.R;
-import com.android.casorio.database.GuestDataSource;
+import com.android.casorio.database.datasources.GuestDataSource;
 import com.android.casorio.guest.Guest.GuestStatus;
 
 public class GuestAdapter extends CursorAdapter {

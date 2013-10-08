@@ -1,5 +1,6 @@
 package com.android.casorio.database;
 
+import com.android.casorio.database.tables.CategoriesTable;
 import com.android.casorio.database.tables.GuestsTable;
 import com.android.casorio.database.tables.TasksTable;
 
@@ -26,6 +27,7 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(GuestsTable.CREATE_GUESTS_TABLE);
 		db.execSQL(TasksTable.CREATE_TASKS_TABLE);
+		db.execSQL(CategoriesTable.CREATE_CATEGORIES_TABLE);
 		
 	}
 
@@ -36,6 +38,7 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 						+ newVersion + ", which will destroy all old data");
 		db.execSQL("DROP TABLE IF EXISTS " + GuestsTable.TABLE_GUESTS);
 		db.execSQL("DROP TABLE IF EXISTS " + TasksTable.TABLE_TASKS);
+		db.execSQL("DROP TABLE IF EXISTS " + CategoriesTable.TABLE_NAME);
 		onCreate(db);
 		
 	}

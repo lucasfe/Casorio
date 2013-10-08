@@ -1,8 +1,7 @@
 package com.android.casorio.tasks;
 
 import com.android.casorio.R;
-import com.android.casorio.database.Task;
-import com.android.casorio.database.TaskDataSource;
+import com.android.casorio.database.datasources.TaskDataSource;
 
 import android.content.Context;
 import android.database.Cursor;

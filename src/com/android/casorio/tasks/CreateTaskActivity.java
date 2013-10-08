@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.casorio.R;
-import com.android.casorio.database.TaskDataSource;
+import com.android.casorio.database.datasources.TaskDataSource;
 import com.android.casorio.util.ActivityStarter;
 import com.android.casorio.util.Validator;
 

@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.casorio.categories.CategoryListFragment;
 import com.android.casorio.guest.GuestFragment;
 import com.android.casorio.home.HomeFragment;
 import com.android.casorio.settings.SettingsFragment;
@@ -119,10 +120,15 @@ public class HomeActivity extends Activity {
 		case 0:
 			destiny = new HomeFragment();
 			break;
+		case 1:
+			destiny = new GuestFragment();
+			break;	
 		case 2:
 			destiny = new TaskListFragment();
 			break;
-			
+		case 3:
+			destiny = new CategoryListFragment();
+			break;		
 		case 4:
 			destiny = new SettingsFragment();
 			break;	

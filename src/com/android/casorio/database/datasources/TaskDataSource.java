@@ -1,4 +1,4 @@
-package com.android.casorio.database;
+package com.android.casorio.database.datasources;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.android.casorio.database.CasorioDatabase;
+import com.android.casorio.database.GenericDataSource;
 import com.android.casorio.database.tables.TasksTable;
+import com.android.casorio.tasks.Task;
 
 public class TaskDataSource extends GenericDataSource {
 	
