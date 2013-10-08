@@ -19,7 +19,7 @@
             android:inputType="textPersonName" />
 
         <Spinner
-            android:id="@+id/category_spinner"
+            android:id="@+id/task_category_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -49,7 +49,7 @@
             android:background="@android:color/darker_gray" />
 
         <DatePicker
-            android:id="@+id/datePicker1"
+            android:id="@+id/task_due_date_picker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -76,7 +76,7 @@
             android:background="@android:color/darker_gray" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/task_reminder_txt_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@android:drawable/ic_menu_recent_history"
@@ -94,7 +94,7 @@
         android:orientation="vertical" >
 
         <EditText
-            android:id="@+id/coastText"
+            android:id="@+id/task_coast_text"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginTop="20dp"
@@ -103,7 +103,7 @@
             android:inputType="number|none" />
 
         <EditText
-            android:id="@+id/noteText"
+            android:id="@+id/task_note_text"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginTop="10dp"
