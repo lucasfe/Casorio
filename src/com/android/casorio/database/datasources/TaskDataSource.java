@@ -74,6 +74,7 @@ public class TaskDataSource extends GenericDataSource {
 			
 			Task tempTask = cursorToTask(cursor);
 			result.add(tempTask);
+			cursor.moveToNext();
 			
 		}
 		cursor.close();

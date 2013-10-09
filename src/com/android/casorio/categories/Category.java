@@ -13,10 +13,10 @@ public class Category {
 	public void setId(long id) {
 		this._id = id;
 	}	
-	public long getCoast() {
+	public long getBudget() {
 		return coast;
 	}
-	public void setCoast(long coast) {
+	public void setBudget(long coast) {
 		this.coast = coast;
 	}
 	public String getName() {
@@ -24,6 +24,15 @@ public class Category {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	
+	public String getBalance() {
+		return "";
+	}
+	
+	public String getStatus() {
+		return "Positivo";
 	}
 
 }

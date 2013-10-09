@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    
+    <!-- Generic Strings -->
+    <string name="insert_menu_name">Inserir</string>
 
     <!-- Home Strings -->
     <string name="home_count_default">Selecione uma data para o casamento</string>
