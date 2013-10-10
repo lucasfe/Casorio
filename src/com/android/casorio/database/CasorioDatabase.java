@@ -11,9 +11,12 @@ import android.util.Log;
 
 public class CasorioDatabase extends SQLiteOpenHelper {
 	
+	private Context mContext;
+	
 	
 	public CasorioDatabase(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		mContext = context;
 	}
 
 	/**
@@ -28,6 +31,8 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 		db.execSQL(GuestsTable.CREATE_GUESTS_TABLE);
 		db.execSQL(TasksTable.CREATE_TASKS_TABLE);
 		db.execSQL(CategoriesTable.CREATE_CATEGORIES_TABLE);
+		
+		CategoriesTable.loadPredefinedCategories(db, mContext);
 		
 	}
 

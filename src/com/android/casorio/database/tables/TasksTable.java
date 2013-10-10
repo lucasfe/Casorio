@@ -27,7 +27,6 @@ public class TasksTable {
 			+ COLUMN_REMINDER + " text,"
 			+ COLUMN_NOTE + " text,"
 			+ COLUMN_COAST + " integer);";
-
-
+	
 
 }

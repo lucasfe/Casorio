@@ -32,7 +32,7 @@ public class CategoryListFragment extends Fragment {
 		mDataSource = new CategoriesDataSource(getActivity());
 		mDataSource.open();
 
-		CategoryListAdapter categoryAdapter = new CategoryListAdapter(mDataSource.getAllCategories(), mDataSource.getPredefinedsCategories() , getActivity());
+		CategoryListAdapter categoryAdapter = new CategoryListAdapter(mDataSource.getAllCategories(), getActivity());
 
 		categoriesList = (ListView) rootView
 				.findViewById(R.id.category_listView);

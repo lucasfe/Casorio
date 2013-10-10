@@ -20,35 +20,28 @@ public class CategoryListAdapter extends BaseAdapter {
 	TextView budgetTextView;
 	TextView statusTextView;
 
-	private List<Category> mergedArray;
+	private List<Category> categoriesArray;
 
 	public CategoryListAdapter(List<Category> categoryArray, Context context) {
 		mInflater = LayoutInflater.from(context);
-		mergedArray = categoryArray;
+		categoriesArray = categoryArray;
 
-	}
-
-	public CategoryListAdapter(List<Category> collection1,
-			List<Category> collection2, Context context) {
-		mInflater = LayoutInflater.from(context);
-		mergedArray = collection2;
-		mergedArray.addAll(collection1);
 	}
 
 	@Override
 	public int getCount() {
-		return mergedArray.size();
+		return categoriesArray.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return mergedArray.get(position);
+		return categoriesArray.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
 				
-		return mergedArray.get(position).getId();
+		return categoriesArray.get(position).getId();
 	}
 
 	@Override
@@ -59,7 +52,7 @@ public class CategoryListAdapter extends BaseAdapter {
 					.inflate(R.layout.category_item_layout, null);
 		}
 
-		Category category = mergedArray.get(position);
+		Category category = categoriesArray.get(position);
 
 		nameTextView = (TextView) convertView
 				.findViewById(R.id.category_NameTxtView);
