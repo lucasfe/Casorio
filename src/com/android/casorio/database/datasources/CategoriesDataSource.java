@@ -58,6 +58,22 @@ public class CategoriesDataSource extends GenericDataSource {
 
 	}
 
+	
+	public List<Category> getCategoriesById(int id) {
+		
+		Cursor returnedValues = database.query(CategoriesTable.TABLE_NAME, allColumns,  CategoriesTable.COLUMN_ID+" = ?", new String[]{String.valueOf(id)}, null, null, null);
+		List<Category> result = new ArrayList<Category>();
+
+		returnedValues.moveToFirst();
+		while(!returnedValues.isAfterLast()) {
+			Category tempTask = cursorToCategory(returnedValues);
+			result.add(tempTask);
+			returnedValues.moveToNext();
+		}
+		return result;
+	}
+
+	
 	public List<Category> getAllCategories() {
 		List<Category> resultList = new ArrayList<Category>();
 

@@ -6,14 +6,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" >
+        android:layout_height="wrap_content" >
 
         <EditText
             android:id="@+id/taskNameText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:hint="@string/task_name_hint"
             android:inputType="textPersonName" />
@@ -23,7 +23,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:entries="@array/task_category_options"
             android:paddingRight="6dp"
             android:prompt="@string/task_category_spinner_hint" />
     </LinearLayout>

@@ -26,7 +26,7 @@ public class TaskDataSource extends GenericDataSource {
 
 	
 	
-	public Task createTask(String name, int categoryId, int coast, String dueDate, String note, String reminder) {
+	public Task createTask(String name, long categoryId, long coast, String dueDate, String note, String reminder) {
 		ContentValues values = new ContentValues();
 		
 		values.put(TasksTable.COLUMN_NAME, name);
@@ -55,7 +55,7 @@ public class TaskDataSource extends GenericDataSource {
 		
 		newTask.setId(cursor.getLong(0));
 		newTask.setName(cursor.getString(1));
-		newTask.setCategory_id(cursor.getString(2));
+		newTask.setCategory_id(cursor.getLong(2));
 		newTask.setCoast(cursor.getInt(3));
 		newTask.setDueDate(cursor.getString(4));
 		newTask.setNote(cursor.getString(5));
@@ -81,6 +81,8 @@ public class TaskDataSource extends GenericDataSource {
 		
 		return result;
 	}
+	
+	
 	
 	public Cursor getAllTasksCursor() {
 		

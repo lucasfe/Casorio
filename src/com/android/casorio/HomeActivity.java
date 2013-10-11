@@ -16,12 +16,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.casorio.categories.CategoryListFragment;
+import com.android.casorio.categories.IOnCategorySelectedListener;
 import com.android.casorio.guest.GuestFragment;
 import com.android.casorio.home.HomeFragment;
 import com.android.casorio.settings.SettingsFragment;
 import com.android.casorio.tasks.TaskListFragment;
+import com.android.casorio.util.FragmentCaller;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends Activity implements IOnCategorySelectedListener {
 
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
@@ -154,6 +156,20 @@ public class HomeActivity extends Activity {
 		getMenuInflater().inflate(R.menu.home_action_menu, menu);
 		return true;
 	}
+
+	@Override
+	public void onCategorySelected(int position) {
+		
+		TaskListFragment taskList = new TaskListFragment();
+		Bundle args = new Bundle();
+		args.putInt(TaskListFragment.CATEGORY_ID, position);
+		taskList.setArguments(args);
+		
+		FragmentCaller.callFragment(this, taskList);
+		
+		
+	}
+
 
 
 }

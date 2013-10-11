@@ -12,8 +12,8 @@ public class Task implements Serializable {
 	private long id;
 
 	private String name;
-	private String category_id;
-	private int coast;
+	private long category_id;
+	private long coast;
 	private String dueDate;
 	private String note;
 	private String remimder;
@@ -34,15 +34,15 @@ public class Task implements Serializable {
 		this.name = name;
 	}
 
-	public String getCategory_id() {
+	public long getCategory_id() {
 		return category_id;
 	}
 
-	public void setCategory_id(String category_id) {
+	public void setCategory_id(long category_id) {
 		this.category_id = category_id;
 	}
 
-	public int getCoast() {
+	public long getCoast() {
 		return coast;
 	}
 

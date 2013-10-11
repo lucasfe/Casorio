@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.GuestDataSource;
-import com.android.casorio.util.ActivityStarter;
+import com.android.casorio.util.FragmentCaller;
 
 public class GuestFragment extends ListFragment implements  Callback {
 
@@ -69,7 +69,7 @@ public class GuestFragment extends ListFragment implements  Callback {
 		switch (item.getItemId()) {
 		
 		case R.id.action_add_guest:
-			ActivityStarter.callInsertGuestActivity(getActivity());
+			FragmentCaller.callInsertGuestActivity(getActivity());
 			break;
 		}
 

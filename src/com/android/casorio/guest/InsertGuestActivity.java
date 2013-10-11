@@ -14,7 +14,7 @@ import com.android.casorio.R;
 import com.android.casorio.database.datasources.GuestDataSource;
 import com.android.casorio.guest.Guest.GuestStatus;
 import com.android.casorio.guest.Guest.GuestType;
-import com.android.casorio.util.ActivityStarter;
+import com.android.casorio.util.FragmentCaller;
 import com.android.casorio.util.Validator;
 
 public class InsertGuestActivity extends Activity {
@@ -57,7 +57,7 @@ public class InsertGuestActivity extends Activity {
 	    switch (item.getItemId()) {
 		
 	    case android.R.id.home:
-			ActivityStarter.callHomeActivity(this);
+			FragmentCaller.callHomeActivity(this);
 			break;
 	    
 	    case R.id.action_insert_guest:

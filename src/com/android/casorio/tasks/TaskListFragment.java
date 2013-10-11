@@ -15,10 +15,12 @@ import android.widget.ListView;
 
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
-import com.android.casorio.util.ActivityStarter;
+import com.android.casorio.util.FragmentCaller;
 
 public class TaskListFragment extends Fragment implements Callback {
 	
+	
+	public static final String CATEGORY_ID = "categoryId";
 	
 	private ListView taskListView;
 
@@ -42,11 +44,27 @@ public class TaskListFragment extends Fragment implements Callback {
 		TaskListAdapter adapter = new TaskListAdapter(getActivity(), allTasksCursor);
 		
 		taskListView.setAdapter(adapter);
+		
 		source.close();
 
 		
 		return rootView;
 	}
+	
+	
+	private void updateListSelection(int categoryId) {
+
+	}
+	
+    @Override
+    public void onStart() {
+        super.onStart();
+        
+        Bundle args = getArguments();
+        if (args != null) {
+        	int catId = args.getInt(CATEGORY_ID);
+        }
+    }
 	
 	@Override
 	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -64,7 +82,7 @@ public class TaskListFragment extends Fragment implements Callback {
 	    switch (item.getItemId()) {
 
 	    case R.id.action_call_create_task:
-	    	ActivityStarter.callCreateTaskActivity(getActivity());
+	    	FragmentCaller.callCreateTaskActivity(getActivity());
 	      break;
 	    }
 
@@ -98,5 +116,5 @@ public class TaskListFragment extends Fragment implements Callback {
 	}
 
 
-
 }
+

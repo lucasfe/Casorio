@@ -1,5 +1,6 @@
 package com.android.casorio.categories;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -10,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.android.casorio.R;
@@ -20,6 +23,8 @@ public class CategoryListFragment extends Fragment {
 	ListView categoriesList;
 
 	CategoriesDataSource mDataSource;
+
+	private IOnCategorySelectedListener mCategorySelected;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,11 +37,21 @@ public class CategoryListFragment extends Fragment {
 		mDataSource = new CategoriesDataSource(getActivity());
 		mDataSource.open();
 
-		CategoryListAdapter categoryAdapter = new CategoryListAdapter(mDataSource.getAllCategories(), getActivity());
+		CategoryListAdapter categoryAdapter = new CategoryListAdapter(
+				mDataSource.getAllCategories(), getActivity());
 
 		categoriesList = (ListView) rootView
 				.findViewById(R.id.category_listView);
 		categoriesList.setAdapter(categoryAdapter);
+
+		categoriesList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				mCategorySelected.onCategorySelected(position);
+			}
+		});
 
 		return rootView;
 	}
@@ -65,6 +80,21 @@ public class CategoryListFragment extends Fragment {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+
+		// This makes sure that the container activity has implemented
+		// the callback interface. If not, it throws an exception
+		if ((activity instanceof IOnCategorySelectedListener)) {
+			mCategorySelected = (IOnCategorySelectedListener) activity;
+
+		} else {
+			throw new ClassCastException(activity.toString()
+					+ "must implement IOnCategorySelectedListener");
+		}
 	}
 
 }
