@@ -1,7 +1,8 @@
 package com.android.casorio.tasks;
 
+import java.util.List;
+
 import android.app.Fragment;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ActionMode;
 import android.view.ActionMode.Callback;
@@ -23,6 +24,9 @@ public class TaskListFragment extends Fragment implements Callback {
 	public static final String CATEGORY_ID = "categoryId";
 	
 	private ListView taskListView;
+	
+	List<Task> allTasksCursor;
+	TaskDataSource source;
 
 	
 	@Override
@@ -33,27 +37,29 @@ public class TaskListFragment extends Fragment implements Callback {
 				container, false);
 		setHasOptionsMenu(true);
 
-		TaskDataSource source = new TaskDataSource(getActivity());
+		source = new TaskDataSource(getActivity());
 		
 		taskListView = (ListView) rootView.findViewById(R.id.taskList);
 		
 		source.open();
 		
-		Cursor allTasksCursor = source.getAllTasksCursor();
+		allTasksCursor = source.getAllTasks();
 		
-		TaskListAdapter adapter = new TaskListAdapter(getActivity(), allTasksCursor);
+		TaskListAdapter adapter = new TaskListAdapter(allTasksCursor, getActivity());
+	
 		
 		taskListView.setAdapter(adapter);
-		
 		source.close();
-
-		
 		return rootView;
 	}
 	
 	
 	private void updateListSelection(int categoryId) {
-
+		TaskListAdapter adapter = (TaskListAdapter) taskListView.getAdapter();
+		source.open();
+		allTasksCursor = source.getTasksByCategory(categoryId);
+		adapter.setTaskList(allTasksCursor);
+		adapter.notifyDataSetChanged();
 	}
 	
     @Override
@@ -63,6 +69,7 @@ public class TaskListFragment extends Fragment implements Callback {
         Bundle args = getArguments();
         if (args != null) {
         	int catId = args.getInt(CATEGORY_ID);
+        	updateListSelection(catId);
         }
     }
 	
