@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    
+
     <!-- Generic Strings -->
     <string name="insert_menu_name">Inserir</string>
+    <string name="empyt"></string>
 
     <!-- Home Strings -->
-    <string name="home_count_default">Selecione uma data para o casamento</string>
+    <string name="home_count_default">Selecione a \n      data</string>
+    <string name="home_event_name_default">Selecione o nome</string>
     <string name="home_budget_title">Orçamento</string>
     <string name="home_budget_total">Total</string>
     <string name="home_budget_spent">Gasto</string>
@@ -24,8 +25,12 @@
     <string name="settings_section_title">Configurações gerais</string>
     <string name="settings_date_preference_title">Data do casamento</string>
     <string name="key_budget">budget</string>
+    <string name="key_evt_name">eventName</string>
+    <string name="key_image">imageKey</string>
     <string name="setting_budget_title">Orçamento</string>
     <string name="setting_budget_summary">Limite de gastos</string>
+    <string name="setting_event_title">Nome do casamento</string>
+    <string name="setting_event_summary">Adicione um nome para o seu casamento</string>
 
     <!-- Validation error messages -->
     <string name="required_field">campo necessário</string>
@@ -73,8 +78,7 @@
     <string name="task_reminder_title">Lembrete</string>
     <string name="task_reminder_content_descrption"></string>
     <string name="task_reminder_new_reminder_title">Novo lembrete</string>
-    
-    
+
     <string-array name="task_category_options">
         <item>Fotografia</item>
         <item>Decoração</item>

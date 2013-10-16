@@ -6,10 +6,14 @@
             android:title="@string/settings_date_preference_title" />
 
         <EditTextPreference
+            android:inputType="number|none"
             android:key="@string/key_budget"
             android:summary="@string/setting_budget_summary"
-            android:title="@string/setting_budget_title"
-            android:inputType="number|none" />
+            android:title="@string/setting_budget_title" />
+        <EditTextPreference
+            android:key="@string/key_evt_name"
+            android:summary="@string/setting_event_summary"
+            android:title="@string/setting_event_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

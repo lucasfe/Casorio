@@ -2,21 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@android:color/white"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="#ffced5" >
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/empyt"
+            android:src="@drawable/casorio_circle_all_white" />
 
         <TextView
             android:id="@+id/home_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignRight="@id/imageView1"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="70dp"
             android:text="@string/home_count_default"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/home_event_nametextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingRight="20dp"
+            android:text="@string/home_event_name_default"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/home_imageProfile"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="15dp"
+            android:contentDescription="@string/empyt"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,8 +69,7 @@
             android:id="@+id/home_sumary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/home_budget_title"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/home_budget_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,24 +81,21 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="@string/home_budget_total"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="@string/home_budget_total" />
 
             <TextView
                 android:id="@+id/home_spentTitleTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="@string/home_budget_spent"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="@string/home_budget_spent" />
 
             <TextView
                 android:id="@+id/home_availableTitleTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="@string/home_available_title"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="@string/home_available_title" />
         </LinearLayout>
 
         <LinearLayout
@@ -70,15 +107,13 @@
                 android:id="@+id/home_totalValueTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:layout_weight="3" />
 
             <TextView
                 android:id="@+id/home_totalSpentValueTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:layout_weight="3" />
         </LinearLayout>
     </LinearLayout>
 
@@ -92,8 +127,7 @@
             android:id="@+id/home_updates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/home_tasks_title"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/home_tasks_title" />
     </LinearLayout>
 
 </LinearLayout>
