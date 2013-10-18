@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.casorio.R;
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment {
 	TextView eventNameTxt = null;
 
 	ImageView profileImg = null;
+	ProgressBar taskProgressBar;
 
 	private static int RESULT_LOAD_IMAGE = 1;
 
@@ -48,6 +50,9 @@ public class HomeFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.home_activity_layout,
 				container, false);
 
+		
+		taskProgressBar = (ProgressBar) rootView.findViewById(R.id.home_taskProgressBar);
+		taskProgressBar.setProgress(50);
 		countdown = (TextView) rootView.findViewById(R.id.home_countdown);
 		eventNameTxt = (TextView) rootView
 				.findViewById(R.id.home_event_nametextView);

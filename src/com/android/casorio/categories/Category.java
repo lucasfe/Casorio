@@ -23,6 +23,8 @@ public class Category {
 		mContext = context;
 	}
 	
+	
+	
 	public int getCategory_prefix() {
 		return category_prefix;
 	}
