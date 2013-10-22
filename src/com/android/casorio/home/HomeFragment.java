@@ -1,5 +1,6 @@
 package com.android.casorio.home;
 
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +32,7 @@ import android.widget.TextView;
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
 import com.android.casorio.settings.SettingsFragment;
+import com.android.casorio.tasks.Task;
 import com.android.casorio.util.FragmentCaller;
 
 public class HomeFragment extends Fragment {
@@ -39,6 +41,8 @@ public class HomeFragment extends Fragment {
 	TextView daysLeft = null;
 
 	TextView totalValueTxt = null;
+	TextView totalSpentValueTxt = null;
+	TextView totalAvailableValueTxt = null;
 	TextView eventNameTxt = null;
 
 	TextView pendingTasksTxtView = null;
@@ -50,6 +54,8 @@ public class HomeFragment extends Fragment {
 
 	TaskDataSource taskDataSource;
 
+	NumberFormat format;
+
 	private static int RESULT_LOAD_IMAGE = 1;
 
 	@Override
@@ -59,17 +65,24 @@ public class HomeFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.home_activity_layout,
 				container, false);
 
+		format = NumberFormat.getCurrencyInstance();
+
 		taskDataSource = new TaskDataSource(getActivity());
 
 		taskProgressBar = (ProgressBar) rootView
 				.findViewById(R.id.home_taskProgressBar);
 		taskProgressBar.setProgress(getCompletedPercentage());
 		countdown = (TextView) rootView.findViewById(R.id.home_countdown);
-		daysLeft = (TextView) rootView.findViewById(R.id.home_remaing_days_txtView);
+		daysLeft = (TextView) rootView
+				.findViewById(R.id.home_remaing_days_txtView);
 		eventNameTxt = (TextView) rootView
 				.findViewById(R.id.home_event_nametextView);
 		totalValueTxt = (TextView) rootView
 				.findViewById(R.id.home_totalValueTextView);
+		totalSpentValueTxt = (TextView) rootView
+				.findViewById(R.id.home_totalSpentValueTextView);
+		totalAvailableValueTxt = (TextView) rootView
+				.findViewById(R.id.home_availableValueTextView);
 		profileImg = (ImageView) rootView.findViewById(R.id.home_imageProfile);
 
 		countdown.setText(getCountdown());
@@ -93,7 +106,10 @@ public class HomeFragment extends Fragment {
 		profileImg.setOnClickListener(new ImagePickerListener());
 		setImage(profileImg);
 
-		totalValueTxt.setText(getTotalValue());
+		totalValueTxt.setText(getTotalValueText());
+		totalSpentValueTxt.setText(getCompletedTasksCoastText());
+		totalAvailableValueTxt.setText(getAvailableValueText());
+		
 		return rootView;
 
 	}
@@ -129,11 +145,15 @@ public class HomeFragment extends Fragment {
 		return returnValue;
 	}
 
-	private String getTotalValue() {
+	private String getTotalValueText() {
 		SharedPreferences preferences = PreferenceManager
 				.getDefaultSharedPreferences(this.getActivity());
 		String returnValue = preferences.getString(
-				getString(R.string.key_budget), "");
+				getString(R.string.key_budget), "0");
+
+		if (!TextUtils.isEmpty(returnValue)) {
+			returnValue = format.format(Long.parseLong(returnValue));
+		}
 
 		return returnValue;
 	}
@@ -164,11 +184,44 @@ public class HomeFragment extends Fragment {
 
 	private String getCompletedTasksPercentageText() {
 
-		return getCompletedPercentage() + "% " + getString(R.string.percentage_tasks_text);
+		return getCompletedPercentage() + "% "
+				+ getString(R.string.percentage_tasks_text);
 	}
-	
+
+	private String getCompletedTasksCoastText() {
+
+		long total = 0;
+		taskDataSource.open();
+
+		for (Task task : taskDataSource.getCompletedTasks()) {
+			total += task.getCoast();
+		}
+		taskDataSource.close();
+
+		return format.format(total);
+	}
+
+	private String getAvailableValueText() {
+
+		SharedPreferences preferences = PreferenceManager
+				.getDefaultSharedPreferences(this.getActivity());
+
+		long total = 0;
+		taskDataSource.open();
+
+		for (Task task : taskDataSource.getCompletedTasks()) {
+			total += task.getCoast();
+		}
+		taskDataSource.close();
+
+		long result = Long.parseLong(preferences.getString(
+				getString(R.string.key_budget), "0")) - total;
+
+		return format.format(result);
+	}
+
 	private int getCompletedPercentage() {
-		
+
 		taskDataSource.open();
 		int completedCount = taskDataSource.getCompletedTasks().size();
 		int remainingCount = taskDataSource.getPendingTasks().size();
@@ -183,7 +236,7 @@ public class HomeFragment extends Fragment {
 		taskDataSource.close();
 
 		return percentage.intValue();
-		
+
 	}
 
 	private void setImage(ImageView imageViewer) {

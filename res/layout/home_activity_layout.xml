@@ -73,7 +73,6 @@
             android:textColor="#bf9a9f"
             android:textSize="12sp"
             android:textStyle="italic" />
-
     </RelativeLayout>
 
     <LinearLayout
@@ -92,13 +91,12 @@
             android:textColor="#a08185"
             android:textSize="14sp"
             android:textStyle="bold" />
-        
-                <View
+
+        <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
             android:background="@android:color/darker_gray" />
-        
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,28 +108,34 @@
                 android:id="@+id/home_totalTitleTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="3"
                 android:text="@string/home_budget_total"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/home_spentTitleTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="3"
                 android:text="@string/home_budget_spent"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/home_availableTitleTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="3"
                 android:text="@string/home_available_title"
-                android:textColor="@android:color/darker_gray" />
-
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -143,13 +147,29 @@
                 android:id="@+id/home_totalValueTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="3"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/home_totalSpentValueTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="3"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/home_availableValueTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="3"
+                android:textSize="12sp" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -179,8 +199,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-             >
+            android:layout_marginTop="5dp" >
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -214,7 +233,6 @@
                 android:layout_marginTop="2dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@android:color/secondary_text_light_nodisable" />
-
         </LinearLayout>
 
         <ProgressBar
@@ -231,7 +249,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:textColor="@android:color/darker_gray" />
-
     </LinearLayout>
 
 </LinearLayout>
