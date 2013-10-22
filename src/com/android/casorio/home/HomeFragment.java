@@ -29,17 +29,26 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.casorio.R;
+import com.android.casorio.database.datasources.TaskDataSource;
 import com.android.casorio.settings.SettingsFragment;
 import com.android.casorio.util.FragmentCaller;
 
 public class HomeFragment extends Fragment {
 
 	TextView countdown = null;
+	TextView daysLeft = null;
+
 	TextView totalValueTxt = null;
 	TextView eventNameTxt = null;
 
+	TextView pendingTasksTxtView = null;
+	TextView completedTasksTxtView = null;
+	TextView completedTasksPercentageTxtView = null;
+
 	ImageView profileImg = null;
 	ProgressBar taskProgressBar;
+
+	TaskDataSource taskDataSource;
 
 	private static int RESULT_LOAD_IMAGE = 1;
 
@@ -50,10 +59,13 @@ public class HomeFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.home_activity_layout,
 				container, false);
 
-		
-		taskProgressBar = (ProgressBar) rootView.findViewById(R.id.home_taskProgressBar);
-		taskProgressBar.setProgress(50);
+		taskDataSource = new TaskDataSource(getActivity());
+
+		taskProgressBar = (ProgressBar) rootView
+				.findViewById(R.id.home_taskProgressBar);
+		taskProgressBar.setProgress(getCompletedPercentage());
 		countdown = (TextView) rootView.findViewById(R.id.home_countdown);
+		daysLeft = (TextView) rootView.findViewById(R.id.home_remaing_days_txtView);
 		eventNameTxt = (TextView) rootView
 				.findViewById(R.id.home_event_nametextView);
 		totalValueTxt = (TextView) rootView
@@ -65,6 +77,18 @@ public class HomeFragment extends Fragment {
 
 		eventNameTxt.setText(getEventName());
 		eventNameTxt.setOnClickListener(new CallSettingsListener());
+
+		pendingTasksTxtView = (TextView) rootView
+				.findViewById(R.id.home_pending_tasks_scoreTxtView);
+		completedTasksTxtView = (TextView) rootView
+				.findViewById(R.id.home_completed_tasks_scoreTxtView);
+		completedTasksPercentageTxtView = (TextView) rootView
+				.findViewById(R.id.home_tasksPercentageTxtView);
+
+		pendingTasksTxtView.setText(getRemainingTasksText());
+		completedTasksTxtView.setText(getCompletedTasksText());
+		completedTasksPercentageTxtView
+				.setText(getCompletedTasksPercentageText());
 
 		profileImg.setOnClickListener(new ImagePickerListener());
 		setImage(profileImg);
@@ -89,6 +113,8 @@ public class HomeFragment extends Fragment {
 				days = Days.daysBetween(new DateTime(new Date()),
 						new DateTime(date)).getDays();
 				returnValue = String.valueOf(days);
+				countdown.setTextSize(80);
+				daysLeft.setVisibility(View.VISIBLE);
 
 			} catch (ParseException e) {
 
@@ -97,6 +123,7 @@ public class HomeFragment extends Fragment {
 
 		} else {
 			returnValue = getString(R.string.home_count_default);
+			daysLeft.setVisibility(View.INVISIBLE);
 		}
 
 		return returnValue;
@@ -119,6 +146,44 @@ public class HomeFragment extends Fragment {
 				getString(R.string.home_event_name_default));
 
 		return returnValue;
+	}
+
+	private String getCompletedTasksText() {
+		taskDataSource.open();
+		int completedCount = taskDataSource.getCompletedTasks().size();
+		taskDataSource.close();
+		return completedCount + " " + getString(R.string.completed_tasks_text);
+	}
+
+	private String getRemainingTasksText() {
+		taskDataSource.open();
+		int remainingCount = taskDataSource.getPendingTasks().size();
+		taskDataSource.close();
+		return remainingCount + " " + getString(R.string.pending_tasks_text);
+	}
+
+	private String getCompletedTasksPercentageText() {
+
+		return getCompletedPercentage() + "% " + getString(R.string.percentage_tasks_text);
+	}
+	
+	private int getCompletedPercentage() {
+		
+		taskDataSource.open();
+		int completedCount = taskDataSource.getCompletedTasks().size();
+		int remainingCount = taskDataSource.getPendingTasks().size();
+
+		int base = completedCount + remainingCount;
+		Long percentage = Long.valueOf(0);
+		if (base > 0) {
+			percentage = (long) (100 * completedCount)
+					/ (completedCount + remainingCount);
+		}
+
+		taskDataSource.close();
+
+		return percentage.intValue();
+		
 	}
 
 	private void setImage(ImageView imageViewer) {

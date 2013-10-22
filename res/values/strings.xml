@@ -20,7 +20,11 @@
     <string name="title_remimders">Lembretes</string>
     <string name="title_expenses">Despesas</string>
     <string name="title_tasks">Tarefas</string>
-
+    <string name="pending_tasks_text">pendentes</string>
+    <string name="completed_tasks_text">concluidas</string>
+    <string name="percentage_tasks_text">das tarefas concluidas</string>
+    <string name="remaining_days_text">dias restantes</string>
+    
     <!-- Preferences Strings -->
     <string name="settings_section_title">Configurações gerais</string>
     <string name="settings_date_preference_title">Data do casamento</string>

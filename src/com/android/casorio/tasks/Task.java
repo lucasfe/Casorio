@@ -17,6 +17,15 @@ public class Task implements Serializable {
 	private String dueDate;
 	private String note;
 	private String remimder;
+	private boolean isCompleted;
+
+	public boolean isCompleted() {
+		return isCompleted;
+	}
+
+	public void setCompleted(boolean isCompleted) {
+		this.isCompleted = isCompleted;
+	}
 
 	public long getId() {
 		return id;

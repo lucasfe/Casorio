@@ -76,7 +76,31 @@ public class TaskDataSource extends GenericDataSource {
 
 		return result;
 	}
+	
+	public List<Task> getCompletedTasks() {
+		
+		List<Task> result = new ArrayList<Task>();
+		
+		for(Task task : getAllTasks()) {
+			if (task.isCompleted()) {
+				result.add(task);
+			}
+		}
+		return result;
+	}
 
+	public List<Task> getPendingTasks() {
+		
+		List<Task> result = new ArrayList<Task>();
+		
+		for(Task task : getAllTasks()) {
+			if (!task.isCompleted()) {
+				result.add(task);
+			}
+		}
+		return result;
+	}
+	
 	public Cursor getAllTasksCursor() {
 
 		return database.query(TasksTable.TABLE_TASKS, allColumns, null, null,
