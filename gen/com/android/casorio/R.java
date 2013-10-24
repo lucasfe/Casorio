@@ -30,19 +30,20 @@ public final class R {
         public static final int casorio_circle=0x7f020001;
         public static final int casorio_circle_all_white=0x7f020002;
         public static final int device_access_time=0x7f020003;
-        public static final int home_menu_guests_icon=0x7f020004;
-        public static final int home_menu_home_icon=0x7f020005;
-        public static final int home_menu_settings_icon=0x7f020006;
-        public static final int home_menu_tasks_icon=0x7f020007;
-        public static final int ic_drawer=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int list_divider_pink_1=0x7f02000a;
-        public static final int list_gradient_divider_dark_1=0x7f02000b;
-        public static final int pink_progress_bar=0x7f02000c;
-        public static final int progress_primary_holo_pink=0x7f02000d;
-        public static final int social_add_person=0x7f02000e;
-        public static final int social_group=0x7f02000f;
-        public static final int social_person=0x7f020010;
+        public static final int home_menu_budget_icon=0x7f020004;
+        public static final int home_menu_guests_icon=0x7f020005;
+        public static final int home_menu_home_icon=0x7f020006;
+        public static final int home_menu_settings_icon=0x7f020007;
+        public static final int home_menu_tasks_icon=0x7f020008;
+        public static final int ic_drawer=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int list_divider_pink_1=0x7f02000b;
+        public static final int list_gradient_divider_dark_1=0x7f02000c;
+        public static final int pink_progress_bar=0x7f02000d;
+        public static final int progress_primary_holo_pink=0x7f02000e;
+        public static final int social_add_person=0x7f02000f;
+        public static final int social_group=0x7f020010;
+        public static final int social_person=0x7f020011;
     }
     public static final class id {
         public static final int action_add_guest=0x7f0a003e;

@@ -80,6 +80,10 @@ public class MenuListAdapter extends BaseAdapter{
 			menuImageView.setImageDrawable(mContext.getResources().getDrawable(
 					R.drawable.home_menu_tasks_icon));
 			break;
+		case 3:
+			menuImageView.setImageDrawable(mContext.getResources().getDrawable(
+					R.drawable.home_menu_budget_icon));	
+			break;
 		case 4:
 			menuImageView.setImageDrawable(mContext.getResources().getDrawable(
 					R.drawable.home_menu_settings_icon));
