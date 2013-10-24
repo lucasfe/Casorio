@@ -24,7 +24,15 @@
     <string name="completed_tasks_text">concluidas</string>
     <string name="percentage_tasks_text">das tarefas concluidas</string>
     <string name="remaining_days_text">dias restantes</string>
-    
+
+    <string-array name="home_menu_entries">
+        <item>Home</item>
+        <item>Convidados</item>
+        <item>Tarefas</item>
+        <item>Orçamento</item>
+        <item>Configurações</item>
+    </string-array>
+
     <!-- Preferences Strings -->
     <string name="settings_section_title">Configurações gerais</string>
     <string name="settings_date_preference_title">Data do casamento</string>

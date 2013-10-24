@@ -6,9 +6,9 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 
-import com.android.casorio.HomeActivity;
 import com.android.casorio.R;
 import com.android.casorio.guest.InsertGuestActivity;
+import com.android.casorio.home.HomeActivity;
 import com.android.casorio.tasks.CreateTaskActivity;
 import com.android.casorio.tasks.TaskListFragment;
 

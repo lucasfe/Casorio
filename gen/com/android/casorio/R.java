@@ -9,8 +9,9 @@ package com.android.casorio;
 
 public final class R {
     public static final class array {
-        public static final int guest_type_options=0x7f070000;
-        public static final int task_category_options=0x7f070001;
+        public static final int guest_type_options=0x7f070001;
+        public static final int home_menu_entries=0x7f070000;
+        public static final int task_category_options=0x7f070002;
     }
     public static final class attr {
     }
@@ -29,22 +30,28 @@ public final class R {
         public static final int casorio_circle=0x7f020001;
         public static final int casorio_circle_all_white=0x7f020002;
         public static final int device_access_time=0x7f020003;
-        public static final int ic_drawer=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int pink_progress_bar=0x7f020006;
-        public static final int progress_primary_holo_pink=0x7f020007;
-        public static final int social_add_person=0x7f020008;
-        public static final int social_group=0x7f020009;
-        public static final int social_person=0x7f02000a;
+        public static final int home_menu_guests_icon=0x7f020004;
+        public static final int home_menu_home_icon=0x7f020005;
+        public static final int home_menu_settings_icon=0x7f020006;
+        public static final int home_menu_tasks_icon=0x7f020007;
+        public static final int ic_drawer=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int list_divider_pink_1=0x7f02000a;
+        public static final int list_gradient_divider_dark_1=0x7f02000b;
+        public static final int pink_progress_bar=0x7f02000c;
+        public static final int progress_primary_holo_pink=0x7f02000d;
+        public static final int social_add_person=0x7f02000e;
+        public static final int social_group=0x7f02000f;
+        public static final int social_person=0x7f020010;
     }
     public static final class id {
-        public static final int action_add_guest=0x7f0a003b;
-        public static final int action_call_create_task=0x7f0a003d;
-        public static final int action_call_insert=0x7f0a0039;
-        public static final int action_insert_guest=0x7f0a003a;
-        public static final int action_save=0x7f0a0038;
-        public static final int action_settings=0x7f0a003c;
-        public static final int additionalText=0x7f0a002d;
+        public static final int action_add_guest=0x7f0a003e;
+        public static final int action_call_create_task=0x7f0a0040;
+        public static final int action_call_insert=0x7f0a003c;
+        public static final int action_insert_guest=0x7f0a003d;
+        public static final int action_save=0x7f0a003b;
+        public static final int action_settings=0x7f0a003f;
+        public static final int additionalText=0x7f0a0030;
         public static final int categories_create_coast=0x7f0a0002;
         public static final int categories_create_name=0x7f0a0001;
         public static final int category_BalanceTxtView=0x7f0a0004;
@@ -55,13 +62,13 @@ public final class R {
         public static final int container=0x7f0a0000;
         public static final int content_frame=0x7f0a0024;
         public static final int drawer_layout=0x7f0a0023;
-        public static final int emailText=0x7f0a002c;
+        public static final int emailText=0x7f0a002f;
         public static final int guest_details_name=0x7f0a0009;
         public static final int guest_list_count_txt=0x7f0a0008;
-        public static final int guest_radio_group_status=0x7f0a0028;
-        public static final int guest_radio_maybe=0x7f0a002a;
-        public static final int guest_radio_no=0x7f0a002b;
-        public static final int guest_radio_yes=0x7f0a0029;
+        public static final int guest_radio_group_status=0x7f0a002b;
+        public static final int guest_radio_maybe=0x7f0a002d;
+        public static final int guest_radio_no=0x7f0a002e;
+        public static final int guest_radio_yes=0x7f0a002c;
         public static final int guest_view_info_btn=0x7f0a000d;
         public static final int guest_view_name=0x7f0a000b;
         public static final int guest_view_number_of_guests_img=0x7f0a000a;
@@ -71,8 +78,11 @@ public final class R {
         public static final int home_budgetTitleTxtView=0x7f0a0015;
         public static final int home_completed_tasks_scoreTxtView=0x7f0a0020;
         public static final int home_countdown=0x7f0a0011;
+        public static final int home_drawer_menu_image=0x7f0a0027;
+        public static final int home_drawer_menu_text=0x7f0a0028;
         public static final int home_event_nametextView=0x7f0a0012;
         public static final int home_imageProfile=0x7f0a0013;
+        public static final int home_liner_layout=0x7f0a0026;
         public static final int home_pending_tasks_scoreTxtView=0x7f0a001e;
         public static final int home_remaing_days_txtView=0x7f0a0014;
         public static final int home_spentTitleTextView=0x7f0a0017;
@@ -86,20 +96,20 @@ public final class R {
         public static final int imageView2=0x7f0a001d;
         public static final int imageView3=0x7f0a001f;
         public static final int left_drawer=0x7f0a0025;
-        public static final int nameText=0x7f0a0026;
+        public static final int nameText=0x7f0a0029;
         public static final int relativeLayout1=0x7f0a000f;
-        public static final int taskDeleteImg=0x7f0a0036;
-        public static final int taskList=0x7f0a0037;
-        public static final int taskListCheckbox=0x7f0a0035;
-        public static final int taskNameText=0x7f0a002e;
-        public static final int task_category_spinner=0x7f0a002f;
-        public static final int task_coast_text=0x7f0a0033;
-        public static final int task_due_date_picker=0x7f0a0031;
-        public static final int task_due_date_txt=0x7f0a0030;
-        public static final int task_note_text=0x7f0a0034;
-        public static final int task_reminder_txt_view=0x7f0a0032;
+        public static final int taskDeleteImg=0x7f0a0039;
+        public static final int taskList=0x7f0a003a;
+        public static final int taskListCheckbox=0x7f0a0038;
+        public static final int taskNameText=0x7f0a0031;
+        public static final int task_category_spinner=0x7f0a0032;
+        public static final int task_coast_text=0x7f0a0036;
+        public static final int task_due_date_picker=0x7f0a0034;
+        public static final int task_due_date_txt=0x7f0a0033;
+        public static final int task_note_text=0x7f0a0037;
+        public static final int task_reminder_txt_view=0x7f0a0035;
         public static final int txtHeader=0x7f0a000e;
-        public static final int type_spinner=0x7f0a0027;
+        public static final int type_spinner=0x7f0a002a;
     }
     public static final class layout {
         public static final int casorio_manager_layout=0x7f030000;
@@ -112,10 +122,11 @@ public final class R {
         public static final int guestlist_header_row=0x7f030007;
         public static final int home_activity_layout=0x7f030008;
         public static final int home_drawer_layout=0x7f030009;
-        public static final int insert_guest_layout=0x7f03000a;
-        public static final int task_create_layout=0x7f03000b;
-        public static final int task_list_item=0x7f03000c;
-        public static final int task_list_layout=0x7f03000d;
+        public static final int home_drawer_menu_item=0x7f03000a;
+        public static final int insert_guest_layout=0x7f03000b;
+        public static final int task_create_layout=0x7f03000c;
+        public static final int task_list_item=0x7f03000d;
+        public static final int task_list_layout=0x7f03000e;
     }
     public static final class menu {
         public static final int generic_insert_menu=0x7f090000;

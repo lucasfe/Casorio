@@ -1,4 +1,4 @@
-package com.android.casorio;
+package com.android.casorio.home;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -12,13 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.casorio.R;
 import com.android.casorio.categories.CategoryListFragment;
 import com.android.casorio.categories.IOnCategorySelectedListener;
 import com.android.casorio.guest.GuestFragment;
-import com.android.casorio.home.HomeFragment;
 import com.android.casorio.settings.SettingsFragment;
 import com.android.casorio.tasks.TaskListFragment;
 import com.android.casorio.util.FragmentCaller;
@@ -29,9 +28,6 @@ public class HomeActivity extends Activity implements IOnCategorySelectedListene
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 
-	private static String[] mOptionTitles = { "Home", "Convidados", "Tarefas",
-			"Orçamento", "Configurações" };
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,8 +36,9 @@ public class HomeActivity extends Activity implements IOnCategorySelectedListene
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, mOptionTitles));
+		
+		
+		mDrawerList.setAdapter(new MenuListAdapter(this));
 
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
