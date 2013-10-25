@@ -8,6 +8,6 @@ public interface IGuestListener {
 	
 	public void onGuestDeleted();
 	
-	public void onGuestEdit();
+	public void onGuestEdit(long id);
 
 }

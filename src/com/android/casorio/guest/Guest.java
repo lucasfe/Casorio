@@ -28,11 +28,11 @@ public class Guest implements Serializable{
 
 	public enum GuestStatus {
 		
-		NOT_GOING(2),
+		PENDING(0),
 		
 		CONFIRMED(1),
 		
-		PENDING(0); 
+		NOT_GOING(2); 
 				
 		private int statValue;
 		
@@ -72,11 +72,11 @@ public class Guest implements Serializable{
 
 	public enum GuestType {
 		
-		FRIEND(2),
+		FRIEND(0),
 		
 		RElATIVE(1),
 
-		GODFATHER(0);
+		GODFATHER(2);
 		
 		
 		private int statValue;

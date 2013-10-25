@@ -185,6 +185,7 @@ public class HomeActivity extends Activity implements IOnCategorySelectedListene
 	public void onInsertGuest() {
 		GuestInsertFragment guestInsert = new GuestInsertFragment();
 		FragmentCaller.callFragment(this, guestInsert);
+
 		
 	}
 
@@ -195,8 +196,13 @@ public class HomeActivity extends Activity implements IOnCategorySelectedListene
 	}
 
 	@Override
-	public void onGuestEdit() {
-		// TODO Auto-generated method stub
+	public void onGuestEdit(long id) {
+		GuestInsertFragment guestInsert = new GuestInsertFragment();
+		Bundle args = new Bundle();
+		args.putLong(GuestInsertFragment.GUEST_ID, id);
+		guestInsert.setArguments(args);
+
+		FragmentCaller.callFragment(this, guestInsert);
 		
 	}
 

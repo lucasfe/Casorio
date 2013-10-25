@@ -98,7 +98,7 @@ public class GuestDetailsFragment extends Fragment {
 			break;
 			
 		case R.id.action_call_edit:
-			mGuestListener.onGuestEdit();
+			mGuestListener.onGuestEdit(guest.getId());
 			break;
 		}
 
@@ -125,7 +125,7 @@ public class GuestDetailsFragment extends Fragment {
 		if (args != null) {
 			int guestId = args.getInt(GUEST_ID);
 			mDataSource.open();
-			Guest guest = mDataSource.getGuestById(guestId);
+			guest = mDataSource.getGuestById(guestId);
 			fillData(guest);
 			mDataSource.close();
 		}
