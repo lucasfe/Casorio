@@ -1,8 +1,8 @@
 package com.android.casorio.guest;
 
+import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ActionMode;
@@ -26,6 +26,8 @@ public class GuestFragment extends ListFragment implements  Callback {
 	private TextView guestCounterTxtView;
 	GuestAdapter adapter;
 	GuestDataSource dataSource;
+	
+	private IGuestListener mOnGuestSelectedListener;
 
 	/**
 	 * The fragment argument representing the section number for this fragment.
@@ -65,38 +67,37 @@ public class GuestFragment extends ListFragment implements  Callback {
 	}
 	
 	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		
+		if (activity instanceof IGuestListener) {
+			mOnGuestSelectedListener = (IGuestListener) activity;
+		} 
+		else {
+			throw new ClassCastException();
+		}
+		
+	}
+
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		
 		case R.id.action_add_guest:
-			FragmentCaller.callInsertGuestActivity(getActivity());
+			mOnGuestSelectedListener.onInsertGuest();
 			break;
 		}
 
 		return true;
 	}
 
-	
-	
 
 
 	public void onListItemClick(ListView l, View v, int position, long id) {
 
 		super.onListItemClick(l, v, position, id);
-
-		Cursor c = (Cursor) l.getAdapter().getItem(position);
-
-		Guest selectGuest = GuestDataSource.cursorToGuest(c);
-		callGuestDetailsActivity(selectGuest);
-
-	}
-
-	private void callGuestDetailsActivity(Guest guest) {
-
-		Intent callingItent = new Intent(this.getActivity(),
-				GuestDetailsActivity.class);
-		callingItent.putExtra("Guest", guest);
-		startActivity(callingItent);
+		
+		mOnGuestSelectedListener.onGuestSelected(position + 1);
 
 	}
 

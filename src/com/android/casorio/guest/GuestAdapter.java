@@ -45,9 +45,9 @@ public class GuestAdapter extends CursorAdapter {
 		GuestStatus value = guest.getGuestStatus();
 
 		switch (value) {
-		case INVITE_SENT:
+		case NOT_GOING:
 			status = context.getResources().getString(
-					R.string.guest_sent_status);
+					R.string.guest_not_going);
 			break;
 		case PENDING:
 			status = context.getResources().getString(

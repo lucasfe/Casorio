@@ -17,12 +17,15 @@ import android.widget.ListView;
 import com.android.casorio.R;
 import com.android.casorio.categories.CategoryListFragment;
 import com.android.casorio.categories.IOnCategorySelectedListener;
+import com.android.casorio.guest.GuestDetailsFragment;
 import com.android.casorio.guest.GuestFragment;
+import com.android.casorio.guest.GuestInsertFragment;
+import com.android.casorio.guest.IGuestListener;
 import com.android.casorio.settings.SettingsFragment;
 import com.android.casorio.tasks.TaskListFragment;
 import com.android.casorio.util.FragmentCaller;
 
-public class HomeActivity extends Activity implements IOnCategorySelectedListener {
+public class HomeActivity extends Activity implements IOnCategorySelectedListener, IGuestListener {
 
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
@@ -164,6 +167,36 @@ public class HomeActivity extends Activity implements IOnCategorySelectedListene
 		
 		FragmentCaller.callFragment(this, taskList);
 		
+		
+	}
+
+	@Override
+	public void onGuestSelected(int position) {
+		GuestDetailsFragment guestDetails = new GuestDetailsFragment();
+		Bundle args = new Bundle();
+		args.putInt(GuestDetailsFragment.GUEST_ID, position);
+		guestDetails.setArguments(args);
+		
+		FragmentCaller.callFragment(this, guestDetails);
+		
+	}
+
+	@Override
+	public void onInsertGuest() {
+		GuestInsertFragment guestInsert = new GuestInsertFragment();
+		FragmentCaller.callFragment(this, guestInsert);
+		
+	}
+
+	@Override
+	public void onGuestDeleted() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onGuestEdit() {
+		// TODO Auto-generated method stub
 		
 	}
 

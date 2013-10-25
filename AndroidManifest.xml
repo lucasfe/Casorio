@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.android.casorio.guest.InsertGuestActivity"
+            android:name="com.android.casorio.guest.GuestInsertFragment"
             android:label="@string/action_add_guest" />
         <activity
-            android:name="com.android.casorio.guest.GuestDetailsActivity"
+            android:name="com.android.casorio.guest.GuestDetailsFragment"
             android:label="@string/action_guest_details" />
         <activity
             android:name="com.android.casorio.tasks.CreateTaskActivity"

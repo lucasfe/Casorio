@@ -59,7 +59,7 @@
     <string name="guest_confirmed_status">Presença confirmada</string>
     <string name="guest_pending_status">Envio pendente</string>
     <string name="guest_canceled">Envio pendente</string>
-    <string name="guest_sent_status">Convite enviado</string>
+    <string name="guest_not_going">Não comparecera</string>
     <string name="guest_invite_number_image_description">Numero de convidados</string>
     <string name="guest_info_image_description">Informações do convidado</string>
     <string name="guest_insert_name_hint">Nome</string>
@@ -71,6 +71,13 @@
     <string name="guest_insert_status_radio_option_maybe">Talvez</string>
     <string name="guest_insert_additional_hint">Nº de convidados adicionais</string>
     <string name="guest_inserted_confirmation_message">Convidado adicionado</string>
+    <string name="guest_details_header_title">Detalhes do convidado</string>
+    
+    <string name="guest_details_name">Nome</string>
+    <string name="guest_details_email">E-mail</string>
+    <string name="guest_details_type">Tipo</string>
+    <string name="guest_details_additional">N° de convidados adicionais</string>
+    <string name="guest_details_status">Status</string>
 
     <string-array name="guest_type_options">
         <item>Amigo</item>

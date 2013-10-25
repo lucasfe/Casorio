@@ -7,7 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 
 import com.android.casorio.R;
-import com.android.casorio.guest.InsertGuestActivity;
+import com.android.casorio.guest.GuestInsertFragment;
 import com.android.casorio.home.HomeActivity;
 import com.android.casorio.tasks.CreateTaskActivity;
 import com.android.casorio.tasks.TaskListFragment;
@@ -15,7 +15,7 @@ import com.android.casorio.tasks.TaskListFragment;
 public class FragmentCaller {
 
 	public static void callInsertGuestActivity(Activity activity) {
-		Intent callingItent = new Intent(activity, InsertGuestActivity.class);
+		Intent callingItent = new Intent(activity, GuestInsertFragment.class);
 		activity.startActivity(callingItent);
 	}
 	

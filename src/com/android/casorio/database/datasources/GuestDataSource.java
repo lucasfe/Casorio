@@ -37,13 +37,8 @@ public class GuestDataSource extends GenericDataSource {
 		
 		long insertId = database.insert(GuestsTable.TABLE_GUESTS, null,
 				values);
-		Cursor cursor = database.query(GuestsTable.TABLE_GUESTS,
-				allColumns, GuestsTable.COLUMN_ID + " = " + insertId, null,
-				null, null, null);
-		cursor.moveToFirst();
-		Guest newGuest = cursorToGuest(cursor);
-		cursor.close();
-		return newGuest;
+		
+		return getGuestById(insertId);
 	}
 	
 	public static Guest cursorToGuest(Cursor cursor) {
@@ -53,7 +48,7 @@ public class GuestDataSource extends GenericDataSource {
 		newGuest.setName(cursor.getString(1));
 		newGuest.setEmail(cursor.getString(2));
 		newGuest.setAdditinal_guests(cursor.getInt(3));
-		newGuest.setAdditinal_guests(cursor.getInt(4));
+		newGuest.setType(cursor.getInt(4));
 		newGuest.setStatus(cursor.getInt(5));
 		return newGuest;
 	}
@@ -79,6 +74,18 @@ public class GuestDataSource extends GenericDataSource {
 		Cursor cursor = database.query(GuestsTable.TABLE_GUESTS,
 				allColumns, null, null, null, null, null);
 		return cursor;
+	}
+	
+	
+	public Guest getGuestById(long id) {
+		Cursor cursor = database.query(GuestsTable.TABLE_GUESTS,
+				allColumns, GuestsTable.COLUMN_ID + " = " + id, null,
+				null, null, null);
+		cursor.moveToFirst();
+		Guest newGuest = cursorToGuest(cursor);
+		cursor.close();
+		return newGuest;
+
 	}
 
 

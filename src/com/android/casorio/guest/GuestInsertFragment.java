@@ -1,10 +1,14 @@
 package com.android.casorio.guest;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -14,10 +18,9 @@ import com.android.casorio.R;
 import com.android.casorio.database.datasources.GuestDataSource;
 import com.android.casorio.guest.Guest.GuestStatus;
 import com.android.casorio.guest.Guest.GuestType;
-import com.android.casorio.util.FragmentCaller;
 import com.android.casorio.util.Validator;
 
-public class InsertGuestActivity extends Activity {
+public class GuestInsertFragment extends Fragment {
 	
 	
 	GuestDataSource dataSource;
@@ -30,38 +33,38 @@ public class InsertGuestActivity extends Activity {
 	
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.insert_guest_layout);
 		
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		setHasOptionsMenu(true);
 
+		View returnView = inflater.inflate(R.layout.insert_guest_layout, container, false);
 		
-		dataSource = new GuestDataSource(getApplicationContext());
+		dataSource = new GuestDataSource(getActivity());
 		
-		name = (EditText) findViewById(R.id.nameText);
-		email = (EditText) findViewById(R.id.emailText);
-		additional = (EditText) findViewById(R.id.additionalText);
-		statusGroup = (RadioGroup) findViewById(R.id.guest_radio_group_status);
-		spinner = (Spinner) findViewById(R.id.type_spinner);
+		name = (EditText) returnView.findViewById(R.id.nameText);
+		email = (EditText) returnView.findViewById(R.id.emailText);
+		additional = (EditText) returnView.findViewById(R.id.additionalText);
+		statusGroup = (RadioGroup) returnView.findViewById(R.id.guest_radio_group_status);
+		spinner = (Spinner) returnView.findViewById(R.id.type_spinner);
+		
+		return returnView;
 	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.guest_insert_menu, menu);
-		return true;
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		menu.clear();
+		inflater.inflate(R.menu.guest_insert_menu, menu);
 	}
 	
 	@Override
 	  public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
-		
-	    case android.R.id.home:
-			FragmentCaller.callHomeActivity(this);
-			break;
 	    
 	    case R.id.action_insert_guest:
-	    	insertGuestAction(this);
+	    	insertGuestAction(getActivity());
 	      break;
 	    }
 
@@ -74,7 +77,7 @@ public class InsertGuestActivity extends Activity {
 		GuestStatus status = getStatusFromRadioGroup(statusGroup);
 		GuestType type = getTypeFromSpinner(spinner);
 		
-		if(!Validator.hasText(this, name) || !Validator.isNumber(this, additional, true))
+		if(!Validator.hasText(getActivity(), name) || !Validator.isNumber(getActivity(), additional, true))
 		{
 			return false;
 		}

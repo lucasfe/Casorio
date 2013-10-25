@@ -2,8 +2,13 @@ package com.android.casorio.guest;
 
 import java.io.Serializable;
 
+import com.android.casorio.R;
+
+import android.content.Context;
+
 
 public class Guest implements Serializable{
+	
 	
 	
 	/**
@@ -16,19 +21,19 @@ public class Guest implements Serializable{
 	private String name;
 	private String email;
 	private int additinal_guests;
+	private int type;
+
 	private int status;
 	
 
 	public enum GuestStatus {
 		
-		NOT_GOING(3),
+		NOT_GOING(2),
 		
-		CONFIRMED(2),
+		CONFIRMED(1),
 		
-		PENDING(1), 
-		
-		INVITE_SENT(0);
-		
+		PENDING(0); 
+				
 		private int statValue;
 		
 		private GuestStatus(int value) {
@@ -37,6 +42,29 @@ public class Guest implements Serializable{
 		
 		public int getValue() {
 			return statValue;
+		}
+		
+		public String getStatusText(Context context) {
+			String result = "";
+			
+			switch (this) {
+			case NOT_GOING:
+				result = context.getResources().getString(
+						R.string.guest_not_going);
+				break;
+			case PENDING:
+				result = context.getResources().getString(
+						R.string.guest_pending_status);
+				break;
+			case CONFIRMED:
+				result = context.getResources().getString(
+						R.string.guest_confirmed_status);
+				break;
+			default:
+
+			}
+			return result;
+
 		}
 				
 	};
@@ -60,10 +88,18 @@ public class Guest implements Serializable{
 		public int getValue() {
 			return statValue;
 		}
-				
+		
+					
 	};
 
 	
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
 	
 	public String getEmail() {
 		return email;
@@ -86,35 +122,12 @@ public class Guest implements Serializable{
 		return status;
 	}
 	
+	
+	
 	public GuestStatus getGuestStatus() {
-		
-		GuestStatus result = GuestStatus.INVITE_SENT;
-		
-		
-		int value = this.status;
-		
-		switch(value) 
-		{
-		case 3:
-			result = GuestStatus.NOT_GOING;
-			break;	
-		case 2:
-			result = GuestStatus.CONFIRMED;
-			break;
-		case 1:
-			result = GuestStatus.PENDING;
-			break;
-		case 0:
-			result = GuestStatus.INVITE_SENT;
-			break;
-		default:
-		
-		}
-		
-		return result;
+		return GuestStatus.values()[status];
 	}
 
-	
 	
 	public void setStatus(int status) {
 		this.status = status;
