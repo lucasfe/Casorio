@@ -41,6 +41,22 @@ public class GuestDataSource extends GenericDataSource {
 		return getGuestById(insertId);
 	}
 	
+	
+	public void updateGuest(Guest guest) {
+		
+		
+	    ContentValues values = new ContentValues();
+	    
+		values.put(GuestsTable.COLUMN_NAME, guest.getName());
+		values.put(GuestsTable.COLUMN_EMAIL, guest.getEmail());
+		values.put(GuestsTable.COLUMN_ADDITIONAL_GUESTS, guest.getAdditinal_guests());
+		values.put(GuestsTable.COLUMN_TYPE, guest.getType());
+		values.put(GuestsTable.COLUMN_STATUS, guest.getGuestStatus().getValue());
+
+		database.update(GuestsTable.TABLE_GUESTS, values, GuestsTable.COLUMN_ID + "=" + guest.getId(), null);
+
+	}
+	
 	public static Guest cursorToGuest(Cursor cursor) {
 		
 		Guest newGuest = new Guest();

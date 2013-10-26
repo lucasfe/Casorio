@@ -63,7 +63,7 @@ public class GuestDetailsFragment extends Fragment {
 
 			type = (TextView) getActivity().findViewById(
 					R.id.guest_details_type);
-			type.setText(guestTypes.get(guest.getGuestStatus().getValue()));
+			type.setText(guestTypes.get(guest.getType()));
 
 			additional = (TextView) getActivity().findViewById(
 					R.id.guest_details_additional);

@@ -67,7 +67,13 @@ public class GuestInsertFragment extends Fragment {
 		switch (item.getItemId()) {
 
 		case R.id.action_insert_guest:
-			insertGuestAction(getActivity());
+			if (guest == null) { 
+				insertGuestAction(getActivity());	
+			}
+			else {
+				updateGuestAction(guest);
+			}
+			
 			break;
 		}
 
@@ -77,7 +83,7 @@ public class GuestInsertFragment extends Fragment {
 	@Override
 	public void onStart() {
 		super.onStart();
-
+		guest = null;
 		Bundle args = getArguments();
 		if (args != null) {
 			long guestId = args.getLong(GUEST_ID);
@@ -118,10 +124,20 @@ public class GuestInsertFragment extends Fragment {
 					context,
 					context.getResources().getString(
 							R.string.guest_inserted_confirmation_message),
-					Toast.LENGTH_LONG).show();
+					Toast.LENGTH_SHORT).show();
 		}
 		return result;
 
+	}
+	
+	
+	private void updateGuestAction(Guest guest) {
+		dataSource.open();
+		guest.setName("Luketa");
+		dataSource.updateGuest(guest);
+		dataSource.close();
+		
+		
 	}
 
 	private GuestStatus getStatusFromRadioGroup(RadioGroup radioGroup) {
