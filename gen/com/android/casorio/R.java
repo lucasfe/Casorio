@@ -111,7 +111,6 @@ public final class R {
         public static final int left_drawer=0x7f0a0030;
         public static final int nameText=0x7f0a0034;
         public static final int relativeLayout1=0x7f0a001a;
-        public static final int taskDeleteImg=0x7f0a0044;
         public static final int taskList=0x7f0a0045;
         public static final int taskListCheckbox=0x7f0a0043;
         public static final int taskNameText=0x7f0a003c;
@@ -121,6 +120,7 @@ public final class R {
         public static final int task_due_date_txt=0x7f0a003e;
         public static final int task_note_text=0x7f0a0042;
         public static final int task_reminder_txt_view=0x7f0a0040;
+        public static final int task_task_name_txtView=0x7f0a0044;
         public static final int txtHeader=0x7f0a0019;
         public static final int type_spinner=0x7f0a0035;
         public static final int view1=0x7f0a0009;
@@ -139,8 +139,9 @@ public final class R {
         public static final int home_drawer_menu_item=0x7f03000a;
         public static final int insert_guest_layout=0x7f03000b;
         public static final int task_create_layout=0x7f03000c;
-        public static final int task_list_item=0x7f03000d;
-        public static final int task_list_layout=0x7f03000e;
+        public static final int task_details_layout=0x7f03000d;
+        public static final int task_list_item=0x7f03000e;
+        public static final int task_list_layout=0x7f03000f;
     }
     public static final class menu {
         public static final int generic_insert_menu=0x7f090000;

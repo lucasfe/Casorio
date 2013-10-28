@@ -11,27 +11,19 @@
         android:id="@+id/taskListCheckbox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp" >
+    </CheckBox>
+
+    <TextView
+        android:id="@+id/task_task_name_txtView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="4"
         android:paddingBottom="20dp"
         android:paddingTop="20dp"
-        android:textSize="22sp" >
-    </CheckBox>
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/darker_gray" />
-
-    <ImageView
-        android:id="@+id/taskDeleteImg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:contentDescription="@string/action_add_guest"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
-        android:src="@android:drawable/ic_menu_delete" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </LinearLayout>

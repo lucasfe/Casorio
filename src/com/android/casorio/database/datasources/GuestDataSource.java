@@ -53,23 +53,28 @@ public class GuestDataSource extends GenericDataSource {
 		values.put(GuestsTable.COLUMN_TYPE, guest.getType());
 		values.put(GuestsTable.COLUMN_STATUS, guest.getGuestStatus().getValue());
 
-		database.update(GuestsTable.TABLE_GUESTS, values, GuestsTable.COLUMN_ID + "=" + guest.getId(), null);
+		database.update(GuestsTable.TABLE_GUESTS, values, GuestsTable.COLUMN_ID + "=?" ,new String[]{String.valueOf(guest.getId())});
 
 	}
 	
 	public void deleteGuest(long id) {
-		database.delete(GuestsTable.TABLE_GUESTS, GuestsTable.COLUMN_ID + "=" + id, null);
+		database.delete(GuestsTable.TABLE_GUESTS, GuestsTable.COLUMN_ID + "=?" ,new String[]{String.valueOf(id)});
 	}
 	
 	public static Guest cursorToGuest(Cursor cursor) {
 		
-		Guest newGuest = new Guest();
-		newGuest.setId(cursor.getLong(0));
-		newGuest.setName(cursor.getString(1));
-		newGuest.setEmail(cursor.getString(2));
-		newGuest.setAdditinal_guests(cursor.getInt(3));
-		newGuest.setType(cursor.getInt(4));
-		newGuest.setStatus(cursor.getInt(5));
+		Guest newGuest = null;
+		if (cursor.getCount() >= 1) {
+			newGuest = new Guest();
+			newGuest.setId(cursor.getLong(0));
+			newGuest.setName(cursor.getString(1));
+			newGuest.setEmail(cursor.getString(2));
+			newGuest.setAdditinal_guests(cursor.getInt(3));
+			newGuest.setType(cursor.getInt(4));
+			newGuest.setStatus(cursor.getInt(5));
+		}
+		
+		
 		return newGuest;
 	}
 	

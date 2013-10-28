@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
@@ -56,6 +57,8 @@ public class TaskListAdapter extends BaseAdapter {
 			holder = new ViewHolder();
 			holder.box = (CheckBox) convertView
 					.findViewById(R.id.taskListCheckbox);
+			
+			holder.name = (TextView) convertView.findViewById(R.id.task_task_name_txtView);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -63,7 +66,7 @@ public class TaskListAdapter extends BaseAdapter {
 
 		Task task = mTaskList.get(position);
 
-		holder.box.setText(task.getName());
+		holder.name.setText(task.getName());
 
 		return convertView;
 	}
@@ -71,6 +74,7 @@ public class TaskListAdapter extends BaseAdapter {
 	static class ViewHolder {
 
 		CheckBox box;
+		TextView name;
 	}
 
 }

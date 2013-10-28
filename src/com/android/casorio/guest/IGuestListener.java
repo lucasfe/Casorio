@@ -2,7 +2,7 @@ package com.android.casorio.guest;
 
 public interface IGuestListener {
 	
-	public void onGuestSelected(int position);
+	public void onGuestSelected(long position);
 	
 	public void onInsertGuest();
 	

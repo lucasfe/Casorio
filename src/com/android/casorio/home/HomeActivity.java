@@ -23,6 +23,8 @@ import com.android.casorio.guest.GuestFragment;
 import com.android.casorio.guest.GuestInsertFragment;
 import com.android.casorio.guest.IGuestListener;
 import com.android.casorio.settings.SettingsFragment;
+import com.android.casorio.tasks.ITaskListener;
+import com.android.casorio.tasks.TaskDetailsFragment;
 import com.android.casorio.tasks.TaskListFragment;
 import com.android.casorio.util.FragmentCaller;
 
@@ -30,7 +32,7 @@ import com.android.casorio.util.FragmentCaller;
 
 
 
-public class HomeActivity extends FragmentActivity implements IOnCategorySelectedListener, IGuestListener {
+public class HomeActivity extends FragmentActivity implements IOnCategorySelectedListener, IGuestListener, ITaskListener {
 
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
@@ -176,10 +178,10 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 	}
 
 	@Override
-	public void onGuestSelected(int position) {
+	public void onGuestSelected(long position) {
 		GuestDetailsFragment guestDetails = new GuestDetailsFragment();
 		Bundle args = new Bundle();
-		args.putInt(GuestDetailsFragment.GUEST_ID, position);
+		args.putLong(GuestDetailsFragment.GUEST_ID, position);
 		guestDetails.setArguments(args);
 		
 		FragmentCaller.callFragment(this, guestDetails);
@@ -215,6 +217,35 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 		guestInsert.setArguments(args);
 
 		FragmentCaller.callFragment(this, guestInsert);
+		
+	}
+
+	@Override
+	public void OnTaskSelected(long id) {
+		TaskDetailsFragment taskDetails = new TaskDetailsFragment();
+		Bundle args = new Bundle();
+		args.putLong(TaskDetailsFragment.TASK_ID, id);
+		taskDetails.setArguments(args);
+		
+		FragmentCaller.callFragment(this, taskDetails);
+		
+	}
+
+	@Override
+	public void OnTaskDeleted(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OnTaskUpdated(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OnCreateTask() {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -123,7 +123,7 @@ public class GuestDetailsFragment extends Fragment {
 
 		Bundle args = getArguments();
 		if (args != null) {
-			int guestId = args.getInt(GUEST_ID);
+			long guestId = args.getLong(GUEST_ID);
 			mDataSource.open();
 			guest = mDataSource.getGuestById(guestId);
 			fillData(guest);

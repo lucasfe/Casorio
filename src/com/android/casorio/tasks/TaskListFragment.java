@@ -2,26 +2,28 @@ package com.android.casorio.tasks;
 
 import java.util.List;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.view.ActionMode;
-import android.view.ActionMode.Callback;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
 import com.android.casorio.util.FragmentCaller;
 
-public class TaskListFragment extends Fragment implements Callback {
+public class TaskListFragment extends Fragment {
 	
 	
 	public static final String CATEGORY_ID = "categoryId";
+	private ITaskListener mTaskListener;
 	
 	private ListView taskListView;
 	
@@ -40,6 +42,15 @@ public class TaskListFragment extends Fragment implements Callback {
 		source = new TaskDataSource(getActivity());
 		
 		taskListView = (ListView) rootView.findViewById(R.id.taskList);
+		
+		taskListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				mTaskListener.OnTaskSelected(position);
+			}
+		});
 		
 		source.open();
 		
@@ -72,16 +83,6 @@ public class TaskListFragment extends Fragment implements Callback {
         	updateListSelection(catId);
         }
     }
-	
-	@Override
-	public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-		MenuInflater inflater = mode.getMenuInflater();
-		inflater.inflate(R.menu.task_list_menu, menu);
-		super.onCreateOptionsMenu(menu, inflater);
-        
-        return true;
-	}
-
 
 	
 	@Override
@@ -96,23 +97,6 @@ public class TaskListFragment extends Fragment implements Callback {
 	    return true;
 	  }
 
-	@Override
-	public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void onDestroyActionMode(ActionMode mode) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-		// TODO Auto-generated method stub
-		return false;
-	} 
 	
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -120,6 +104,22 @@ public class TaskListFragment extends Fragment implements Callback {
 		menu.clear();
 		inflater.inflate(R.menu.task_list_menu, menu);
 		
+	}
+
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+
+		// This makes sure that the container activity has implemented
+		// the callback interface. If not, it throws an exception
+		if ((activity instanceof ITaskListener)) {
+			mTaskListener = (ITaskListener) activity;
+
+		} else {
+			throw new ClassCastException(activity.toString()
+					+ "must implement ITaskListener");
+		}
 	}
 
 
