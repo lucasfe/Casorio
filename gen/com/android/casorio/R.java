@@ -158,8 +158,8 @@ public final class R {
         public static final int action_add_guest=0x7f060021;
         /**  Task related strings 
          */
-        public static final int action_add_task=0x7f06003b;
-        public static final int action_call_create_task=0x7f06003c;
+        public static final int action_add_task=0x7f06003e;
+        public static final int action_call_create_task=0x7f06003f;
         public static final int action_guest_details=0x7f060022;
         public static final int action_settings=0x7f06000b;
         public static final int app_name=0x7f060009;
@@ -167,12 +167,14 @@ public final class R {
         public static final int empyt=0x7f060001;
         public static final int guest_canceled=0x7f060028;
         public static final int guest_confirmed_status=0x7f060026;
-        public static final int guest_details_additional=0x7f060039;
-        public static final int guest_details_email=0x7f060037;
-        public static final int guest_details_header_title=0x7f060035;
-        public static final int guest_details_name=0x7f060036;
-        public static final int guest_details_status=0x7f06003a;
-        public static final int guest_details_type=0x7f060038;
+        public static final int guest_details_additional=0x7f06003a;
+        public static final int guest_details_delete_dialog_message=0x7f06003d;
+        public static final int guest_details_delete_dialog_title=0x7f06003c;
+        public static final int guest_details_email=0x7f060038;
+        public static final int guest_details_header_title=0x7f060036;
+        public static final int guest_details_name=0x7f060037;
+        public static final int guest_details_status=0x7f06003b;
+        public static final int guest_details_type=0x7f060039;
         public static final int guest_info_image_description=0x7f06002b;
         public static final int guest_insert_additional_hint=0x7f060033;
         public static final int guest_insert_email_hint=0x7f06002d;
@@ -187,6 +189,7 @@ public final class R {
         public static final int guest_list_counter=0x7f060023;
         public static final int guest_not_going=0x7f060029;
         public static final int guest_pending_status=0x7f060027;
+        public static final int guest_updated_confirmation_message=0x7f060035;
         public static final int home_available_title=0x7f060007;
         public static final int home_budget_spent=0x7f060006;
         public static final int home_budget_title=0x7f060004;
@@ -222,14 +225,14 @@ public final class R {
         /**  Preferences Strings 
          */
         public static final int settings_section_title=0x7f060014;
-        public static final int task_category_spinner_hint=0x7f06003d;
-        public static final int task_coast_title=0x7f060041;
-        public static final int task_due_date_title=0x7f06003f;
-        public static final int task_name_hint=0x7f06003e;
-        public static final int task_note_title=0x7f060040;
-        public static final int task_reminder_content_descrption=0x7f060043;
-        public static final int task_reminder_new_reminder_title=0x7f060044;
-        public static final int task_reminder_title=0x7f060042;
+        public static final int task_category_spinner_hint=0x7f060040;
+        public static final int task_coast_title=0x7f060044;
+        public static final int task_due_date_title=0x7f060042;
+        public static final int task_name_hint=0x7f060041;
+        public static final int task_note_title=0x7f060043;
+        public static final int task_reminder_content_descrption=0x7f060046;
+        public static final int task_reminder_new_reminder_title=0x7f060047;
+        public static final int task_reminder_title=0x7f060045;
         public static final int title_expenses=0x7f06000e;
         public static final int title_guests=0x7f06000c;
         public static final int title_remimders=0x7f06000d;

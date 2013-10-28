@@ -94,7 +94,7 @@ public class GuestDetailsFragment extends Fragment {
 			break;
 
 		case R.id.action_call_delete:
-			mGuestListener.onGuestDeleted();
+			mGuestListener.onGuestDeleted(guest.getId());
 			break;
 			
 		case R.id.action_call_edit:

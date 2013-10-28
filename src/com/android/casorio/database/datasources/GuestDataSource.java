@@ -57,6 +57,10 @@ public class GuestDataSource extends GenericDataSource {
 
 	}
 	
+	public void deleteGuest(long id) {
+		database.delete(GuestsTable.TABLE_GUESTS, GuestsTable.COLUMN_ID + "=" + id, null);
+	}
+	
 	public static Guest cursorToGuest(Cursor cursor) {
 		
 		Guest newGuest = new Guest();

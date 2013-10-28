@@ -1,7 +1,6 @@
 package com.android.casorio.guest;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -67,13 +66,7 @@ public class GuestInsertFragment extends Fragment {
 		switch (item.getItemId()) {
 
 		case R.id.action_insert_guest:
-			if (guest == null) { 
-				insertGuestAction(getActivity());	
-			}
-			else {
-				updateGuestAction(guest);
-			}
-			
+			insertOrUpdateGuest();
 			break;
 		}
 
@@ -89,12 +82,12 @@ public class GuestInsertFragment extends Fragment {
 			long guestId = args.getLong(GUEST_ID);
 			dataSource.open();
 			guest = dataSource.getGuestById(guestId);
-			fillData(guest);
+			fillUI(guest);
 			dataSource.close();
 		}
 	}
 
-	private void fillData(Guest guest) {
+	private void fillUI(Guest guest) {
 		name.setText(guest.getName());
 		email.setText(guest.getEmail());
 		additional.setText(String.valueOf(guest.getAdditinal_guests()));
@@ -103,7 +96,7 @@ public class GuestInsertFragment extends Fragment {
 
 	}
 
-	private boolean insertGuestAction(Context context) {
+	private boolean insertGuestAction() {
 
 		GuestStatus status = getStatusFromRadioGroup(statusGroup);
 		GuestType type = getTypeFromSpinner(spinner);
@@ -121,8 +114,8 @@ public class GuestInsertFragment extends Fragment {
 		boolean result = returnedGuest != null ? true : false;
 		if (result) {
 			Toast.makeText(
-					context,
-					context.getResources().getString(
+					getActivity(),
+					getActivity().getResources().getString(
 							R.string.guest_inserted_confirmation_message),
 					Toast.LENGTH_SHORT).show();
 		}
@@ -132,12 +125,49 @@ public class GuestInsertFragment extends Fragment {
 	
 	
 	private void updateGuestAction(Guest guest) {
-		dataSource.open();
-		guest.setName("Luketa");
-		dataSource.updateGuest(guest);
+		dataSource.open();		
+		if(updateGuestFields(guest)) {
+			dataSource.updateGuest(guest);
+			Toast.makeText(
+					getActivity(),
+					getActivity().getResources().getString(
+							R.string.guest_updated_confirmation_message),
+					Toast.LENGTH_SHORT).show();
+
+		}
 		dataSource.close();
 		
+	}
+	
+	
+	private boolean updateGuestFields(Guest guest)
+	{
+		GuestStatus status = getStatusFromRadioGroup(statusGroup);
+		GuestType type = getTypeFromSpinner(spinner);
 		
+		if (!Validator.hasText(getActivity(), name)
+				|| !Validator.isNumber(getActivity(), additional, true)) {
+			return false;
+		}
+		
+		guest.setName(name.getText().toString());
+		guest.setEmail(email.getText().toString());
+		guest.setType(type.getValue());
+		guest.setStatus(status.getValue());
+		guest.setAdditinal_guests(Integer.parseInt(additional.getText().toString()));
+
+
+		return true;
+	}
+	
+	
+	private void insertOrUpdateGuest() {
+		if (guest == null) { 
+			insertGuestAction();	
+		}
+		else {
+			updateGuestAction(guest);
+		}
 	}
 
 	private GuestStatus getStatusFromRadioGroup(RadioGroup radioGroup) {

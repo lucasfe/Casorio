@@ -6,7 +6,7 @@ public interface IGuestListener {
 	
 	public void onInsertGuest();
 	
-	public void onGuestDeleted();
+	public void onGuestDeleted(long id);
 	
 	public void onGuestEdit(long id);
 

@@ -71,6 +71,7 @@
     <string name="guest_insert_status_radio_option_maybe">Talvez</string>
     <string name="guest_insert_additional_hint">Nº de convidados adicionais</string>
     <string name="guest_inserted_confirmation_message">Convidado adicionado</string>
+    <string name="guest_updated_confirmation_message">Convidado atualizado</string>
     <string name="guest_details_header_title">Detalhes do convidado</string>
     
     <string name="guest_details_name">Nome</string>
@@ -78,6 +79,8 @@
     <string name="guest_details_type">Tipo</string>
     <string name="guest_details_additional">N° de convidados adicionais</string>
     <string name="guest_details_status">Status</string>
+        <string name="guest_details_delete_dialog_title">Remover convidado</string>
+    <string name="guest_details_delete_dialog_message">Você tem certeza que deseja remover o convidado?</string>
 
     <string-array name="guest_type_options">
         <item>Amigo</item>

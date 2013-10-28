@@ -1,12 +1,12 @@
 package com.android.casorio.home;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +17,7 @@ import android.widget.ListView;
 import com.android.casorio.R;
 import com.android.casorio.categories.CategoryListFragment;
 import com.android.casorio.categories.IOnCategorySelectedListener;
+import com.android.casorio.guest.GuestDeletedDialogFragment;
 import com.android.casorio.guest.GuestDetailsFragment;
 import com.android.casorio.guest.GuestFragment;
 import com.android.casorio.guest.GuestInsertFragment;
@@ -25,7 +26,11 @@ import com.android.casorio.settings.SettingsFragment;
 import com.android.casorio.tasks.TaskListFragment;
 import com.android.casorio.util.FragmentCaller;
 
-public class HomeActivity extends Activity implements IOnCategorySelectedListener, IGuestListener {
+
+
+
+
+public class HomeActivity extends FragmentActivity implements IOnCategorySelectedListener, IGuestListener {
 
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
@@ -190,9 +195,16 @@ public class HomeActivity extends Activity implements IOnCategorySelectedListene
 	}
 
 	@Override
-	public void onGuestDeleted() {
-		// TODO Auto-generated method stub
+	public void onGuestDeleted(long id) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+		GuestDeletedDialogFragment guestDeleted = new GuestDeletedDialogFragment();
 		
+		Bundle args = new Bundle();
+		args.putLong(GuestDeletedDialogFragment.GUEST_ID, id);
+		guestDeleted.setArguments(args);
+
+		guestDeleted.show(ft, "dialog");
+
 	}
 
 	@Override
