@@ -24,6 +24,7 @@ import com.android.casorio.guest.GuestInsertFragment;
 import com.android.casorio.guest.IGuestListener;
 import com.android.casorio.settings.SettingsFragment;
 import com.android.casorio.tasks.ITaskListener;
+import com.android.casorio.tasks.TaskDeletedDialogFragment;
 import com.android.casorio.tasks.TaskDetailsFragment;
 import com.android.casorio.tasks.TaskListFragment;
 import com.android.casorio.util.FragmentCaller;
@@ -233,7 +234,14 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 
 	@Override
 	public void OnTaskDeleted(long id) {
-		// TODO Auto-generated method stub
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+		TaskDeletedDialogFragment taskDeleted = new TaskDeletedDialogFragment();
+		
+		Bundle args = new Bundle();
+		args.putLong(TaskDeletedDialogFragment.TASK_ID, id);
+		taskDeleted.setArguments(args);
+
+		taskDeleted.show(ft, "dialog");
 		
 	}
 

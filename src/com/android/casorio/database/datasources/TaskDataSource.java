@@ -126,5 +126,23 @@ public class TaskDataSource extends GenericDataSource {
 		}
 		return resultItems;
 	}
+	
+	public Task getTaskById(long id) {
+		Cursor temp = database.query(TasksTable.TABLE_TASKS, allColumns,
+				TasksTable.COLUMN_ID + "=?",
+				new String[] { String.valueOf(id) }, null, null, null);
+		temp.moveToFirst();
+		Task returTask = null;
+		if(temp.getCount() >= 1) {
+			returTask = cursorToTask(temp);
+		}
+		
+		return returTask ;
+	}
+	
+	
+	public void deleteTask(long id) {
+		database.delete(TasksTable.TABLE_TASKS, TasksTable.COLUMN_ID + "=?" ,new String[]{String.valueOf(id)});
+	}
 
 }

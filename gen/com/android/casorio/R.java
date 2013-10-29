@@ -228,6 +228,8 @@ public final class R {
         public static final int settings_section_title=0x7f060014;
         public static final int task_category_spinner_hint=0x7f060040;
         public static final int task_coast_title=0x7f060044;
+        public static final int task_details_delete_dialog_message=0x7f060049;
+        public static final int task_details_delete_dialog_title=0x7f060048;
         public static final int task_due_date_title=0x7f060042;
         public static final int task_name_hint=0x7f060041;
         public static final int task_note_title=0x7f060043;

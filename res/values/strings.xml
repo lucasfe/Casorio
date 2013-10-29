@@ -79,7 +79,7 @@
     <string name="guest_details_type">Tipo</string>
     <string name="guest_details_additional">N° de convidados adicionais</string>
     <string name="guest_details_status">Status</string>
-        <string name="guest_details_delete_dialog_title">Remover convidado</string>
+    <string name="guest_details_delete_dialog_title">Remover convidado</string>
     <string name="guest_details_delete_dialog_message">Você tem certeza que deseja remover o convidado?</string>
 
     <string-array name="guest_type_options">
@@ -101,6 +101,9 @@
     <string name="task_reminder_content_descrption"></string>
     <string name="task_reminder_new_reminder_title">Novo lembrete</string>
 
+    <string name="task_details_delete_dialog_title">Remover tarefa</string>
+    <string name="task_details_delete_dialog_message">Você tem certeza que deseja remover a tarefa?</string>
+    
     <string-array name="task_category_options">
         <item>Fotografia</item>
         <item>Decoração</item>

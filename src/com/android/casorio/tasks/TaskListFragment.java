@@ -43,23 +43,26 @@ public class TaskListFragment extends Fragment {
 		
 		taskListView = (ListView) rootView.findViewById(R.id.taskList);
 		
-		taskListView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				mTaskListener.OnTaskSelected(position);
-			}
-		});
 		
 		source.open();
 		
 		allTasksCursor = source.getAllTasks();
 		
-		TaskListAdapter adapter = new TaskListAdapter(allTasksCursor, getActivity());
+		final TaskListAdapter adapter = new TaskListAdapter(allTasksCursor, getActivity());
 	
 		
 		taskListView.setAdapter(adapter);
+		
+		taskListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				mTaskListener.OnTaskSelected(adapter.getItemId(position));
+			}
+		});
+
+		
 		source.close();
 		return rootView;
 	}
