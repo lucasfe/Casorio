@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.android.casorio.R;
@@ -30,6 +32,7 @@ public class TaskListAdapter extends BaseAdapter {
 		source = new TaskDataSource(context);
 		mInflater = LayoutInflater.from(context);
 		mTaskList = taskList;
+		
 	}
 
 	@Override
@@ -64,10 +67,22 @@ public class TaskListAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		Task task = mTaskList.get(position);
+
+		final Task task = mTaskList.get(position);
+
+			holder.box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				task.setCompleted(isChecked);
+				source.open();
+				source.updateGuest(task);
+				source.close();
+			}
+		});
 
 		holder.name.setText(task.getName());
-
+		holder.box.setChecked(task.isCompleted());
 		return convertView;
 	}
 

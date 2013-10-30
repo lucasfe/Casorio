@@ -14,7 +14,7 @@ public class Task implements Serializable {
 	private String name;
 	private long category_id;
 	private long coast;
-	private String dueDate;
+	private long dueDate;
 	private String note;
 	private String remimder;
 	private boolean isCompleted;
@@ -59,11 +59,11 @@ public class Task implements Serializable {
 		this.coast = coast;
 	}
 
-	public String getDueDate() {
+	public long getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(String dueDate) {
+	public void setDueDate(long dueDate) {
 		this.dueDate = dueDate;
 	}
 
@@ -81,6 +81,10 @@ public class Task implements Serializable {
 
 	public void setRemimder(String remimder) {
 		this.remimder = remimder;
+	}
+	
+	public int getCompletedValue() {
+		return isCompleted ? 1 : 0;
 	}
 
 }

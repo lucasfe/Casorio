@@ -12,8 +12,8 @@
             android:id="@+id/taskNameText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
             android:layout_marginTop="12dp"
+            android:layout_weight="6"
             android:ems="10"
             android:hint="@string/task_name_hint"
             android:inputType="textPersonName" />
@@ -30,7 +30,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:padding="6dp" >
 
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@string/task_reminder_title" />
+            android:text="@string/task_status_title" />
 
         <View
             android:layout_width="fill_parent"
@@ -74,29 +74,39 @@
             android:layout_marginTop="5dp"
             android:background="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/task_reminder_txt_view"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/task_create_radio_group_status"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@android:drawable/ic_menu_recent_history"
-            android:drawablePadding="10dp"
-            android:gravity="center"
-            android:text="@string/task_reminder_new_reminder_title"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:orientation="horizontal" >
 
+            <RadioButton
+                android:id="@+id/task_create_radio_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingRight="40dp"
+                android:text="@android:string/yes" />
+
+            <RadioButton
+                android:id="@+id/task_create_radio_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@android:string/no" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical" >
 
         <EditText
             android:id="@+id/task_coast_text"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="@string/task_coast_title"
             android:inputType="number|none" />

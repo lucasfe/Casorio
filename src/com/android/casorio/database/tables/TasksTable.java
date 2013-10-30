@@ -12,6 +12,7 @@ public class TasksTable {
 	public static final String COLUMN_DUE_DATE = "due_date";
 	public static final String COLUMN_REMINDER = "reminder";
 	public static final String COLUMN_COAST = "coast";
+	public static final String COLUMN_STATUS = "status";
 	public static final String COLUMN_NOTE = "notes";
 	
 	
@@ -23,9 +24,10 @@ public class TasksTable {
 			+ COLUMN_ID	+ " integer primary key autoincrement, " 
 			+ COLUMN_CATEGORY_ID + " integer default 0,"
 			+ COLUMN_NAME + " text not null,"
-			+ COLUMN_DUE_DATE + " text,"
+			+ COLUMN_DUE_DATE + " integer default 0,"
 			+ COLUMN_REMINDER + " text,"
 			+ COLUMN_NOTE + " text,"
+			+ COLUMN_STATUS + " integer default 0,"
 			+ COLUMN_COAST + " integer);";
 	
 

@@ -21,10 +21,11 @@ public class TaskDataSource extends GenericDataSource {
 	private String[] allColumns = { TasksTable.COLUMN_ID,
 			TasksTable.COLUMN_NAME, TasksTable.COLUMN_CATEGORY_ID,
 			TasksTable.COLUMN_COAST, TasksTable.COLUMN_DUE_DATE,
-			TasksTable.COLUMN_NOTE, TasksTable.COLUMN_REMINDER };
+			TasksTable.COLUMN_NOTE, TasksTable.COLUMN_STATUS ,TasksTable.COLUMN_REMINDER,
+			};
 
 	public Task createTask(String name, long categoryId, long coast,
-			String dueDate, String note, String reminder) {
+			long dueDate, String note, int status) {
 		ContentValues values = new ContentValues();
 
 		values.put(TasksTable.COLUMN_NAME, name);
@@ -32,7 +33,8 @@ public class TaskDataSource extends GenericDataSource {
 		values.put(TasksTable.COLUMN_COAST, coast);
 		values.put(TasksTable.COLUMN_DUE_DATE, dueDate);
 		values.put(TasksTable.COLUMN_NOTE, note);
-		values.put(TasksTable.COLUMN_REMINDER, reminder);
+		values.put(TasksTable.COLUMN_STATUS, status);
+		values.put(TasksTable.COLUMN_REMINDER, "");
 
 		long insertId = database.insert(TasksTable.TABLE_TASKS, null, values);
 		Cursor cursor = database
@@ -52,9 +54,11 @@ public class TaskDataSource extends GenericDataSource {
 		newTask.setName(cursor.getString(1));
 		newTask.setCategory_id(cursor.getLong(2));
 		newTask.setCoast(cursor.getInt(3));
-		newTask.setDueDate(cursor.getString(4));
+		newTask.setDueDate(cursor.getLong(4));
 		newTask.setNote(cursor.getString(5));
-		newTask.setRemimder(cursor.getString(6));
+		newTask.setCompleted((cursor.getInt(6) > 0 ));
+		newTask.setRemimder(cursor.getString(7));
+
 
 		return newTask;
 	}
@@ -139,6 +143,24 @@ public class TaskDataSource extends GenericDataSource {
 		
 		return returTask ;
 	}
+	
+	public void updateGuest(Task task) {
+		
+	    ContentValues values = new ContentValues();
+	    
+	    
+		values.put(TasksTable.COLUMN_NAME, task.getName());
+		values.put(TasksTable.COLUMN_CATEGORY_ID, task.getCategory_id());
+		values.put(TasksTable.COLUMN_COAST, task.getCoast());
+		values.put(TasksTable.COLUMN_DUE_DATE, task.getDueDate());
+		values.put(TasksTable.COLUMN_NOTE, task.getNote());
+		values.put(TasksTable.COLUMN_STATUS, task.getCompletedValue());
+		values.put(TasksTable.COLUMN_REMINDER, task.getRemimder());
+
+		database.update(TasksTable.TABLE_TASKS, values, TasksTable.COLUMN_ID + "=?" ,new String[]{String.valueOf(task.getId())});
+
+	}
+
 	
 	
 	public void deleteTask(long id) {

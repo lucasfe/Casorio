@@ -1,6 +1,7 @@
 package com.android.casorio.tasks;
 
 import java.text.NumberFormat;
+import java.util.Date;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -66,7 +67,8 @@ public class TaskDetailsFragment extends Fragment {
 			
 			title.setText(task.getName());
 			category.setText(categories[temp.intValue()]);
-			date.setText(task.getDueDate());
+			
+			date.setText(android.text.format.DateFormat.getDateFormat(getActivity()).format(new Date(task.getDueDate())));
 			coast.setText(format.format(task.getCoast()));
 			note.setText(task.getNote());
 

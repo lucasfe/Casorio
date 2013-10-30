@@ -248,15 +248,20 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 
 	@Override
 	public void OnTaskUpdated(long id) {
-		// TODO Auto-generated method stub
+		CreateTaskFragment taskInsert = new CreateTaskFragment();
+		
+		Bundle args = new Bundle();
+		args.putLong(CreateTaskFragment.TASK_ID, id);
+		taskInsert.setArguments(args);
+
+		FragmentCaller.callFragment(this, taskInsert);
 		
 	}
 
 	@Override
 	public void OnCreateTask() {
 		CreateTaskFragment taskInsert = new CreateTaskFragment();
-		FragmentCaller.callFragment(this, taskInsert);
-		
+		FragmentCaller.callFragment(this, taskInsert);		
 	}
 
 
