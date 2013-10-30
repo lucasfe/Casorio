@@ -17,7 +17,6 @@ import android.widget.ListView;
 
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
-import com.android.casorio.util.FragmentCaller;
 
 public class TaskListFragment extends Fragment {
 	
@@ -93,7 +92,7 @@ public class TaskListFragment extends Fragment {
 	    switch (item.getItemId()) {
 
 	    case R.id.action_call_create_task:
-	    	FragmentCaller.callCreateTaskActivity(getActivity());
+	    	mTaskListener.OnCreateTask();
 	      break;
 	    }
 

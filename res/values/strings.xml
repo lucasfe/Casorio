@@ -100,7 +100,14 @@
     <string name="task_reminder_title">Lembrete</string>
     <string name="task_reminder_content_descrption"></string>
     <string name="task_reminder_new_reminder_title">Novo lembrete</string>
-
+    
+    <string name="task_details_header_title">Detalhes da tarefa</string>
+    <string name="task_details_title_title">Titulo da tarefa</string>
+    <string name="task_details_category_title">Categoria</string>
+    <string name="task_details_date_title">Data de conclusão</string>
+    <string name="task_details_coast_title">Custo</string>
+    <string name="task_details_note_title">Notas</string>
+    
     <string name="task_details_delete_dialog_title">Remover tarefa</string>
     <string name="task_details_delete_dialog_message">Você tem certeza que deseja remover a tarefa?</string>
     

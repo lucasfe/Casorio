@@ -29,7 +29,7 @@
             android:name="com.android.casorio.guest.GuestDetailsFragment"
             android:label="@string/action_guest_details" />
         <activity
-            android:name="com.android.casorio.tasks.CreateTaskActivity"
+            android:name="com.android.casorio.tasks.CreateTaskFragment"
             android:label="@string/action_add_task" />
     </application>
 

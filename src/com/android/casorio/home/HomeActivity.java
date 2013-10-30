@@ -23,6 +23,7 @@ import com.android.casorio.guest.GuestFragment;
 import com.android.casorio.guest.GuestInsertFragment;
 import com.android.casorio.guest.IGuestListener;
 import com.android.casorio.settings.SettingsFragment;
+import com.android.casorio.tasks.CreateTaskFragment;
 import com.android.casorio.tasks.ITaskListener;
 import com.android.casorio.tasks.TaskDeletedDialogFragment;
 import com.android.casorio.tasks.TaskDetailsFragment;
@@ -253,7 +254,8 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 
 	@Override
 	public void OnCreateTask() {
-		// TODO Auto-generated method stub
+		CreateTaskFragment taskInsert = new CreateTaskFragment();
+		FragmentCaller.callFragment(this, taskInsert);
 		
 	}
 

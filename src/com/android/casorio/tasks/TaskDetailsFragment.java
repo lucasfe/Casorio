@@ -1,5 +1,7 @@
 package com.android.casorio.tasks;
 
+import java.text.NumberFormat;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
@@ -21,6 +24,16 @@ public class TaskDetailsFragment extends Fragment {
 	private TaskDataSource mDataSource;
 	private Task task;
 	
+	private TextView title;
+	private TextView category;
+	private TextView date;
+	private TextView coast;
+	private TextView note;
+	
+	NumberFormat format;
+
+
+	
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,12 +44,31 @@ public class TaskDetailsFragment extends Fragment {
 		setHasOptionsMenu(true);
 		mDataSource = new TaskDataSource(getActivity());
 		
+		format = NumberFormat.getCurrencyInstance();
+
+		
+		//bind fields to layout
+		title = (TextView) rootView.findViewById(R.id.task_details_titleTxtView);
+		category = (TextView) rootView.findViewById(R.id.task_details_category_TxtView);
+		date = (TextView) rootView.findViewById(R.id.task_details_date_txtView);
+		coast  = (TextView) rootView.findViewById(R.id.task_details_coast_txtView);
+		note = (TextView) rootView.findViewById(R.id.task_details_note_txtView);
 		return rootView;
 	}
 	
 	private void fillData(Task task) {
 
 		if (task != null) {
+			
+			String[] categories = getResources().getStringArray(R.array.task_category_options);
+			
+			Long temp = task.getCategory_id();
+			
+			title.setText(task.getName());
+			category.setText(categories[temp.intValue()]);
+			date.setText(task.getDueDate());
+			coast.setText(format.format(task.getCoast()));
+			note.setText(task.getNote());
 
 		}
 

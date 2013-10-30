@@ -7,11 +7,15 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -23,10 +27,9 @@ import com.android.casorio.R;
 import com.android.casorio.categories.Category;
 import com.android.casorio.database.datasources.CategoriesDataSource;
 import com.android.casorio.database.datasources.TaskDataSource;
-import com.android.casorio.util.FragmentCaller;
 import com.android.casorio.util.Validator;
 
-public class CreateTaskActivity extends Activity {
+public class CreateTaskFragment extends Fragment {
 	
 	
 	TaskDataSource taskDataSource;
@@ -41,22 +44,23 @@ public class CreateTaskActivity extends Activity {
 	Spinner categoriesSpinner;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.task_create_layout);
-		taskDataSource = new TaskDataSource(this); 
-		categoriesDataSource = new CategoriesDataSource(this);
+		View rootView = inflater.inflate(R.layout.task_create_layout, container, false);
+		
+		taskDataSource = new TaskDataSource(getActivity()); 
+		categoriesDataSource = new CategoriesDataSource(getActivity());
 		
 		
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		setHasOptionsMenu(true);
 		
-		
-		titleTxt = (EditText) findViewById(R.id.taskNameText);
-		dueDatePicker = (DatePicker) findViewById(R.id.task_due_date_picker);
-		coast = (EditText) findViewById(R.id.task_coast_text);
-		note = (EditText) findViewById(R.id.task_note_text);
-		reminderTxtView = (TextView) findViewById(R.id.task_reminder_txt_view);
-		categoriesSpinner = (Spinner) findViewById(R.id.task_category_spinner);
+		titleTxt = (EditText) rootView.findViewById(R.id.taskNameText);
+		dueDatePicker = (DatePicker) rootView.findViewById(R.id.task_due_date_picker);
+		coast = (EditText) rootView.findViewById(R.id.task_coast_text);
+		note = (EditText) rootView.findViewById(R.id.task_note_text);
+		reminderTxtView = (TextView) rootView.findViewById(R.id.task_reminder_txt_view);
+		categoriesSpinner = (Spinner) rootView.findViewById(R.id.task_category_spinner);
 		
 		categoriesDataSource.open();
 		List<Category> categories = categoriesDataSource.getAllCategories();
@@ -67,28 +71,28 @@ public class CreateTaskActivity extends Activity {
 			categoriesArray.add(cat.getName());
 		}
 		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categoriesArray);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, categoriesArray);
 		categoriesSpinner.setAdapter(adapter);
+		
+		return rootView;
 		
 	}
 	
-
+	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.task_create_menu, menu);
-		return true;
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		menu.clear();
+		inflater.inflate(R.menu.task_create_menu, menu);
+
 	}
 	
 	@Override
 	  public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
-		
-	    case android.R.id.home:
-			FragmentCaller.callHomeActivity(this);
-			break;
 	    
 	    case R.id.action_call_create_task:
-	    	insertTaskAction(this);
+	    	insertTaskAction(getActivity());
 	      break;
 	    }
 
@@ -101,7 +105,7 @@ public class CreateTaskActivity extends Activity {
 	@SuppressLint("SimpleDateFormat")
 	private boolean insertTaskAction(Context context) {
 		
-		if(!Validator.hasText(this, titleTxt) || !Validator.isNumber(this, coast, true))
+		if(!Validator.hasText(getActivity(), titleTxt) || !Validator.isNumber(getActivity(), coast, true))
 		{
 			return false;
 		}
