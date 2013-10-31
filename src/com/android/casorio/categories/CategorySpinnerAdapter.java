@@ -1,6 +1,5 @@
 package com.android.casorio.categories;
 
-import java.text.NumberFormat;
 import java.util.List;
 
 import android.content.Context;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
 
-public class CategoryListAdapter extends BaseAdapter {
+public class CategorySpinnerAdapter extends BaseAdapter {
 
 	LayoutInflater mInflater;
 
@@ -28,7 +27,7 @@ public class CategoryListAdapter extends BaseAdapter {
 
 	private List<Category> categoriesArray;
 
-	public CategoryListAdapter(List<Category> categoryArray, Context context) {
+	public CategorySpinnerAdapter(List<Category> categoryArray, Context context) {
 		mInflater = LayoutInflater.from(context);
 		categoriesArray = categoryArray;
 		mTaskDataSource = new TaskDataSource(context);
@@ -51,46 +50,35 @@ public class CategoryListAdapter extends BaseAdapter {
 				
 		return categoriesArray.get(position).getId();
 	}
+	
+	public int getPositionByCategory(Category category) {
+		
+		return categoriesArray.indexOf(category);
+	}
+	
+	public int getPositionByCategoryId(long categoryId) {
+		
+		Category cat = new Category(mContext);
+		cat.setId(categoryId);
+		
+		return categoriesArray.indexOf(cat);
+	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		if (convertView == null) {
 			convertView = mInflater
-					.inflate(R.layout.category_item_layout, null);
+					.inflate(R.layout.category_spinner_item_layout, null);
 		}
 
 		Category category = categoriesArray.get(position);
 		
-		//format currency string according to its location
-		long balance = category.getBalance();
-		String balanceFormated = NumberFormat.getCurrencyInstance().format(balance);
-		String budgetFormated = NumberFormat.getCurrencyInstance().format(category.getBudget());
-		
 		nameTextView = (TextView) convertView
-				.findViewById(R.id.category_NameTxtView);
-		budgetTextView = (TextView) convertView
-				.findViewById(R.id.category_BudgetTxtView);
-		balanceTextView = (TextView) convertView
-				.findViewById(R.id.category_BalanceTxtView);
-		statusTextView = (TextView) convertView
-				.findViewById(R.id.category_StatusTxtView);
+				.findViewById(R.id.category_spinner_item);
 
 		nameTextView.setText(category.getName());
-		balanceTextView.setText(balanceFormated);
-		budgetTextView.setText(budgetFormated);
-		
-		
-		if (balance >= 0) {
-			statusTextView.setText(mContext.getString(R.string.category_list_status_remaining));	
-			statusTextView.setTextColor(mContext.getResources().getColor(android.R.color.holo_green_light));
-		} 
-		else {
-			statusTextView.setText(mContext.getString(R.string.category_list_status_over));			
-			statusTextView.setTextColor(mContext.getResources().getColor(android.R.color.holo_red_light));
-		}
 		
 		return convertView;
 	}
-	
 }

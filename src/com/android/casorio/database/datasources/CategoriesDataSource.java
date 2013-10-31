@@ -15,10 +15,12 @@ import com.android.casorio.database.tables.CategoriesTable;
 public class CategoriesDataSource extends GenericDataSource {
 
 	private String[] allColumns = { CategoriesTable.COLUMN_ID,
-			CategoriesTable.COLUMN_NAME, CategoriesTable.COLUMN_PREDEFINED_CATEGORY, CategoriesTable.COLUMN_COAST };
+			CategoriesTable.COLUMN_NAME,
+			CategoriesTable.COLUMN_PREDEFINED_CATEGORY,
+			CategoriesTable.COLUMN_COAST };
 
 	private Context mContext;
-	
+
 	public CategoriesDataSource(Context context) {
 		mContext = context;
 		dbHelper = new CasorioDatabase(context);
@@ -58,22 +60,20 @@ public class CategoriesDataSource extends GenericDataSource {
 
 	}
 
-	
-	public List<Category> getCategoriesById(int id) {
-		
-		Cursor returnedValues = database.query(CategoriesTable.TABLE_NAME, allColumns,  CategoriesTable.COLUMN_ID+" = ?", new String[]{String.valueOf(id)}, null, null, null);
-		List<Category> result = new ArrayList<Category>();
+	public Category getCategoryById(long id) {
 
+		Cursor returnedValues = database.query(CategoriesTable.TABLE_NAME,
+				allColumns, CategoriesTable.COLUMN_ID + " = ?",
+				new String[] { String.valueOf(id) }, null, null, null);
+
+		Category returnedCategory = null;
 		returnedValues.moveToFirst();
-		while(!returnedValues.isAfterLast()) {
-			Category tempTask = cursorToCategory(returnedValues);
-			result.add(tempTask);
-			returnedValues.moveToNext();
+		if (returnedValues.getCount() > 0) {
+			returnedCategory = cursorToCategory(returnedValues);
 		}
-		return result;
+		return returnedCategory;
 	}
 
-	
 	public List<Category> getAllCategories() {
 		List<Category> resultList = new ArrayList<Category>();
 

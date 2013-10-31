@@ -73,7 +73,6 @@
     <string name="guest_inserted_confirmation_message">Convidado adicionado</string>
     <string name="guest_updated_confirmation_message">Convidado atualizado</string>
     <string name="guest_details_header_title">Detalhes do convidado</string>
-    
     <string name="guest_details_name">Nome</string>
     <string name="guest_details_email">E-mail</string>
     <string name="guest_details_type">Tipo</string>
@@ -92,6 +91,7 @@
 
     <string name="action_add_task">Adicionar tarefa</string>
     <string name="action_call_create_task">Adicionar tarefa</string>
+    <string name="task_list_header_title">Lista de Tarefas</string>
     <string name="task_category_spinner_hint">Categoria</string>
     <string name="task_name_hint">Titulo</string>
     <string name="task_due_date_title">Data de conclusão</string>
@@ -100,22 +100,29 @@
     <string name="task_status_title">Tarefa finalizada?</string>
     <string name="task_reminder_content_descrption"></string>
     <string name="task_reminder_new_reminder_title">Novo lembrete</string>
-    
     <string name="task_details_header_title">Detalhes da tarefa</string>
     <string name="task_details_title_title">Titulo da tarefa</string>
     <string name="task_details_category_title">Categoria</string>
     <string name="task_details_date_title">Data de conclusão</string>
     <string name="task_details_coast_title">Custo</string>
     <string name="task_details_note_title">Notas</string>
-    
     <string name="task_details_delete_dialog_title">Remover tarefa</string>
     <string name="task_details_delete_dialog_message">Você tem certeza que deseja remover a tarefa?</string>
-    
+
+    <!-- Categories related strings -->
+
     <string-array name="task_category_options">
         <item>Fotografia</item>
         <item>Decoração</item>
         <item>Buffet</item>
         <item>Entreterimento</item>
     </string-array>
+
+    <string name="category_list_header_title">Lista de Categorias</string>
+    <string name="category_list_status_remaining">Saldo positivo</string>
+    <string name="category_list_status_over">Saldo negativo</string>
+    <string name="category_insert_name_hint">Nome da categoria</string>
+    <string name="category_insert_budget_hint">Orçamento da categoria</string>
+    <string name="category_insert_header_title">Nova categoria</string>
 
 </resources>

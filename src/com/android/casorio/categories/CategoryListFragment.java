@@ -21,7 +21,7 @@ import com.android.casorio.database.datasources.CategoriesDataSource;
 public class CategoryListFragment extends Fragment {
 
 	ListView categoriesList;
-
+	
 	CategoriesDataSource mDataSource;
 
 	private IOnCategorySelectedListener mCategorySelected;
@@ -37,7 +37,7 @@ public class CategoryListFragment extends Fragment {
 		mDataSource = new CategoriesDataSource(getActivity());
 		mDataSource.open();
 
-		CategoryListAdapter categoryAdapter = new CategoryListAdapter(
+		final CategoryListAdapter categoryAdapter = new CategoryListAdapter(
 				mDataSource.getAllCategories(), getActivity());
 
 		categoriesList = (ListView) rootView
@@ -49,7 +49,7 @@ public class CategoryListFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				mCategorySelected.onCategorySelected(position);
+				mCategorySelected.onCategorySelected(categoryAdapter.getItemId(position));
 			}
 		});
 

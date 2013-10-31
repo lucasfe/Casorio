@@ -30,7 +30,7 @@ public class CreateCategoriesFragment extends Fragment {
 		
 		setHasOptionsMenu(true);
 		
-		View rootView = inflater.inflate(R.layout.categories_create_layout, container, false);
+		View rootView = inflater.inflate(R.layout.category_create_layout, container, false);
 		
 		nameTxt = (EditText) rootView.findViewById(R.id.categories_create_name);
 		coastTxt = (EditText) rootView.findViewById(R.id.categories_create_coast);

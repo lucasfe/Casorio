@@ -14,7 +14,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -23,6 +22,7 @@ import android.widget.Toast;
 
 import com.android.casorio.R;
 import com.android.casorio.categories.Category;
+import com.android.casorio.categories.CategorySpinnerAdapter;
 import com.android.casorio.database.datasources.CategoriesDataSource;
 import com.android.casorio.database.datasources.TaskDataSource;
 import com.android.casorio.util.Validator;
@@ -41,6 +41,8 @@ public class CreateTaskFragment extends Fragment {
 	EditText coast;
 	EditText note;
 	Spinner categoriesSpinner;
+	
+	CategorySpinnerAdapter categorySpinnerAdapter;
 	
 	RadioGroup radioGroup;
 
@@ -75,9 +77,11 @@ public class CreateTaskFragment extends Fragment {
 			categoriesArray.add(cat.getName());
 		}
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_spinner_dropdown_item, categoriesArray);
-		categoriesSpinner.setAdapter(adapter);
+		categorySpinnerAdapter = new CategorySpinnerAdapter(categories, getActivity());
+		
+//		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+//				android.R.layout.simple_spinner_dropdown_item, categoriesArray);
+		categoriesSpinner.setAdapter(categorySpinnerAdapter);
 
 		return rootView;
 
@@ -120,10 +124,8 @@ public class CreateTaskFragment extends Fragment {
 	private void fillUI(Task task) {
 		//dueDatePicker;
 		
-		Long temp =  Long.valueOf((task.getCategory_id()));	
-		
 		titleTxt.setText(task.getName());
-		categoriesSpinner.setSelection(temp.intValue());
+		categoriesSpinner.setSelection(categorySpinnerAdapter.getPositionByCategoryId(task.getCategoryId()));
 		coast.setText(String.valueOf(task.getCoast()));
 		note.setText(task.getNote());
 		
@@ -164,7 +166,7 @@ public class CreateTaskFragment extends Fragment {
 		
 		task.setDueDate(selected.getTimeInMillis());
 		task.setName(titleTxt.getText().toString());
-		task.setCategory_id(categoriesSpinner.getSelectedItemId());
+		task.setCategoryId(categorySpinnerAdapter.getItemId(categoriesSpinner.getSelectedItemPosition()));
 		task.setCoast(Integer.parseInt(coast.getText().toString()));
 		task.setNote(note.getText().toString());
 		task.setCompleted(completed);
@@ -195,7 +197,7 @@ public class CreateTaskFragment extends Fragment {
 		taskDataSource.open();
 
 		taskDataSource.createTask(titleTxt.getText().toString(),
-				categoriesSpinner.getSelectedItemId(), Long.parseLong(coast
+				categorySpinnerAdapter.getItemId(categoriesSpinner.getSelectedItemPosition()), Long.parseLong(coast
 						.getText().toString()), dueDateString, note.getText()
 						.toString(), status);
 		taskDataSource.close();

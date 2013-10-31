@@ -52,7 +52,7 @@ public class TaskDataSource extends GenericDataSource {
 
 		newTask.setId(cursor.getLong(0));
 		newTask.setName(cursor.getString(1));
-		newTask.setCategory_id(cursor.getLong(2));
+		newTask.setCategoryId(cursor.getLong(2));
 		newTask.setCoast(cursor.getInt(3));
 		newTask.setDueDate(cursor.getLong(4));
 		newTask.setNote(cursor.getString(5));
@@ -112,13 +112,13 @@ public class TaskDataSource extends GenericDataSource {
 
 	}
 
-	public Cursor getTasksByCategoryCursor(int category) {
+	public Cursor getTasksByCategoryCursor(long category) {
 		return database.query(TasksTable.TABLE_TASKS, allColumns,
 				TasksTable.COLUMN_CATEGORY_ID + "=?",
 				new String[] { String.valueOf(category) }, null, null, null);
 	}
 
-	public List<Task> getTasksByCategory(int category) {
+	public List<Task> getTasksByCategory(long category) {
 
 		Cursor filteredCategories = getTasksByCategoryCursor(category);
 		List<Task> resultItems = new ArrayList<Task>();
@@ -150,7 +150,7 @@ public class TaskDataSource extends GenericDataSource {
 	    
 	    
 		values.put(TasksTable.COLUMN_NAME, task.getName());
-		values.put(TasksTable.COLUMN_CATEGORY_ID, task.getCategory_id());
+		values.put(TasksTable.COLUMN_CATEGORY_ID, task.getCategoryId());
 		values.put(TasksTable.COLUMN_COAST, task.getCoast());
 		values.put(TasksTable.COLUMN_DUE_DATE, task.getDueDate());
 		values.put(TasksTable.COLUMN_NOTE, task.getNote());

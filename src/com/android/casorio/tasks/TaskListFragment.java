@@ -67,7 +67,7 @@ public class TaskListFragment extends Fragment {
 	}
 	
 	
-	private void updateListSelection(int categoryId) {
+	private void updateListSelection(long categoryId) {
 		TaskListAdapter adapter = (TaskListAdapter) taskListView.getAdapter();
 		source.open();
 		allTasksCursor = source.getTasksByCategory(categoryId);
@@ -81,7 +81,7 @@ public class TaskListFragment extends Fragment {
         
         Bundle args = getArguments();
         if (args != null) {
-        	int catId = args.getInt(CATEGORY_ID);
+        	long catId = args.getLong(CATEGORY_ID);
         	updateListSelection(catId);
         }
     }

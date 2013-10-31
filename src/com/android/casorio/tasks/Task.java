@@ -43,11 +43,11 @@ public class Task implements Serializable {
 		this.name = name;
 	}
 
-	public long getCategory_id() {
+	public long getCategoryId() {
 		return category_id;
 	}
 
-	public void setCategory_id(long category_id) {
+	public void setCategoryId(long category_id) {
 		this.category_id = category_id;
 	}
 

@@ -167,11 +167,11 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 	}
 
 	@Override
-	public void onCategorySelected(int position) {
+	public void onCategorySelected(long position) {
 		
 		TaskListFragment taskList = new TaskListFragment();
 		Bundle args = new Bundle();
-		args.putInt(TaskListFragment.CATEGORY_ID, position);
+		args.putLong(TaskListFragment.CATEGORY_ID, position);
 		taskList.setArguments(args);
 		
 		FragmentCaller.callFragment(this, taskList);
