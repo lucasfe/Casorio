@@ -183,8 +183,11 @@ public final class R {
         public static final int action_settings=0x7f06000b;
         public static final int app_name=0x7f060009;
         public static final int category_insert_budget_hint=0x7f060055;
+        public static final int category_insert_created=0x7f060057;
+        public static final int category_insert_deleted=0x7f060059;
         public static final int category_insert_header_title=0x7f060056;
         public static final int category_insert_name_hint=0x7f060054;
+        public static final int category_insert_updated=0x7f060058;
         public static final int category_list_header_title=0x7f060051;
         public static final int category_list_status_over=0x7f060053;
         public static final int category_list_status_remaining=0x7f060052;

@@ -124,5 +124,8 @@
     <string name="category_insert_name_hint">Nome da categoria</string>
     <string name="category_insert_budget_hint">Orçamento da categoria</string>
     <string name="category_insert_header_title">Nova categoria</string>
+    <string name="category_insert_created">Categoria criada</string>
+    <string name="category_insert_updated">Categoria Atualizada</string>
+    <string name="category_insert_deleted">Categoria removida</string>
 
 </resources>

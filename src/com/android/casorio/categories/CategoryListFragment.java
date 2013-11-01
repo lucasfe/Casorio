@@ -2,8 +2,6 @@ package com.android.casorio.categories;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -69,10 +67,7 @@ public class CategoryListFragment extends Fragment {
 
 		switch (item.getItemId()) {
 		case R.id.action_call_insert:
-			FragmentManager manager = getFragmentManager();
-			FragmentTransaction transaction = manager.beginTransaction();
-			Fragment destiny = new CreateCategoriesFragment();
-			transaction.replace(R.id.content_frame, destiny).commit();
+			mCategorySelected.onCreateCategory();
 			break;
 
 		default:

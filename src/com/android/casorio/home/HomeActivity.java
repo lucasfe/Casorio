@@ -16,6 +16,7 @@ import android.widget.ListView;
 
 import com.android.casorio.R;
 import com.android.casorio.categories.CategoryListFragment;
+import com.android.casorio.categories.CreateCategoriesFragment;
 import com.android.casorio.categories.IOnCategorySelectedListener;
 import com.android.casorio.guest.GuestDeletedDialogFragment;
 import com.android.casorio.guest.GuestDetailsFragment;
@@ -167,6 +168,13 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 	}
 
 	@Override
+	public void onCreateCategory() {
+		CreateCategoriesFragment createCategoryFrag = new CreateCategoriesFragment();
+		FragmentCaller.callFragment(this, createCategoryFrag);
+
+	}
+	
+	@Override
 	public void onCategorySelected(long position) {
 		
 		TaskListFragment taskList = new TaskListFragment();
@@ -177,6 +185,17 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 		FragmentCaller.callFragment(this, taskList);
 		
 		
+	}
+	
+	@Override
+	public void onCategoryUpdated(long categoryId) {
+		CreateCategoriesFragment createCategoryFrag = new CreateCategoriesFragment();
+		Bundle args = new Bundle();
+		args.putLong(CreateCategoriesFragment.CATEGORY_ID, categoryId);
+		createCategoryFrag.setArguments(args);
+		
+		FragmentCaller.callFragment(this, createCategoryFrag);
+
 	}
 
 	@Override

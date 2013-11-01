@@ -7,4 +7,12 @@
         android:icon="@android:drawable/ic_menu_add"
         android:title="@string/action_call_create_task"/>
 
+<item
+        android:id="@+id/action_call_edit"
+        android:orderInCategory="101"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/insert_menu_name"/>
+
+
 </menu>

@@ -88,4 +88,17 @@ public class CategoriesDataSource extends GenericDataSource {
 		return resultList;
 	}
 
+	public int updateCategory(Category category) {
+
+		ContentValues values = new ContentValues();
+
+		values.put(CategoriesTable.COLUMN_NAME, category.getName());
+		values.put(CategoriesTable.COLUMN_COAST, category.getBudget());
+
+		return database.update(CategoriesTable.TABLE_NAME, values,
+				CategoriesTable.COLUMN_ID + "=?",
+				new String[] { String.valueOf(category.getId()) });
+
+	}
+
 }
