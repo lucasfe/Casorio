@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -26,7 +27,6 @@
             android:entries="@array/guest_type_options"
             android:paddingRight="6dp"
             android:prompt="@string/guest_insert_guest_type_hint" />
-
     </LinearLayout>
 
     <LinearLayout

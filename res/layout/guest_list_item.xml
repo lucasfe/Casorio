@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@android:color/white"
     android:baselineAligned="false"
     android:contentDescription="@string/guest_invite_number_image_description"
     android:orientation="horizontal" >
@@ -10,9 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="8.30"
-        android:background="#dbdbdb"
-        android:padding="10dp"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="10dp" >
 
         <ImageView
             android:id="@+id/guest_view_number_of_guests_img"
@@ -22,15 +22,14 @@
             android:contentDescription="@string/guest_invite_number_image_description"
             android:paddingTop="4dp"
             android:src="@drawable/social_person" />
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="126.57"
-        android:padding="10dp"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="10dp" >
 
         <TextView
             android:id="@+id/guest_view_name"
@@ -44,16 +43,14 @@
             android:layout_height="wrap_content"
             android:textColor="#9fc4c6"
             android:textSize="12sp" />
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="8.30"
-        android:padding="10dp"
-        
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="10dp" >
 
         <ImageView
             android:id="@+id/guest_view_info_btn"
@@ -64,7 +61,6 @@
             android:contentDescription="@string/guest_info_image_description"
             android:paddingTop="4dp"
             android:src="@drawable/action_about" />
-
     </LinearLayout>
 
 </LinearLayout>

@@ -40,7 +40,7 @@ public class GuestFragment extends ListFragment implements  Callback {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 
-		View rootView = inflater.inflate(R.layout.fragment_invite_list_dummy,
+		View rootView = inflater.inflate(R.layout.guest_list_layout,
 				container, false);
 
 		Context context = getActivity();

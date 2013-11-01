@@ -39,7 +39,7 @@ public class GuestInsertFragment extends Fragment {
 
 		setHasOptionsMenu(true);
 
-		View returnView = inflater.inflate(R.layout.insert_guest_layout,
+		View returnView = inflater.inflate(R.layout.guest_create_layout,
 				container, false);
 
 		dataSource = new GuestDataSource(getActivity());
