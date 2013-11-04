@@ -12,9 +12,21 @@ public class FragmentCaller {
 	public static void callFragment(Activity activity, Fragment destiny){
 		FragmentManager manager = activity.getFragmentManager();
 		FragmentTransaction transaction = manager.beginTransaction();
-		transaction.replace(R.id.content_frame, destiny).commit();
-
+		transaction.replace(R.id.content_frame, destiny);
+		transaction.addToBackStack(null);
+		transaction.commit();
+		
 	}
+	
+	public static void callFragment(Activity activity, Fragment destiny, String tag){
+		FragmentManager manager = activity.getFragmentManager();
+		FragmentTransaction transaction = manager.beginTransaction();
+		transaction.replace(R.id.content_frame, destiny);
+		transaction.addToBackStack(tag);
+		transaction.commit();
+		
+	}
+
 
 
 }

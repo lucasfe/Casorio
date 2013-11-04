@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,7 +46,7 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_drawer_layout);
-
+		FragmentManager.enableDebugLogging(true);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -81,8 +82,10 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 		getActionBar().setHomeButtonEnabled(true);
 		
 		//Choose home fragment
-		this.selectItem(0);
-
+		if (savedInstanceState == null) {
+			FragmentCaller.callFragment(this, new HomeFragment());
+		}
+		
 	}
 
 	@Override
@@ -109,6 +112,20 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onBackPressed(){
+	    FragmentManager fm = getFragmentManager();
+	    
+	    if (fm.getBackStackEntryCount() > 0) {
+	        Log.i("MainActivity", "popping backstack");
+	        fm.popBackStack();
+	    } else {
+	        Log.i("MainActivity", "nothing on backstack, calling super");
+	        super.onBackPressed();  
+	    }
+	}
+
 
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
@@ -125,6 +142,8 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 		// position
 		FragmentManager manager = getFragmentManager();
 		FragmentTransaction transaction = manager.beginTransaction();
+		manager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+		
 		Fragment destiny = null;
 		
 		switch (position) { 
@@ -149,7 +168,8 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 			destiny = new GuestFragment();
 			break;
 		}
-		transaction.replace(R.id.content_frame, destiny).commit();
+		transaction.replace(R.id.content_frame, destiny);
+		transaction.commit();
 		
 
 		mDrawerLayout.closeDrawer(mDrawerList);
