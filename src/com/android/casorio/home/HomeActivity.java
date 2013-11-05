@@ -56,8 +56,10 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, R.string.action_add_guest,
+		mDrawerToggle = new ActionBarDrawerToggle(this,
+				mDrawerLayout,
+				R.drawable.ic_drawer_white,
+				R.string.action_add_guest,
 				R.string.action_settings) {
 
 			/** Called when a drawer has settled in a completely closed state. */
@@ -80,7 +82,7 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
-		
+		getActionBar().setIcon(R.drawable.casorio_icon);
 		//Choose home fragment
 		if (savedInstanceState == null) {
 			FragmentCaller.callFragment(this, new HomeFragment());
