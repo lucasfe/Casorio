@@ -7,7 +7,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
 
 public class TaskDeletedDialogFragment extends DialogFragment {

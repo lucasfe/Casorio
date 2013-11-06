@@ -20,7 +20,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.categories.Category;
 import com.android.casorio.categories.CategorySpinnerAdapter;
 import com.android.casorio.database.datasources.CategoriesDataSource;

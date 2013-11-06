@@ -3,7 +3,7 @@ package com.android.casorio.settings;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 
 public class SettingsFragment extends PreferenceFragment {
 

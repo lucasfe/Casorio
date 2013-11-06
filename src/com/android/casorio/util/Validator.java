@@ -2,7 +2,7 @@ package com.android.casorio.util;
 
 import java.util.regex.Pattern;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 
 import android.content.Context;
 import android.widget.EditText;

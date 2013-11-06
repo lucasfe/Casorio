@@ -29,7 +29,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
 import com.android.casorio.settings.SettingsFragment;
 import com.android.casorio.tasks.Task;

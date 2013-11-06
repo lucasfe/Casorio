@@ -2,7 +2,7 @@ package com.android.casorio.guest;
 
 import java.io.Serializable;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 
 import android.content.Context;
 

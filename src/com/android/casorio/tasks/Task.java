@@ -7,7 +7,7 @@ import java.util.List;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.database.tables.TasksTable;
 
 public class Task implements Serializable {

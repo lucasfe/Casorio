@@ -3,7 +3,7 @@ package com.android.casorio.home;
 import java.util.Arrays;
 import java.util.List;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;

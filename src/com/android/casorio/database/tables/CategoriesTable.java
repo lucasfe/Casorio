@@ -1,6 +1,6 @@
 package com.android.casorio.database.tables;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 
 import android.content.ContentValues;
 import android.content.Context;

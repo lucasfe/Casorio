@@ -5,7 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 
 public class FragmentCaller {
 	

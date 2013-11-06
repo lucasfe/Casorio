@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.database.datasources.GuestDataSource;
 import com.android.casorio.guest.Guest.GuestStatus;
 

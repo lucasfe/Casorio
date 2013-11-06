@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.database.datasources.CategoriesDataSource;
 
 public class CategoryListFragment extends Fragment {

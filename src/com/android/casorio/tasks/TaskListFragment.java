@@ -16,7 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.categories.Category;
 import com.android.casorio.categories.IOnCategorySelectedListener;
 import com.android.casorio.database.datasources.CategoriesDataSource;

@@ -3,7 +3,7 @@ package com.android.casorio.categories;
 import java.util.Arrays;
 import java.util.List;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.database.datasources.TaskDataSource;
 import com.android.casorio.database.tables.CategoriesTable;
 import com.android.casorio.tasks.Task;

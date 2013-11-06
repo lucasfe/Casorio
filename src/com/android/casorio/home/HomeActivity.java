@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.categories.CategoryListFragment;
 import com.android.casorio.categories.CreateCategoriesFragment;
 import com.android.casorio.categories.IOnCategorySelectedListener;

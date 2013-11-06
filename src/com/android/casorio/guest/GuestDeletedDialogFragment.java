@@ -1,6 +1,6 @@
 package com.android.casorio.guest;
 
-import com.android.casorio.R;
+import com.lucasfe.casorio.R;
 import com.android.casorio.database.datasources.GuestDataSource;
 
 import android.app.AlertDialog;
