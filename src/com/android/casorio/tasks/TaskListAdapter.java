@@ -1,5 +1,6 @@
 package com.android.casorio.tasks;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import android.content.Context;
@@ -62,6 +63,8 @@ public class TaskListAdapter extends BaseAdapter {
 					.findViewById(R.id.taskListCheckbox);
 			
 			holder.name = (TextView) convertView.findViewById(R.id.task_task_name_txtView);
+			holder.coast = (TextView) convertView.findViewById(R.id.task_task_coast_txtView);
+			
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -80,8 +83,13 @@ public class TaskListAdapter extends BaseAdapter {
 				source.close();
 			}
 		});
+			
+		String coastFormated = NumberFormat.getCurrencyInstance().format(task.getCoast());
+
 
 		holder.name.setText(task.getName());
+		holder.coast.setText(coastFormated);
+
 		holder.box.setChecked(task.isCompleted());
 		return convertView;
 	}
@@ -90,6 +98,7 @@ public class TaskListAdapter extends BaseAdapter {
 
 		CheckBox box;
 		TextView name;
+		TextView coast;
 	}
 
 }
