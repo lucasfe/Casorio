@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.android.casorio.R;
 import com.android.casorio.database.datasources.GuestDataSource;
 
-public class GuestFragment extends ListFragment implements  Callback {
+public class GuestListFragment extends ListFragment implements  Callback {
 
 	private ListView guestListView;
 	private TextView guestCounterTxtView;
@@ -53,10 +53,8 @@ public class GuestFragment extends ListFragment implements  Callback {
 		Cursor cursor = dataSource.getAllGuestsCursor();
 		if (cursor != null) {
 			guestCounterTxtView.setText(getString(R.string.guest_list_counter)
-					+ " " + cursor.getCount());
+					+ " " + dataSource.getNumberOfGuestsFromCursor(cursor));
 		}
-
-		cursor.getCount();
 		adapter = new GuestAdapter(guestListView.getContext(), cursor);
 
 		guestListView.setAdapter(adapter);

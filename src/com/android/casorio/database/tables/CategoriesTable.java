@@ -21,10 +21,11 @@ public class CategoriesTable {
 	 * Database creation statement
 	 */
 	public static final String CREATE_CATEGORIES_TABLE = "create table "
-			+ TABLE_NAME + "(" + COLUMN_ID
-			+ " integer primary key autoincrement, " + COLUMN_NAME
-			+ " text not null," + COLUMN_PREDEFINED_CATEGORY
-			+ " integer default 0," + COLUMN_COAST + " integer);";
+			+ TABLE_NAME + "(" + 
+			COLUMN_ID + " integer primary key autoincrement, " + 
+			COLUMN_NAME + " text not null," + 
+			COLUMN_PREDEFINED_CATEGORY + " integer default 0," + 
+			COLUMN_COAST + " integer);";
 
 	/**
 	 * loaded categories name prefix

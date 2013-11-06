@@ -1,6 +1,14 @@
 package com.android.casorio.tasks;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+
+import android.content.Context;
+import android.text.TextUtils;
+
+import com.android.casorio.R;
+import com.android.casorio.database.tables.TasksTable;
 
 public class Task implements Serializable {
 
@@ -9,6 +17,8 @@ public class Task implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Context mContext;
+
 	private long id;
 
 	private String name;
@@ -16,8 +26,12 @@ public class Task implements Serializable {
 	private long coast;
 	private long dueDate;
 	private String note;
-	private String remimder;
 	private boolean isCompleted;
+	private int taskPrefix;
+
+	public Task(Context context) {
+		mContext = context;
+	}
 
 	public boolean isCompleted() {
 		return isCompleted;
@@ -36,6 +50,11 @@ public class Task implements Serializable {
 	}
 
 	public String getName() {
+		
+		if (!TextUtils.isEmpty(name)
+				&& name.contains(TasksTable.TASKS_NAME_PREFIX)) {
+			return getPredefinedTaskName();
+		}
 		return name;
 	}
 
@@ -75,16 +94,25 @@ public class Task implements Serializable {
 		this.note = note;
 	}
 
-	public String getRemimder() {
-		return remimder;
-	}
-
-	public void setRemimder(String remimder) {
-		this.remimder = remimder;
-	}
-	
 	public int getCompletedValue() {
 		return isCompleted ? 1 : 0;
+	}
+
+	private String getPredefinedTaskName() {
+
+		List<String> categories = Arrays.asList(mContext.getResources()
+				.getStringArray(R.array.predefined_tasks));
+
+		return categories.get(getTaskPrefix());
+
+	}
+
+	public int getTaskPrefix() {
+		return taskPrefix;
+	}
+
+	public void setTaskPrefix(int value) {
+		taskPrefix = value;
 	}
 
 }

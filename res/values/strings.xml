@@ -109,13 +109,65 @@
     <string name="task_details_delete_dialog_title">Remover tarefa</string>
     <string name="task_details_delete_dialog_message">Você tem certeza que deseja remover a tarefa?</string>
 
+        <string-array name="predefined_tasks">
+        <item>Cabeleleiro</item>
+        <item>Maquiadora</item>
+        <item>Manicure e Pedicure</item>
+        <item>Dia da noiva</item>
+        
+        <item>DJ</item>
+        <item>Banda</item>
+        <item>Projetores de video</item>
+        <item>Audio</item>
+        
+        <item>Bouquet</item>
+        <item>Decoração da Igreja</item>
+        <item>Decoração do Buffet</item>
+        
+        <item>Bartender</item>
+        <item>Bebidas</item>
+        <item>Bolo</item>
+        <item>Petiscos</item>
+        
+        <item>Lembranças</item>
+        <item>Bem casados</item>
+        
+        <item>Locação da Igreja</item>
+        <item>Locação do Buffet</item>
+        <item>Hotel para convidados</item>
+        
+        <item>Fotografia</item>
+        <item>Video</item>
+        <item>Album</item>
+        <item>Making-off</item>
+        
+        <item>Consultora</item>
+        
+        <item>Passagens</item>
+        <item>Reserva de hoteis</item>
+        <item>Serviço de translado</item>
+        <item>Passeios</item>
+        
+        <item>Agenda da cerimonia</item>
+        <item>Livro de convidados</item>
+        <item>Convites</item>
+        <item>Cardápio para mesas</item>
+        <item>Cartões de agradecimento</item>
+        
+    </string-array>
     <!-- Categories related strings -->
 
     <string-array name="task_category_options">
-        <item>Fotografia</item>
+        <item>Beleza</item>
+        <item>Balada</item>
         <item>Decoração</item>
         <item>Buffet</item>
-        <item>Entreterimento</item>
+        <item>Lembranças</item>
+        <item>Locais</item>
+        <item>Fotografia</item>
+        <item>Consultoria</item>
+        <item>Lua de Mel</item>
+        <item>Diversos</item>
     </string-array>
 
     <string name="category_list_header_title">Lista de Categorias</string>

@@ -80,19 +80,10 @@ public class GuestDataSource extends GenericDataSource {
 	
 	
 	public List<Guest> getAllGuests() {
-		List<Guest> guests = new ArrayList<Guest>();
-
 		Cursor cursor = getAllGuestsCursor();
-
-		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
-			Guest guest = cursorToGuest(cursor);
-			guests.add(guest);
-			cursor.moveToNext();
-		}
-		// Make sure to close the cursor
+		List<Guest> result = cursorToGuestList(cursor);
 		cursor.close();
-		return guests;
+		return result;
 	}
 	
 	public Cursor getAllGuestsCursor() {
@@ -112,8 +103,44 @@ public class GuestDataSource extends GenericDataSource {
 		return newGuest;
 
 	}
+	
+	
+	public int getNumberOfGuests() {
+		
+		int totalGuests = 0;		
+		for (Guest currGuest : getAllGuests()) {
+			//sums current guest and its additionals
+			totalGuests+= currGuest.getAdditinal_guests() + 1;
+			
+		}
+		return totalGuests;
+	}
 
+	public int getNumberOfGuestsFromCursor(Cursor cursor) {
+		
+		int totalGuests = 0;		
+		for (Guest currGuest : cursorToGuestList(cursor)) {
+			//sums current guest and its additionals
+			totalGuests+= currGuest.getAdditinal_guests() + 1;
+			
+		}
+		return totalGuests;
+	}
 
+	
+	public List<Guest> cursorToGuestList(Cursor cursor) {
+		
+		List<Guest> guests = new ArrayList<Guest>();
 
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Guest guest = cursorToGuest(cursor);
+			guests.add(guest);
+			cursor.moveToNext();
+		}
+		// Make sure to close the cursor
+		return guests;
+
+	}
 
 }

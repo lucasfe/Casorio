@@ -11,9 +11,10 @@ public final class R {
     public static final class array {
         public static final int guest_type_options=0x7f080001;
         public static final int home_menu_entries=0x7f080000;
+        public static final int predefined_tasks=0x7f080002;
         /**  Categories related strings 
          */
-        public static final int task_category_options=0x7f080002;
+        public static final int task_category_options=0x7f080003;
     }
     public static final class attr {
     }

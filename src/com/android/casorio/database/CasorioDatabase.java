@@ -33,6 +33,7 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 		db.execSQL(CategoriesTable.CREATE_CATEGORIES_TABLE);
 		
 		CategoriesTable.loadPredefinedCategories(db, mContext);
+		TasksTable.loadPredefinedTasks(db, mContext);
 		
 	}
 
@@ -42,7 +43,7 @@ public class CasorioDatabase extends SQLiteOpenHelper {
 				"Upgrading database from version " + oldVersion + " to "
 						+ newVersion + ", which will destroy all old data");
 		db.execSQL("DROP TABLE IF EXISTS " + GuestsTable.TABLE_GUESTS);
-		db.execSQL("DROP TABLE IF EXISTS " + TasksTable.TABLE_TASKS);
+		db.execSQL("DROP TABLE IF EXISTS " + TasksTable.TABLE_NAME);
 		db.execSQL("DROP TABLE IF EXISTS " + CategoriesTable.TABLE_NAME);
 		onCreate(db);
 		

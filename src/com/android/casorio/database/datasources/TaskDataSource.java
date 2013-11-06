@@ -14,15 +14,18 @@ import com.android.casorio.tasks.Task;
 
 public class TaskDataSource extends GenericDataSource {
 
+	
+	private Context mContext;
+	
 	public TaskDataSource(Context context) {
 		dbHelper = new CasorioDatabase(context);
+		mContext = context;
 	}
 
 	private String[] allColumns = { TasksTable.COLUMN_ID,
 			TasksTable.COLUMN_NAME, TasksTable.COLUMN_CATEGORY_ID,
 			TasksTable.COLUMN_COAST, TasksTable.COLUMN_DUE_DATE,
-			TasksTable.COLUMN_NOTE, TasksTable.COLUMN_STATUS ,TasksTable.COLUMN_REMINDER,
-			};
+			TasksTable.COLUMN_NOTE, TasksTable.COLUMN_STATUS, TasksTable.COLUMN_PREDEFINED_TASK_NAME_PREFIX };
 
 	public Task createTask(String name, long categoryId, long coast,
 			long dueDate, String note, int status) {
@@ -34,11 +37,10 @@ public class TaskDataSource extends GenericDataSource {
 		values.put(TasksTable.COLUMN_DUE_DATE, dueDate);
 		values.put(TasksTable.COLUMN_NOTE, note);
 		values.put(TasksTable.COLUMN_STATUS, status);
-		values.put(TasksTable.COLUMN_REMINDER, "");
-
-		long insertId = database.insert(TasksTable.TABLE_TASKS, null, values);
+		
+		long insertId = database.insert(TasksTable.TABLE_NAME, null, values);
 		Cursor cursor = database
-				.query(TasksTable.TABLE_TASKS, allColumns, TasksTable.COLUMN_ID
+				.query(TasksTable.TABLE_NAME, allColumns, TasksTable.COLUMN_ID
 						+ " = " + insertId, null, null, null, null);
 		cursor.moveToFirst();
 		Task newTask = cursorToTask(cursor);
@@ -46,9 +48,9 @@ public class TaskDataSource extends GenericDataSource {
 		return newTask;
 	}
 
-	public static Task cursorToTask(Cursor cursor) {
+	public static Task cursorToTask(Cursor cursor, Context context) {
 
-		Task newTask = new Task();
+		Task newTask = new Task(context);
 
 		newTask.setId(cursor.getLong(0));
 		newTask.setName(cursor.getString(1));
@@ -56,12 +58,27 @@ public class TaskDataSource extends GenericDataSource {
 		newTask.setCoast(cursor.getInt(3));
 		newTask.setDueDate(cursor.getLong(4));
 		newTask.setNote(cursor.getString(5));
-		newTask.setCompleted((cursor.getInt(6) > 0 ));
-		newTask.setRemimder(cursor.getString(7));
-
+		newTask.setCompleted((cursor.getInt(6) > 0));
 
 		return newTask;
 	}
+	
+	public Task cursorToTask(Cursor cursor) {
+
+		Task newTask = new Task(mContext);
+
+		newTask.setId(cursor.getLong(0));
+		newTask.setName(cursor.getString(1));
+		newTask.setCategoryId(cursor.getLong(2));
+		newTask.setCoast(cursor.getInt(3));
+		newTask.setDueDate(cursor.getLong(4));
+		newTask.setNote(cursor.getString(5));
+		newTask.setCompleted((cursor.getInt(6) > 0));
+		newTask.setTaskPrefix(cursor.getInt(7));
+
+		return newTask;
+	}
+
 
 	public List<Task> getAllTasks() {
 		List<Task> result = new ArrayList<Task>();
@@ -80,12 +97,12 @@ public class TaskDataSource extends GenericDataSource {
 
 		return result;
 	}
-	
+
 	public List<Task> getCompletedTasks() {
-		
+
 		List<Task> result = new ArrayList<Task>();
-		
-		for(Task task : getAllTasks()) {
+
+		for (Task task : getAllTasks()) {
 			if (task.isCompleted()) {
 				result.add(task);
 			}
@@ -94,26 +111,26 @@ public class TaskDataSource extends GenericDataSource {
 	}
 
 	public List<Task> getPendingTasks() {
-		
+
 		List<Task> result = new ArrayList<Task>();
-		
-		for(Task task : getAllTasks()) {
+
+		for (Task task : getAllTasks()) {
 			if (!task.isCompleted()) {
 				result.add(task);
 			}
 		}
 		return result;
 	}
-	
+
 	public Cursor getAllTasksCursor() {
 
-		return database.query(TasksTable.TABLE_TASKS, allColumns, null, null,
+		return database.query(TasksTable.TABLE_NAME, allColumns, null, null,
 				null, null, null);
 
 	}
 
 	public Cursor getTasksByCategoryCursor(long category) {
-		return database.query(TasksTable.TABLE_TASKS, allColumns,
+		return database.query(TasksTable.TABLE_NAME, allColumns,
 				TasksTable.COLUMN_CATEGORY_ID + "=?",
 				new String[] { String.valueOf(category) }, null, null, null);
 	}
@@ -130,41 +147,39 @@ public class TaskDataSource extends GenericDataSource {
 		}
 		return resultItems;
 	}
-	
+
 	public Task getTaskById(long id) {
-		Cursor temp = database.query(TasksTable.TABLE_TASKS, allColumns,
+		Cursor temp = database.query(TasksTable.TABLE_NAME, allColumns,
 				TasksTable.COLUMN_ID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null);
 		temp.moveToFirst();
 		Task returTask = null;
-		if(temp.getCount() >= 1) {
+		if (temp.getCount() >= 1) {
 			returTask = cursorToTask(temp);
 		}
-		
-		return returTask ;
+
+		return returTask;
 	}
-	
+
 	public void updateGuest(Task task) {
-		
-	    ContentValues values = new ContentValues();
-	    
-	    
+
+		ContentValues values = new ContentValues();
+
 		values.put(TasksTable.COLUMN_NAME, task.getName());
 		values.put(TasksTable.COLUMN_CATEGORY_ID, task.getCategoryId());
 		values.put(TasksTable.COLUMN_COAST, task.getCoast());
 		values.put(TasksTable.COLUMN_DUE_DATE, task.getDueDate());
 		values.put(TasksTable.COLUMN_NOTE, task.getNote());
 		values.put(TasksTable.COLUMN_STATUS, task.getCompletedValue());
-		values.put(TasksTable.COLUMN_REMINDER, task.getRemimder());
 
-		database.update(TasksTable.TABLE_TASKS, values, TasksTable.COLUMN_ID + "=?" ,new String[]{String.valueOf(task.getId())});
+		database.update(TasksTable.TABLE_NAME, values, TasksTable.COLUMN_ID
+				+ "=?", new String[] { String.valueOf(task.getId()) });
 
 	}
 
-	
-	
 	public void deleteTask(long id) {
-		database.delete(TasksTable.TABLE_TASKS, TasksTable.COLUMN_ID + "=?" ,new String[]{String.valueOf(id)});
+		database.delete(TasksTable.TABLE_NAME, TasksTable.COLUMN_ID + "=?",
+				new String[] { String.valueOf(id) });
 	}
 
 }

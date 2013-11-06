@@ -21,7 +21,7 @@ import com.android.casorio.categories.CreateCategoriesFragment;
 import com.android.casorio.categories.IOnCategorySelectedListener;
 import com.android.casorio.guest.GuestDeletedDialogFragment;
 import com.android.casorio.guest.GuestDetailsFragment;
-import com.android.casorio.guest.GuestFragment;
+import com.android.casorio.guest.GuestListFragment;
 import com.android.casorio.guest.GuestInsertFragment;
 import com.android.casorio.guest.IGuestListener;
 import com.android.casorio.settings.SettingsFragment;
@@ -154,7 +154,7 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 			destiny = new HomeFragment();
 			break;
 		case 1:
-			destiny = new GuestFragment();
+			destiny = new GuestListFragment();
 			break;	
 		case 2:
 			destiny = new TaskListFragment();
@@ -167,7 +167,7 @@ public class HomeActivity extends FragmentActivity implements IOnCategorySelecte
 			break;	
 	
 		default:
-			destiny = new GuestFragment();
+			destiny = new GuestListFragment();
 			break;
 		}
 		transaction.replace(R.id.content_frame, destiny);
