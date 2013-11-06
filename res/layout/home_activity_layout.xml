@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@android:color/white" >
@@ -255,6 +256,17 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
+
+        <com.google.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3844483521794977/2610738647"
+            ads:loadAdOnCreate="true"
+            ads:testDevices="TEST_EMULATOR,729F70C1C9CF3D9F5800E074F8137F79"
+            android:paddingTop="40dp" >
+        </com.google.ads.AdView>
     </LinearLayout>
 
 </ScrollView>

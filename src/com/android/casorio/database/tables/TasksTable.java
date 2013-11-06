@@ -55,7 +55,7 @@ public class TasksTable {
 
 		long date = Calendar.getInstance().getTimeInMillis();
 		
-		for (int i = 0; i <= 4; i++) {
+		for (int i = 0; i <= 3; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 1);
@@ -68,7 +68,7 @@ public class TasksTable {
 		}
 		
 		initialValues = new ContentValues();
-		for (int i = 5; i <= 8; i++) {
+		for (int i = 4; i <= 7; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 2);
@@ -79,7 +79,7 @@ public class TasksTable {
 		}
 		
 		initialValues = new ContentValues();
-		for (int i = 9; i <= 11; i++) {
+		for (int i = 8; i <= 10; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 3);
@@ -90,7 +90,7 @@ public class TasksTable {
 		}
 
 		initialValues = new ContentValues();
-		for (int i = 12; i <= 15; i++) {
+		for (int i = 11; i <= 14; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 4);
@@ -101,7 +101,7 @@ public class TasksTable {
 		}
 		
 		initialValues = new ContentValues();
-		for (int i = 16; i <= 17; i++) {
+		for (int i = 15; i <= 16; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 5);
@@ -112,7 +112,7 @@ public class TasksTable {
 		}
 
 		initialValues = new ContentValues();
-		for (int i = 18; i <= 20; i++) {
+		for (int i = 17; i <= 19; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 6);
@@ -123,7 +123,7 @@ public class TasksTable {
 		}
 
 		initialValues = new ContentValues();
-		for (int i = 21; i <= 24; i++) {
+		for (int i = 20; i <= 23; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 7);
@@ -134,7 +134,7 @@ public class TasksTable {
 		}
 		
 		initialValues = new ContentValues();
-		for (int i = 25; i <= 25; i++) {
+		for (int i = 24; i <= 24; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 8);
@@ -145,7 +145,7 @@ public class TasksTable {
 		}
 		
 		initialValues = new ContentValues();
-		for (int i = 26; i <= 29; i++) {
+		for (int i = 25; i <= 28; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 9);
@@ -156,7 +156,7 @@ public class TasksTable {
 		}
 		
 		initialValues = new ContentValues();
-		for (int i = 30; i <= 33; i++) {
+		for (int i = 29; i <= 33; i++) {
 			initialValues.put(COLUMN_NAME, TASKS_NAME_PREFIX);
 			initialValues.put(COLUMN_PREDEFINED_TASK_NAME_PREFIX, i);
 			initialValues.put(COLUMN_CATEGORY_ID, 10);
