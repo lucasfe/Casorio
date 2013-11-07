@@ -77,13 +77,12 @@ public final class R {
     }
     public static final class id {
         public static final int action_add_guest=0x7f0b005b;
-        public static final int action_call_create_task=0x7f0b005d;
+        public static final int action_call_create_task=0x7f0b005c;
         public static final int action_call_delete=0x7f0b0059;
         public static final int action_call_edit=0x7f0b0058;
         public static final int action_call_insert=0x7f0b0057;
         public static final int action_insert_guest=0x7f0b005a;
         public static final int action_save=0x7f0b0056;
-        public static final int action_settings=0x7f0b005c;
         public static final int adView=0x7f0b0037;
         public static final int additionalText=0x7f0b0014;
         public static final int categories_create_coast=0x7f0b0004;
